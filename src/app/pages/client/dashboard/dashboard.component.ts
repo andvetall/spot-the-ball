@@ -24,24 +24,13 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-console.log('date to', Date.parse("2020-06-30T21:00:00.000Z"));
-// moment()
-
-
     this.gamesService.getAllImages().subscribe((e) => {
       this.gamesFilter = e.filter((game: GameModel) => {
-        game.dateFrom
-
         if (game.gameType === this.getUserFromLS().gameType) {
-          
           let currDate = moment(this.currentDate).format('l');
           let dateFrom = moment(game.dateFrom).format('l');
           let dateTo = moment(game.dateTo).format('l');
-          console.log('curr date', currDate);
-          console.log('dateFrom ', dateFrom);
-          console.log('dateTo ', dateTo);
           return dateFrom <= currDate && currDate < dateTo;
-          // return ((Date.parse(game.dateFrom) <= this.currentDate && Date.parse(game.dateTo) <= this.currentDate) || (Date.parse(game.dateFrom) <= this.currentDate && Date.parse(game.dateTo) > this.currentDate)
           
         } else return;
       });

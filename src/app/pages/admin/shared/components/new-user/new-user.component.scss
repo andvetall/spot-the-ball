@@ -1,0 +1,16 @@
+form {
+  text-align: center;
+  .form-data {
+    width: 400px;
+    padding: 4px 0;
+  }
+  
+}
+
+button {
+  margin-top: 10px;
+  
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

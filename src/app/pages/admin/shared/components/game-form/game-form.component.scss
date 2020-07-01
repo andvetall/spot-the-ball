@@ -1,0 +1,28 @@
+
+form {
+  text-align: center;
+  
+  .form-data {
+    width: 400px;
+  }
+  
+}
+
+button {
+  margin-top: 10px;
+  
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.delete-img {
+  position: absolute; 
+  right: -40px;
+  top: -4px;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}

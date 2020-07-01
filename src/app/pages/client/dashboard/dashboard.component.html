@@ -1,0 +1,15 @@
+<div class="all-games-wrapper" *ngIf="gamesFilter.length; else noGames">
+  <div  *ngFor="let game of gamesFilter" >
+    <div class="game" (click)="writeResult(game)">
+      <game-wrapper
+        [image]="game.image"
+        [title]="game.title"
+      ></game-wrapper>
+    </div>
+  </div>
+</div>
+<ng-template #noGames>
+  <h1 class="all-games-wrapper">There is no available games!</h1>
+</ng-template>
+  
+

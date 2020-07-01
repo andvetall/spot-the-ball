@@ -1,0 +1,16 @@
+<div style="position: relative;">
+  <img src="{{ data.originalImage }}" alt="original image" #origImg />
+  <img
+    #successImage
+    src="../../../../assets/images/delete-icon.png"
+    alt="check"
+    style="display: none; width: 40px;"
+  />
+</div>
+
+<p>Your result is x - {{ data.positionX }}, y - {{ data.positionY }}</p>
+<p>You missed for - {{ data.difference }}%</p>
+
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" mat-dialog-close>Ok</button>
+</div>

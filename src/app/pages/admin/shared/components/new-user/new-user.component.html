@@ -1,0 +1,71 @@
+<h1 style="text-align: center;">Create new user</h1>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <mat-form-field appearance="fill" class="form-data">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+
+    <mat-error
+      *ngIf="form.controls['email'].invalid"
+    >
+      <mat-error *ngIf="form.get('email').errors.required">
+        Enter your email
+      </mat-error>
+      <mat-error *ngIf="form.get('email').errors.email">
+        This field should contain @ character
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field appearance="fill" class="form-data">
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="firstName" />
+    <mat-error
+      *ngIf="
+        !form.controls['firstName'].valid
+      "
+    >
+      This field is required. Enter firstname.
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field appearance="fill" class="form-data">
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="lastName" />
+    <mat-error
+      *ngIf="
+        !form.controls['lastName'].valid
+      "
+    >
+      This field is required. Enter lastName.
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field class="form-data">
+    <mat-label>Choose game type</mat-label>
+    <select matNativeControl required formControlName="gameType">
+      <option disabled value="Choose game type">Choose game type</option>
+      <option value="football">Football</option>
+      <option value="hockey">Hockey</option>
+    </select>
+
+    <mat-error
+      *ngIf="
+        !form.controls['gameType'].valid
+      "
+    >
+      This field is required. Choose game type.
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+
+  <button mat-raised-button color="primary" [disabled]="form.invalid">
+    Submit
+  </button>
+</form>

@@ -1,0 +1,105 @@
+.page-wrapper {
+    background-image: url(../../../../assets/images/login-background.png);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.logo-wrapper {
+    h1 {
+        margin: 0;
+        font-size: 65px;
+        text-align: center;
+        color: #34af74;
+        padding: 20vh 0 0 0;
+    }
+
+    width: 100%;
+    height: auto;
+}
+
+.register-wrapper {
+    margin: 60px auto 0;
+    height: 300px;
+    width: 400px;
+    padding: 30px;
+
+    & * {
+        display: block;
+        font-family: Source Sans Pro
+    }
+}
+
+.error-innput-wrapper {
+    input {
+        border: 1.5px solid #FA6363 !important;
+    }
+
+    label {
+        color: #FA6363 !important;
+    }
+}
+
+.input-wrapper {
+    img {
+        position: absolute;
+        top: 35px;
+        right: 16px;
+        cursor: pointer;
+    }
+
+    position: relative;
+}
+
+input {
+    background: #FFFFFF;
+    border: 1px solid #2CCD65;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    width: 100%;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+label {
+    font-size: 14px;
+    line-height: 18px;
+    color: #ffffff;
+}
+
+.action-buttons {
+    button {
+        color: #ffffff;
+        width: 150px;
+        margin: 0;
+    }
+
+
+    .none-background-button {
+        background: transparent;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        text-decoration: underline;
+    }
+
+    .background-button {
+        background: #1BB934;
+        border-radius: 4px;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .disabled {
+        background-color: #7f8fa445;
+    }
+
+    margin: 25px 0 0 0;
+    display: flex !important;
+    justify-content: space-between;
+}

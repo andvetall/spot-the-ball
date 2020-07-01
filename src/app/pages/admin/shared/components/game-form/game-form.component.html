@@ -1,0 +1,164 @@
+<h2 mat-dialog-title>
+  {{ data.type === "add" ? "Add new game" : "Edit current game" }}
+</h2>
+
+<form [formGroup]="form" class="form">
+  <mat-dialog-content class="mat-typography">
+    <mat-form-field appearance="fill" class="form-data">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" />
+      <mat-error
+        *ngIf="!form.controls['title'].valid && form.controls['title'].touched"
+      >
+        This field is required. Enter title.
+      </mat-error>
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field appearance="fill" class="form-data">
+      <mat-label>Image</mat-label>
+      <input #input matInput formControlName="image" />
+      <mat-error
+        *ngIf="!form.controls['image'].valid && form.controls['image'].touched"
+      >
+        Please add link for image
+      </mat-error>
+      <div class="delete-img" (click)="removeImage()">
+        <img src="../../../../../assets/images/delete-icon.png" alt="" />
+      </div>
+    </mat-form-field>
+
+    <div>
+      <div *ngIf="data.image !== null || data.image !== ''">
+        <img src="{{ form.controls.image.value }}" style="max-width: 130px;" />
+      </div>
+      <div *ngIf="!form.controls.image.value">
+        <p>No image</p>
+      </div>
+    </div>
+
+    <br />
+
+    <mat-form-field appearance="fill" class="form-data">
+      <mat-label>Original Image</mat-label>
+      <input #input matInput formControlName="imageOriginal" />
+      <mat-error
+        *ngIf="
+          !form.controls['imageOriginal'].valid &&
+          form.controls['imageOriginal'].touched
+        "
+      >
+        Please add link for Original Image
+      </mat-error>
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field class="form-data">
+      <mat-label>Game type</mat-label>
+      <select matNativeControl required formControlName="gameType">
+        <option disabled value="Choose game type">Choose game type</option>
+        <option value="football">Football</option>
+        <option value="hockey">Hockey</option>
+      </select>
+
+      <mat-error
+        *ngIf="
+          !form.controls['gameType'].valid && form.controls['gameType'].touched
+        "
+      >
+        This field is required. Choose game type.
+      </mat-error>
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field style="margin-right: 10px;">
+      <mat-label>Start date</mat-label>
+      <input
+        matInput
+        readonly = 'true'
+        [max]="form.controls['dateTo'].value"
+        [matDatepicker]="pickerFrom"
+        formControlName="dateFrom"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="pickerFrom"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #pickerFrom></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field style="margin-left: 10px;">
+      <mat-label>End date</mat-label>
+      <input
+        matInput
+        readonly = 'true'
+        [min]="form.controls['dateFrom'].value"
+        [matDatepicker]="pickerTo"
+        formControlName="dateTo"
+      />
+      <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+      <mat-datepicker #pickerTo></mat-datepicker>
+    </mat-form-field>
+
+    <br />
+    <h2>Real ball positions</h2>
+    <mat-form-field appearance="fill" style="width: 170px; margin-right: 10px;">
+      <mat-label>Position of X</mat-label>
+      <input matInput type="number" formControlName="positionX" />
+
+      <mat-error
+        *ngIf="
+          !form.controls['positionX'].valid &&
+          form.controls['positionX'].touched
+        "
+      >
+        Please write X position of ball
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 170px; margin-left: 10px;">
+      <mat-label>Position of Y</mat-label>
+      <input matInput type="number" formControlName="positionY" />
+
+      <mat-error
+        *ngIf="
+          !form.controls['positionY'].valid &&
+          form.controls['positionY'].touched
+        "
+      >
+        Please write Y position of ball
+      </mat-error>
+    </mat-form-field>
+
+    <br />
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <div *ngIf="data.type === 'add'">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="form.invalid"
+        (click)="submit()"
+        [mat-dialog-close]="true"
+      >
+        Submit
+      </button>
+    </div>
+
+    <div *ngIf="data.type === 'update'">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="form.invalid"
+        (click)="update()"
+        [mat-dialog-close]="true"
+      >
+        Save
+      </button>
+    </div>
+  </mat-dialog-actions>
+</form>

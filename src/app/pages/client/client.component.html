@@ -1,0 +1,20 @@
+<router-outlet></router-outlet>
+<div #toolBar class="tool-bar" [ngClass]="{'opened' : showFullSizeMenu}">
+  
+  <button style="color: #2bcd65;position: relative;width: inherit;height: 34px;background: transparent;font-weight: 600;" (click)="this.toggleMenu()">{{showFullSizeMenu ? '<<' : '>>'}}</button>
+  <p class="menu-title" *ngIf="showFullSizeMenu">
+    Spot the ball
+  </p>
+  <p class="menu-title" *ngIf="!showFullSizeMenu">
+    SB
+  </p>
+  
+  <div class="menu">
+    <div *ngFor="let item of menuData.menuData; let i=index">
+      <menu-item [menu-item]='item' [index-item]='i'
+        [full-size-menu]='showFullSizeMenu'></menu-item>
+    </div>
+    <menu-item (click)="logOutClick()" class="log-out" [menu-item]='menuData.logoutItem'
+      [full-size-menu]='showFullSizeMenu'></menu-item>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+.head-wrapper {
+  height: auto;
+  margin-top: 56px;
+  margin-left: 72px;
+  min-height: 94vh;
+  background: #F4F5F9;
+  padding: 0 24px;
+
+  .page-title {
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: capitalize;
+    color: #262B27;
+    margin: 0;
+  }
+}

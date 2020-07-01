@@ -30,8 +30,7 @@ export class DashboardComponent implements OnInit {
           let currDate = moment(this.currentDate).format('l');
           let dateFrom = moment(game.dateFrom).format('l');
           let dateTo = moment(game.dateTo).format('l');
-          return dateFrom <= currDate && currDate < dateTo;
-          
+          return dateFrom <= currDate && currDate <= dateTo;
         } else return;
       });
     });

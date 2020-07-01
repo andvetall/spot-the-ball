@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Inject } from "@angular/core";
-import { Validators, FormControl, FormGroup } from '@angular/forms';
+import { Validators, FormControl, FormGroup, ValidatorFn, AbstractControl } from '@angular/forms';
 import { GamesService } from 'src/app/services/games.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
@@ -35,9 +35,9 @@ export class GameForm implements OnInit {
       imageOriginal: new FormControl(this.data.imageOriginal ? this.data.imageOriginal : 'https://drive.google.com/uc?export=view&id=', Validators.required),
       positionX: new FormControl(this.data.positionX ? this.data.positionX : null, Validators.required),
       positionY: new FormControl(this.data.positionY ? this.data.positionY : null, Validators.required),
-    })
+    })   
   }
-      
+
   removeImage() {
     this.form.controls.image.patchValue('');
   }

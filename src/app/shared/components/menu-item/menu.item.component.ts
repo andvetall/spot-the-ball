@@ -46,11 +46,6 @@ export class MenuItemComponent implements OnInit {
         this.activeTab = this.activeChildTab.split('/')[0]
     }
 
-    public qwe() {
-        console.log(1212131);
-        this._menuService.showFullSizeMenu(true);
-    }
-
     public toggleChildren() {
         this._menuService.setToggledMenuIndex(this.indexItem)
     }

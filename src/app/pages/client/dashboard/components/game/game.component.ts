@@ -47,9 +47,6 @@ export class GameComponent implements OnInit {
       this.resultService.getOneById(params.gameId).subscribe((res) => {
         if (res.length === 0) {
           this.gamesService.findOneById(params.gameId).subscribe((res) => {
-            console.log(res);
-            var now = new Date();
-             console.log( now );
             this.gameData = res;
           });
         } else if (res.length >= 1) {

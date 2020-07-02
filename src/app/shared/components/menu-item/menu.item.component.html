@@ -1,6 +1,6 @@
 <div class="menuItem">
     <div (click)="toggleChildren()" class="item-wrapper" [ngClass]="{'active-tab' : menuItem.path === activeTab}">
-        <div (click)="qwe()" class="img-wrapper">
+        <div class="img-wrapper">
             <img src={{menuItem.icon}} alt="icon">
         </div>
         <div class="hidden-part" [ngClass] = "{'hidden' : !fullSizeMenu}">

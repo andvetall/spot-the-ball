@@ -177,10 +177,7 @@ export class GameComponent implements OnInit {
         localStorage.removeItem("resultGame");
         return res;
       },
-      (err) => {
-        console.log(err);
-      }
-    );
+      (err) => err);
     localStorage.removeItem("resultGame");
   }
 }

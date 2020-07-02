@@ -1,13 +1,12 @@
 <div *ngIf="gameData">
   <div class="head-wrapper">
-    <h1>{{ gameData.title }}</h1>
-    <div style="margin: 0; padding: 0; text-align: center;" id="my-game">
+    <div style="display: flex; justify-content: space-around;">
       <div style="display: inline-block; position: relative;" id="image-box">
         <img
           #successImage
-          src="../../../../assets/images/delete-icon.png"
+          src="../../../../assets/images/mouse.png"
           alt="check"
-          style="display: none; width: 40px;"
+          style="display: none; width: 60px;"
         />
         <img
           #imageBox
@@ -21,11 +20,18 @@
           (load)="ballPositionDiffFromReal($event)"
         />
       </div>
-      <h2>
-        <p>Your position:</p>
-        <p>x - {{ x }}</p>
-        <p>y - {{ y }}</p>
-      </h2>
+      <div style="padding: 100px 0 0 0;">
+        <h1 style="margin: 0;">{{ gameData.title }}</h1>
+        <div style="margin: 0; padding: 0; text-align: center;" id="my-game">
+          <h2>
+            <p>Your position:</p>
+            <p>x - {{ x }}</p>
+            <p>y - {{ y }}</p>
+          </h2>
+        </div>
+      </div>
     </div>
+    
+    
   </div>
 </div>

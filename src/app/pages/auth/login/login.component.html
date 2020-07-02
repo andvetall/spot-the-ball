@@ -1,6 +1,6 @@
 <div class="page-wrapper">
   <div class="logo-wrapper">
-    <h1>Spot the ball</h1>
+    <img style="max-width: 200px;" src="../../../../assets/images/cmyk1.png" alt="logo">
   </div>
   <form [formGroup]='formLogin' class="register-wrapper">
 
@@ -12,11 +12,11 @@
     <div [ngClass] = "{'error-innput-wrapper' : formLogin.controls['password'].invalid && !formLogin.controls['password'].untouched}" class="input-wrapper">
       <label for="password">Password</label>
       <input (keyup)="inputHandler()" type="{{!showPassword ? 'password' : 'text'}}" formControlName="password">
-      <img (click)="showPasswordToggle()" src="../../../../assets/images/Vector.png" alt="vector">
+      <img style="max-width: 20px; right: -25px;" *ngIf="!showPassword" (click)="showPasswordToggle()" src="../../../../assets/images/visible.png" alt="vector">
+      <img style="max-width: 20px; right: -25px;" *ngIf="showPassword" (click)="showPasswordToggle()" src="../../../../assets/images/not-visible.png" alt="vector">
     </div>
 
     <div class="action-buttons">
-      <!-- <button mat-button class="none-background-button" (click)="navigateToForgotPassword()">Forgot Password?</button> -->
       <button disabled="{{!submitButtonDisabled}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false}" style="margin: auto">Login</button>
     </div>
   </form>

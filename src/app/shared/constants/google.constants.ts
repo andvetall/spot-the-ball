@@ -1,0 +1,1 @@
+export const googleDriveLink = 'https://drive.google.com/uc?export=view&id='

@@ -73,8 +73,8 @@
 
 .item-wrapper:hover {
     .img-wrapper {
-        background: #004619;
-        border: 2px solid #35F683;
+        background: #f5832a;
+        border: 2px solid #f5832a;
 
         img {
             filter: brightness(220%);
@@ -83,15 +83,15 @@
 
     .hidden-part {
         .vertival-line {
-            background: #35F683;
+            background: #f5832a;
         }
     }
 }
 
 .active-tab {
     .img-wrapper {
-        background: #004619;
-        border: 2px solid #35F683;
+        background: #f5832a;
+        border: 2px solid #f5832a;
 
         img {
             filter: brightness(220%);
@@ -100,11 +100,11 @@
 }
 
 .active-child-tab {
-    background: #006624;
+    background: #d5b296;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.24);
     opacity: 1;
     transition: all 0.3s;
-    border-right: 3px solid #35F683;
+    border-right: 3px solid #f5832a;
 }
 
 .hidden {
@@ -137,7 +137,7 @@
 
         p {
             cursor: pointer;
-            color: #fff;
+            color: #000;
             font-family: Source Sans Pro;
             font-size: 16px;
             line-height: 24px;
@@ -148,11 +148,11 @@
         }
 
         p:hover {
-            background: #006624;
+            background: #f5832a;
             box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.24);
             opacity: 1;
             transition: all 0.3s;
-            border-right: 3px solid #35F683;
+            border-right: 3px solid #f5832a;
         }
     }
 

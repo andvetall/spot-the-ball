@@ -2,10 +2,6 @@
 form {
   text-align: center;
   
-  .form-data {
-    width: 400px;
-  }
-  
 }
 
 button {
@@ -25,4 +21,8 @@ button {
     width: 20px;
     height: 20px;
   }
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background: none;
 }

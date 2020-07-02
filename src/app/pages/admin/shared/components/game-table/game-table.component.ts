@@ -36,9 +36,15 @@ export class GameTable implements OnInit {
       );
       this.displayedColumns.push("actions");
       this.dataSource = new MatTableDataSource(res);
-      this.dataSource = res;      
+      this.dataSource = res;   
     }, err => err);
   }
+
+  
+
+
+
+
 
   actionModal(type, element?) {
     if (type === "update") {
@@ -92,9 +98,6 @@ export class GameTable implements OnInit {
           window.open(`${environment.apiUrl}/download`);
         }, 3000);
       },
-      err => {
-        console.log(err);
-      }
-    );
+      err => err);
   }
 }

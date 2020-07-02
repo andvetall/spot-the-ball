@@ -1,11 +1,6 @@
-.page-wrapper {
-    background-image: url(../../../../assets/images/login-background.png);
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
-}
 
 .logo-wrapper {
+    text-align: center;
     h1 {
         margin: 0;
         font-size: 65px;
@@ -13,7 +8,7 @@
         color: #34af74;
         padding: 20vh 0 0 0;
     }
-
+    margin-top: 80px;
     width: 100%;
     height: auto;
 }
@@ -53,7 +48,7 @@
 
 input {
     background: #FFFFFF;
-    border: 1px solid #2CCD65;
+    border: 1px solid #f5832a;
     box-sizing: border-box;
     border-radius: 4px;
     padding: 10px;
@@ -87,7 +82,7 @@ label {
     }
 
     .background-button {
-        background: #1BB934;
+        background: #f5832a;
         border-radius: 4px;
         padding: 10px;
         font-weight: 600;

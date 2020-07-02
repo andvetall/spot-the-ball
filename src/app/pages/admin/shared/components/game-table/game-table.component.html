@@ -2,7 +2,7 @@
   <table mat-table [dataSource]="dataSource" style="position: relative; width: 100%;">
 
     <ng-container *ngFor="let item of displayedColumns" [matColumnDef]="item">
-      <th mat-header-cell *matHeaderCellDef> {{item | uppercase}} </th>
+      <th mat-header-cell *matHeaderCellDef> {{ item | toCamelCase }} </th>
       <td mat-cell *matCellDef="let element"> 
         <div *ngIf="item !== 'actions' && item !== 'image' && item !== 'imageOriginal' && item !== 'dateFrom' && item !== 'dateTo' ">
           {{element[item]}} 
@@ -17,10 +17,10 @@
         </div>
         <div *ngIf="item === 'actions'" >
           <button mat-raised-button color="warn" style="margin-right: 10px;" (click)="delete(element)">
-            delete
+            Delete
           </button>  
           <button mat-raised-button color="primary" style="margin-right: 10px;" (click)="actionModal('update', element)">
-            edit
+            Edit
           </button>
           <button mat-fab  class="add-button" (click)="actionModal('add')">
             +

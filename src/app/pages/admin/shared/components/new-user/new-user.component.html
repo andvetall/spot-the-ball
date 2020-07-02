@@ -1,14 +1,14 @@
 <h1 style="text-align: center;">Create new user</h1>
 <form [formGroup]="form" (ngSubmit)="submit()">
   <mat-form-field appearance="fill" class="form-data">
-    <mat-label>Email</mat-label>
+    <mat-label>Email *</mat-label>
     <input matInput formControlName="email" />
 
     <mat-error
       *ngIf="form.controls['email'].invalid"
     >
       <mat-error *ngIf="form.get('email').errors.required">
-        Enter your email
+        Enter your Email
       </mat-error>
       <mat-error *ngIf="form.get('email').errors.email">
         This field should contain @ character
@@ -19,37 +19,37 @@
   <br />
 
   <mat-form-field appearance="fill" class="form-data">
-    <mat-label>First Name</mat-label>
+    <mat-label>First Name *</mat-label>
     <input matInput formControlName="firstName" />
     <mat-error
       *ngIf="
         !form.controls['firstName'].valid
       "
     >
-      This field is required. Enter firstname.
+      This field is required. Enter First Name.
     </mat-error>
   </mat-form-field>
 
   <br />
 
   <mat-form-field appearance="fill" class="form-data">
-    <mat-label>Last Name</mat-label>
+    <mat-label>Last Name *</mat-label>
     <input matInput formControlName="lastName" />
     <mat-error
       *ngIf="
         !form.controls['lastName'].valid
       "
     >
-      This field is required. Enter lastName.
+      This field is required. Enter Last Name.
     </mat-error>
   </mat-form-field>
 
   <br />
 
   <mat-form-field class="form-data">
-    <mat-label>Choose game type</mat-label>
+    <mat-label style="padding-left: 10px;">Game Type</mat-label>
     <select matNativeControl required formControlName="gameType">
-      <option disabled value="Choose game type">Choose game type</option>
+      <option disabled value="Choose Game Type">Game Type</option>
       <option value="football">Football</option>
       <option value="hockey">Hockey</option>
     </select>
@@ -59,7 +59,7 @@
         !form.controls['gameType'].valid
       "
     >
-      This field is required. Choose game type.
+      This field is required. Choose Game Type.
     </mat-error>
   </mat-form-field>
 

@@ -15,6 +15,7 @@ import { GameForm } from './shared/components/game-form/game-form.component';
 import { NewUserComponent } from './shared/components/new-user/new-user.component';
 import { GameTable } from './shared/components/game-table/game-table.component';
 import { MainDashboardComponent } from './components/dashboard/main.dashboard.component';
+import { ToCamelCasePipe } from 'src/app/shared/pipes/camel.case.pipe';
 
 
 @NgModule({
@@ -32,7 +33,11 @@ import { MainDashboardComponent } from './components/dashboard/main.dashboard.co
     MainDashboardComponent,
     GameForm,
     NewUserComponent,
-    GameTable
+    GameTable,
+    ToCamelCasePipe
+  ],
+  exports: [
+    ToCamelCasePipe
   ],
   providers: [
     LoginGuard, 

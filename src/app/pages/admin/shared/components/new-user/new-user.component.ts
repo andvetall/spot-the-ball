@@ -36,7 +36,6 @@ export class NewUserComponent implements OnInit {
 
   submit() {
     this.authService.addUser(this.form.value).subscribe((e) => {
-      this.form.reset();
       this.toastr.success('User created');
     });
   }

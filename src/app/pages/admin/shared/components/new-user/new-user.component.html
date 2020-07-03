@@ -1,5 +1,5 @@
 <h1 style="text-align: center;">Create new user</h1>
-<form [formGroup]="form" (ngSubmit)="submit()">
+<form #myForm = "ngForm" [formGroup]="form" (ngSubmit)="submit(); myForm.resetForm()">
   <mat-form-field appearance="fill" class="form-data">
     <mat-label>Email *</mat-label>
     <input matInput formControlName="email" />

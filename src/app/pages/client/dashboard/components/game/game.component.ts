@@ -98,8 +98,8 @@ export class GameComponent implements OnInit {
     this.successImage.nativeElement.style = `
       width: 40px;  
       position: absolute;
-      top: ${this.y - 20}px;
-      left: ${this.x - 20}px;
+      top: ${this.y - 9}px;
+      left: ${this.x - 18}px;
       display: block;
     `;
 

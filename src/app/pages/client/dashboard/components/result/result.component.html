@@ -1,29 +1,36 @@
 <div style="padding-left: 100px;" *ngFor="let item of res">
   <div *ngIf="good == false && some">
-    <h1>The game is completed. Your results:</h1>
-    <h3>X: {{ item.result.x }}</h3>
-    <h3>Y: {{ item.result.y }}</h3>
-    <h3>Score: {{ item.differencePosition }}%</h3>
-    <div style="position: relative;">
-      <img
-        #successImage
-        src="../../../../../../assets/images/mouse.png"
-        alt="check"
-        style="display: none; width: 60px;"
-      />
-      <img src="{{ some.imageOriginal }}" alt="original Image" />
+    <h1 style="text-align: center; padding: 0;">The game is completed. Your results:</h1>
+    <div style="display: flex; justify-content: space-around;">
+      <div style="position: relative;">
+        <img
+          #successImage
+          src="../../../../../../assets/images/mouse.png"
+          alt="check"
+          style="display: none; width: 60px;"
+        />
+        <img src="{{ some.imageOriginal }}" alt="original Image" />
+      </div>
+
+      <div style="padding: 160px 0 0 0;">
+        <h3>X: {{ item.result.x }}</h3>
+        <h3>Y: {{ item.result.y }}</h3>
+        <h3>Score: {{ item.differencePosition }}%</h3>
+        <button mat-raised-button color="primary" (click)="toDashboard()">
+          Games list
+        </button>
+      </div>
     </div>
-    <button mat-raised-button color="primary" (click)="toDashboard()">
-      Games list
-    </button>
   </div>
 </div>
 <div *ngIf="good == true && some" style="padding-left: 100px;" >
   <div *ngFor="let item of res">
+
+    <div #successImage  style="display: none;"></div>
+    
     <h1>The game is completed. Your results:</h1>
     <h3>X: {{ item.result.x }}</h3>
     <h3>Y: {{ item.result.y }}</h3>
-    <h3>Score: {{ item.differencePosition }}%</h3>
     <button mat-raised-button color="primary" (click)="toDashboard()">
       Games list
     </button>

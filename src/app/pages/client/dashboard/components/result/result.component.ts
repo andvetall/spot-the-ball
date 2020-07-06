@@ -41,18 +41,18 @@ ngOnInit() {
         this.some = res;
           setTimeout(() => {
             this.successImage.nativeElement.style = `
-            width: 40px;  
-            position: absolute;
-            top: ${element.result.y - 20}px;
-            left: ${element.result.x  - 20}px;
-            display: block;
-          `
+              width: 40px;  
+              position: absolute;
+              top: ${element.result.y - 9}px;
+              left: ${element.result.x  - 18}px;
+              display: block;
+            `
           }, 3000)
         this.some.dateTo = moment(this.some.dateTo).format('l');
-        this.good = this.some.dateTo > this.currDate;
+        this.good = this.some.dateTo >= this.currDate;        
       })
     });
-  }, 1500) 
+  }, 2000) 
 }
 
   ngOnDestroy() {

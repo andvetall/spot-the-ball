@@ -1,17 +1,8 @@
-<div style="display: flex; justify-content: space-around;">
+<div>
   <div style="position: relative;">
-    <img src="{{ data.originalImage }}" alt="original image" #origImg />
-    <img
-      #successImage
-      src="../../../../assets/images/mouse.png"
-      alt="check"
-      style="display: none; width: 60px;"
-    />
   </div>
   <div style="padding: 100px 0 0 0; text-align: center;">
-    <h2>Your result is x - {{ data.positionX }}, y - {{ data.positionY }}</h2>
-    <h2>Difference - {{ data.difference }}%</h2>
-
+    <h2>Your result is X - {{ data.positionX }}, Y - {{ data.positionY }}</h2>
     <div mat-dialog-actions>
       <button style="margin: 0 auto; width: 30%;" mat-raised-button color="primary" mat-dialog-close>Ok</button>
     </div>

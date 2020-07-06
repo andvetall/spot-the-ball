@@ -9,5 +9,5 @@ import { Component, Input } from '@angular/core';
 export class GameWrapperComponent {
   @Input('image') image: any;
   @Input('title') title: any;
-
+  @Input('dueDate') dueDate: any;
 }

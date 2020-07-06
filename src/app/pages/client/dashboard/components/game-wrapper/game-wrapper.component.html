@@ -1,4 +1,7 @@
 <div class="game-wrapper">
-  <img src="{{image}}" alt="game">
-  <h3>{{title}}</h3>
+  <img src="{{image}}" alt="game" class="game-image">
+  <h3>{{ title }}</h3>
+  <p class="game-date">
+    <span style="color: #ff0000fc">End Date:</span> 
+    {{ dueDate | date }}</p>
 </div>

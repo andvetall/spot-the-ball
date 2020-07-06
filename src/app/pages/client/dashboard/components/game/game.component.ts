@@ -15,6 +15,9 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { UserModel } from "src/app/shared/interfaces";
 import { ResultXY } from "src/app/shared/interfaces/result.model";
 
+
+import * as moment from 'moment';
+
 @Component({
   selector: "game-component",
   templateUrl: "./game.component.html",
@@ -33,6 +36,8 @@ export class GameComponent implements OnInit {
   public resultsData;
   public gameData: any;
 
+  public currentDate = Date.now();
+  public currDateConv = moment(this.currentDate).format('l');
   constructor(
     private dialog: MatDialog,
     private gamesService: GamesService,
@@ -48,19 +53,20 @@ export class GameComponent implements OnInit {
         if (res.length === 0) {
           this.gamesService.findOneById(params.gameId).subscribe((res) => {
             this.gameData = res;
+            this.gameData.dateTo = moment(res.dateTo).format('l');
           });
         } else if (res.length >= 1) {
           res.forEach((result) => {
             if (result.user === params.userId) {
               let arr = JSON.parse(localStorage.getItem('temporary-result')) || [];
-              arr.push({result: result.position, differencePosition: result.difference});
+              arr.push({result: result.position, differencePosition: result.difference, game: result.game});
               localStorage.setItem("temporary-result", JSON.stringify(arr));
-              
               this.router.navigate(["/result"]);
               return;
             } else if (result.user !== params.userId) {
               this.gamesService.findOneById(params.gameId).subscribe((res) => {
                 this.gameData = res;
+                this.gameData.dateTo = moment(res.dateTo).format('l');
               });
             }
           });
@@ -103,10 +109,10 @@ export class GameComponent implements OnInit {
       this.result,
       this.differencePosition
     );
-    this.openDialog(event.offsetX, event.offsetY, this.differencePosition, this.gameData.imageOriginal);
+    this.openDialog(event.offsetX, event.offsetY, this.differencePosition, this.gameData.imageOriginal, this.gameData.dateTo);
 
     let arr = JSON.parse(localStorage.getItem('temporary-result')) || [];
-    arr.push({result: this.result, differencePosition: this.differencePosition});
+    arr.push({result: this.result, differencePosition: this.differencePosition, game: this.gameData._id});
     localStorage.setItem("temporary-result", JSON.stringify(arr));
   }
 
@@ -125,19 +131,21 @@ export class GameComponent implements OnInit {
     let resY = ((this.height / 100) * resultY) / 100;
 
     const res = Math.sqrt((realPosX - resX) ** 2 + (realPosY - resY) ** 2);
+    const finalRes = 100 - +res;
 
-    return +res.toFixed(2);
+    return +finalRes.toFixed(2);
   }
 
-  openDialog(x, y, difference, origImage) {
+  openDialog(x, y, difference, origImage, dateTo) {
     const dialogRef = this.dialog.open(ResultDialogComponent, {
-      width: "80vw",
-      height: "1200px",
+      width: "400px",
+      height: "350px",
       data: {
         positionX: x,
         positionY: y,
         difference: difference,
         originalImage: origImage,
+        dateTo: dateTo
       },
     });
 

@@ -2,23 +2,48 @@
   <div class="head-wrapper">
     <div style="display: flex; justify-content: space-around;">
       <div style="display: inline-block; position: relative;" id="image-box">
-        <img
-          #successImage
-          src="../../../../assets/images/mouse.png"
-          alt="check"
-          style="display: none; width: 60px;"
-        />
-        <img
-          #imageBox
-          (mousemove)="onMousemove($event)"
-          (click)="mouseClickListener($event)"
-          class="image"
-          #gameBox
-          name="img"
-          src="{{ gameData.image }}"
-          alt="image"
-          (load)="ballPositionDiffFromReal($event)"
-        />
+        
+        <div *ngIf="gameData.dateTo > currDateConv">
+          <img
+            #successImage
+            src="../../../../assets/images/mouse.png"
+            alt="check"
+            style="display: none; width: 60px;"
+          />
+
+          <img
+            #imageBox
+            (mousemove)="onMousemove($event)"
+            (click)="mouseClickListener($event)"
+            class="image"
+            #gameBox
+            name="img"
+            src="{{ gameData.image }}"
+            alt="image"
+            (load)="ballPositionDiffFromReal($event)"
+          />
+        </div>
+
+        <div *ngIf="gameData.dateTo < currDateConv">
+            <img
+            #successImage
+            src="../../../../assets/images/mouse.png"
+            alt="check"
+            style="display: none; width: 60px;"
+          />
+          <img
+            #imageBox
+            (mousemove)="onMousemove($event)"
+            class="image"
+            #gameBox
+            name="img"
+            src="{{ gameData.image }}"
+            alt="image"
+            (load)="ballPositionDiffFromReal($event)"
+            style="cursor: not-allowed;"
+          />
+        </div>
+        
       </div>
       <div style="padding: 100px 0 0 0;">
         <h1 style="margin: 0;">{{ gameData.title }}</h1>

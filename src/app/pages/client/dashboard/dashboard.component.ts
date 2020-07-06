@@ -14,6 +14,8 @@ import * as moment from 'moment';
 export class DashboardComponent implements OnInit {
   
   public gamesFilter: GameModel[] = [];
+
+  public gamesAfterDueDate: GameModel[] = [];
   private localStorageUser: string = localStorage.getItem("user");
   public currentDate = Date.now();
 
@@ -33,6 +35,13 @@ export class DashboardComponent implements OnInit {
           return dateFrom <= currDate && currDate <= dateTo;
         } else return;
       });
+
+      this.gamesAfterDueDate = e.filter((game: GameModel) => {
+        let currDate = moment(this.currentDate).format('l');
+        let dateTo = moment(game.dateTo).format('l');
+        return dateTo < currDate;
+      })
+
     });
   }
 

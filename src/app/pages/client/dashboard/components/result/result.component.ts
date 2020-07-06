@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnDestroy, ViewChild, ElementRef, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { ResultXY } from 'src/app/shared/interfaces/result.model';
+import * as moment from 'moment';
+import { GamesService } from 'src/app/services/games.service';
 
 @Component({
   selector: 'result',
@@ -10,14 +11,19 @@ import { ResultXY } from 'src/app/shared/interfaces/result.model';
   providers: [Location]
 })
 
-export class ResultComponent implements OnDestroy{
-
+export class ResultComponent implements OnDestroy, OnInit {
+  @ViewChild("successImage", {static: false}) successImage: ElementRef;
   public route: string;
   public res = JSON.parse(localStorage.getItem('temporary-result'));
-  
+  public currentDate = Date.now();
+  currDate = moment(this.currentDate).format('l');
+
+  public some: any = null;
+  public good: boolean = false;
   constructor(
     private router: Router,
-    private location: Location
+    private location: Location,
+    private gamesService: GamesService
     ) {
     this.router.events.subscribe(val => {
       if (this.location.path() !== 'result') {
@@ -26,13 +32,33 @@ export class ResultComponent implements OnDestroy{
         this.route = "dashboard";
       }
     });
-
   }
+
+ngOnInit() {
+  setTimeout(() => {
+    this.res.forEach(element => {
+      this.gamesService.findOneById(element.game).subscribe(res => {
+        this.some = res;
+          setTimeout(() => {
+            this.successImage.nativeElement.style = `
+            width: 40px;  
+            position: absolute;
+            top: ${element.result.y - 20}px;
+            left: ${element.result.x  - 20}px;
+            display: block;
+          `
+          }, 3000)
+        this.some.dateTo = moment(this.some.dateTo).format('l');
+        this.good = this.some.dateTo > this.currDate;
+      })
+    });
+  }, 1500) 
+}
 
   ngOnDestroy() {
     localStorage.removeItem('temporary-result')
   }
-
+ 
   toDashboard() {
     this.router.navigate(['dashboard'])
   }

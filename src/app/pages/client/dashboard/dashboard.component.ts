@@ -37,9 +37,11 @@ export class DashboardComponent implements OnInit {
       });
 
       this.gamesAfterDueDate = e.filter((game: GameModel) => {
+        if (game.gameType === this.getUserFromLS().gameType) {
         let currDate = moment(this.currentDate).format('l');
         let dateTo = moment(game.dateTo).format('l');
         return dateTo < currDate;
+      } else return;
       })
 
     });

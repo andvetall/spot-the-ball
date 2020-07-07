@@ -1,32 +1,30 @@
-<div  *ngIf="gamesFilter.length; else noGames">
-  <h2 style="text-align: center; margin-left: 100px;">Active Games</h2>
-  <div class="all-games-wrapper">
-    <div *ngFor="let game of gamesFilter" >
+<div>
+  <h2 style="text-align: center;">Active Games</h2>
+  <div *ngIf="gamesFilter.length; else noActiveGames" class="all-games-wrapper">
+    <div *ngFor="let game of gamesFilter">
       <div class="game" (click)="writeResult(game)">
-        <game-wrapper
-          [image]="game.image"
-          [title]="game.title"
-          [dueDate]="game.dateTo"
-        ></game-wrapper>
+        <game-wrapper [image]="game.image" [title]="game.title" [dueDate]="game.dateTo"></game-wrapper>
       </div>
     </div>
-  </div>  
+  </div>
+  <ng-template #noActiveGames>
+    <div class="all-games-wrapper">
+      <h3 style="width: 100%;">There is no available games!</h3>
+    </div>
+  </ng-template>
 </div>
-
-<div *ngIf="gamesAfterDueDate.length; else noGames">
-  <h2 style="text-align: center; margin-left: 100px;">Expired Games</h2>
-  <div class="all-games-wrapper" >
-    <div  *ngFor="let game of gamesAfterDueDate" >
+<div>
+  <h2 style="text-align: center;">Expired Games</h2>
+  <div *ngIf="gamesAfterDueDate.length; else noExpiredGames" class="all-games-wrapper">
+    <div *ngFor="let game of gamesAfterDueDate">
       <div class="game" (click)="writeResult(game)">
-        <game-wrapper
-          [image]="game.image"
-          [title]="game.title"
-          [dueDate]="game.dateTo"
-        ></game-wrapper>
+        <game-wrapper [image]="game.image" [title]="game.title" [dueDate]="game.dateTo"></game-wrapper>
       </div>
     </div>
+  </div>
+  <ng-template #noExpiredGames>
+    <div class="all-games-wrapper">
+      <h3 style="width: 100%;">There is no available games!</h3>
+    </div>
+  </ng-template>
 </div>
-
-<ng-template #noGames>
-  <h1 class="all-games-wrapper">There is no available games!</h1>
-</ng-template>

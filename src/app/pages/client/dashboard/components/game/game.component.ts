@@ -1,10 +1,4 @@
-import {
-  Component,
-  ViewChild,
-  ElementRef,
-  OnInit,
-  HostListener,
-} from "@angular/core";
+import { Component, ViewChild, ElementRef, OnInit, HostListener } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { GamesService } from "src/app/services/games.service";
 import * as jwtdecode from "jwt-decode";
@@ -14,8 +8,6 @@ import { ResultService } from "src/app/services/result.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { UserModel } from "src/app/shared/interfaces";
 import { ResultXY } from "src/app/shared/interfaces/result.model";
-
-
 import * as moment from 'moment';
 
 @Component({
@@ -24,20 +16,20 @@ import * as moment from 'moment';
   styleUrls: ["./game.component.scss"],
 })
 export class GameComponent implements OnInit {
-  x: number = 0;
-  y: number = 0;
-  result: ResultXY;
-  differencePosition: number;
-  width: number;
-  height: number;
   @ViewChild("gameBox", null) gameBox: ElementRef;
   @ViewChild("successImage", null) successImage: ElementRef;
+  public x: number = 0;
+  public y: number = 0;
+  public result: ResultXY;
+  public differencePosition: number;
+  public width: number;
+  public height: number;
   public localStorageUser: string = localStorage.getItem("user");
   public resultsData;
   public gameData: any;
-
   public currentDate = Date.now();
-  public currDateConv = moment(this.currentDate).format('l');
+  public currDateConv = moment(this.currentDate).format('MM-DD-YYYY');
+  
   constructor(
     private dialog: MatDialog,
     private gamesService: GamesService,
@@ -53,7 +45,7 @@ export class GameComponent implements OnInit {
         if (res.length === 0) {
           this.gamesService.findOneById(params.gameId).subscribe((res) => {
             this.gameData = res;
-            this.gameData.dateTo = moment(res.dateTo).format('l');
+            this.gameData.dateTo = moment(res.dateTo).format('MM-DD-YYYY');
           });
         } else if (res.length >= 1) {
           res.forEach((result) => {
@@ -66,7 +58,7 @@ export class GameComponent implements OnInit {
             } else if (result.user !== params.userId) {
               this.gamesService.findOneById(params.gameId).subscribe((res) => {
                 this.gameData = res;
-                this.gameData.dateTo = moment(res.dateTo).format('l');
+                this.gameData.dateTo = moment(res.dateTo).format('MM-DD-YYYY');
               });
             }
           });
@@ -109,7 +101,7 @@ export class GameComponent implements OnInit {
       this.result,
       this.differencePosition
     );
-    this.openDialog(event.offsetX, event.offsetY, this.differencePosition, this.gameData.imageOriginal, this.gameData.dateTo);
+    this.openDialog(event.offsetX, event.offsetY, this.differencePosition);
 
     let arr = JSON.parse(localStorage.getItem('temporary-result')) || [];
     arr.push({result: this.result, differencePosition: this.differencePosition, game: this.gameData._id});
@@ -136,7 +128,7 @@ export class GameComponent implements OnInit {
     return +finalRes.toFixed(2);
   }
 
-  openDialog(x, y, difference, origImage, dateTo) {
+    openDialog(x, y, difference) {
     const dialogRef = this.dialog.open(ResultDialogComponent, {
       width: "400px",
       height: "350px",
@@ -144,8 +136,6 @@ export class GameComponent implements OnInit {
         positionX: x,
         positionY: y,
         difference: difference,
-        originalImage: origImage,
-        dateTo: dateTo
       },
     });
 

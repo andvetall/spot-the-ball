@@ -16,10 +16,10 @@ export class ResultComponent implements OnDestroy, OnInit {
   public route: string;
   public res = JSON.parse(localStorage.getItem('temporary-result'));
   public currentDate = Date.now();
-  currDate = moment(this.currentDate).format('l');
+  public currDate = moment(this.currentDate).format('MM-DD-YYYY');
+  public reqGame: any = null;
+  public suitableDate: boolean = false;
 
-  public some: any = null;
-  public good: boolean = false;
   constructor(
     private router: Router,
     private location: Location,
@@ -36,9 +36,10 @@ export class ResultComponent implements OnDestroy, OnInit {
 
 ngOnInit() {
   setTimeout(() => {
+    this.res.length = 1;
     this.res.forEach(element => {
       this.gamesService.findOneById(element.game).subscribe(res => {
-        this.some = res;
+        this.reqGame = res;
           setTimeout(() => {
             this.successImage.nativeElement.style = `
               width: 40px;  
@@ -48,8 +49,8 @@ ngOnInit() {
               display: block;
             `
           }, 3000)
-        this.some.dateTo = moment(this.some.dateTo).format('l');
-        this.good = this.some.dateTo >= this.currDate;        
+        this.reqGame.dateTo = moment(this.reqGame.dateTo).format('MM-DD-YYYY');
+        this.suitableDate = this.reqGame.dateTo >= this.currDate;        
       })
     });
   }, 2000) 

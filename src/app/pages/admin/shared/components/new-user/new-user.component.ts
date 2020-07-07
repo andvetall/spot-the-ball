@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { FormGroup, FormControl, Validators, NgForm } from "@angular/forms";
 import { AuthService } from "src/app/services/auth.service";
 import { PasswordGen1, PasswordGen2 } from 'src/app/shared/constants/password.generator';
 import { ToastrService } from 'ngx-toastr';
@@ -11,7 +11,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NewUserComponent implements OnInit {
   form: FormGroup;
-  hide = true;
   res = this.generateP();
 
   constructor(
@@ -20,6 +19,10 @@ export class NewUserComponent implements OnInit {
     ) {}
 
   ngOnInit() {
+    this.createForm()
+  }
+
+  createForm() {
     this.form = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(this.res, [
@@ -31,13 +34,15 @@ export class NewUserComponent implements OnInit {
       gameType: new FormControl(null, Validators.required),
       role: new FormControl("user", Validators.required),
     });
-    this.hide = true;
   }
 
   submit() {
-    this.authService.addUser(this.form.value).subscribe((e) => {
+    this.authService.addUser(this.form.value).subscribe((res) => {
       this.toastr.success('User created');
-    });
+      this.createForm();
+    }, err => {
+      this.createForm();
+    } );
   }
 
   generateP() {
@@ -49,4 +54,5 @@ export class NewUserComponent implements OnInit {
     }
     return pass;
   }
+
 }

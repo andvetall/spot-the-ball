@@ -14,7 +14,6 @@ import * as moment from 'moment';
 export class DashboardComponent implements OnInit {
   
   public gamesFilter: GameModel[] = [];
-
   public gamesAfterDueDate: GameModel[] = [];
   private localStorageUser: string = localStorage.getItem("user");
   public currentDate = Date.now();
@@ -29,17 +28,17 @@ export class DashboardComponent implements OnInit {
     this.gamesService.getAllImages().subscribe((e) => {
       this.gamesFilter = e.filter((game: GameModel) => {
         if (game.gameType === this.getUserFromLS().gameType) {
-          let currDate = moment(this.currentDate).format('l');
-          let dateFrom = moment(game.dateFrom).format('l');
-          let dateTo = moment(game.dateTo).format('l');
+          let currDate = moment(this.currentDate).format('MM-DD-YYYY');
+          let dateFrom = moment(game.dateFrom).format('MM-DD-YYYY');
+          let dateTo = moment(game.dateTo).format('MM-DD-YYYY');
           return dateFrom <= currDate && currDate <= dateTo;
         } else return;
       });
 
       this.gamesAfterDueDate = e.filter((game: GameModel) => {
         if (game.gameType === this.getUserFromLS().gameType) {
-        let currDate = moment(this.currentDate).format('l');
-        let dateTo = moment(game.dateTo).format('l');
+        let currDate = moment(this.currentDate).format('MM-DD-YYYY');
+        let dateTo = moment(game.dateTo).format('MM-DD-YYYY');
         return dateTo < currDate;
       } else return;
       })
@@ -66,7 +65,7 @@ export class DashboardComponent implements OnInit {
         });
       },
       (err) => {
-        console.error(err.message);
+        return err
       }
     );
   }

@@ -1,5 +1,5 @@
 <div style="padding-left: 100px;" *ngFor="let item of res">
-  <div *ngIf="good == false && some">
+  <div *ngIf="suitableDate == false && reqGame">
     <h1 style="text-align: center; padding: 0;">The game is completed. Your results:</h1>
     <div style="display: flex; justify-content: space-around;">
       <div style="position: relative;">
@@ -9,7 +9,7 @@
           alt="check"
           style="display: none; width: 60px;"
         />
-        <img src="{{ some.imageOriginal }}" alt="original Image" />
+        <img src="{{ reqGame.imageOriginal }}" alt="original Image" />
       </div>
 
       <div style="padding: 260px 0 0 0;">
@@ -23,7 +23,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="good == true && some" style="padding-left: 100px;" >
+<div *ngIf="suitableDate == true && reqGame" style="padding-left: 100px;" >
   <div *ngFor="let item of res">
     <h1 style="text-align: center; padding: 0;">The game is completed. Your results:</h1>
     <div style="display: flex; justify-content: space-around;">
@@ -34,7 +34,7 @@
           alt="check"
           style="display: none; width: 60px;"
         />
-        <img src="{{ some.image }}" alt=" Image"/>
+        <img src="{{ reqGame.image }}" alt=" Image"/>
       </div>
       <div style="padding: 260px 0 0 0;">
         <h3>X: {{ item.result.x }}</h3>

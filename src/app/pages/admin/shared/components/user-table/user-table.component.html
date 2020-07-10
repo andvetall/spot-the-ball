@@ -5,7 +5,7 @@
       <ng-container *ngFor="let item of displayedColumns" [matColumnDef]="item">
         <th mat-header-cell *matHeaderCellDef> {{ item | toCamelCase }} </th>
         <td id="cell" mat-cell *matCellDef="let element" cellpadding="0"> 
-            <div class="table-cell" (click)="showUserData(element)">
+            <div class="table-cell" (click)="showUserData(element)" style="cursor: pointer;">
               {{element[item]}} 
             </div> 
             

@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ["./game-table.component.scss"],
 })
 export class GameTable implements OnInit {
-
+  public data: any;
   public displayedColumns: string[] = [];
   public dataSource = new MatTableDataSource();
   @Output() gameUpdated = new EventEmitter();
@@ -31,20 +31,17 @@ export class GameTable implements OnInit {
 
   getAllImages() {
     return this.gamesService.getAllImages().subscribe(res => {
-      this.displayedColumns = Object.keys(res[0]).filter(
-        (key) => key !== "_id" && key !== "__v"
-      );
-      this.displayedColumns.push("actions");
-      this.dataSource = new MatTableDataSource(res);
-      this.dataSource = res;   
+      if(res.length !== 0) {
+        this.displayedColumns = Object.keys(res[0]).filter(
+          (key) => key !== "_id" && key !== "__v"
+        );
+        this.displayedColumns.push("actions");
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource = res;  
+        this.data = res; 
+      }     
     }, err => err);
   }
-
-  
-
-
-
-
 
   actionModal(type, element?) {
     if (type === "update") {

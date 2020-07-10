@@ -1,5 +1,5 @@
 <div>
-  <div *ngIf="data; else noData" class="mat-elevation-z8">
+  <div *ngIf="data && data.length; else noData" class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" style="position: relative; width: 100%;">
 
       <ng-container *ngFor="let item of displayedColumns" [matColumnDef]="item">
@@ -26,9 +26,6 @@
             <button mat-raised-button class="mybutton" (click)="createCsv(element)">
               Generate CSV
             </button>
-            <button mat-fab  class="add-button" (click)="actionModal('add')">
-              <img src="../../../../../../assets/images/green-button-add.jpg" alt="button" class="button-img">
-            </button>
           </div> 
           <div *ngIf="item === 'image'" style="font-size: 0;">
             <img style="max-width: 110px;" src="{{element.image}}" >
@@ -43,9 +40,16 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
+  <div style="height: 80px;">
+    <button mat-fab  class="add-button" (click)="actionModal('add')">
+      <img src="../../../../../../assets/images/green-button-add.jpg" alt="button" class="button-img">
+    </button>
+  </div>
 
   <ng-template #noData >
-    No games available
+    <div style="text-align: center;">
+      <h2>No games available</h2>
+    </div>
   </ng-template>
 
 </div>

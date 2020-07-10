@@ -82,7 +82,13 @@ export class GameTable implements OnInit {
   delete(id) {
     if (id) {
       this.gamesService.deleteGame(id).subscribe(res => {
-        this.toastr.success('Game deleted')
+        this.data.forEach((item, index) => {
+          if(item._id === id._id) {
+            this.data.splice(index, 1);
+            this.dataSource = new MatTableDataSource(this.data);
+          }
+        })
+        this.toastr.success('Game deleted');
         this.getAllImages();
       }, err => err);
     }

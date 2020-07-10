@@ -1,5 +1,5 @@
 <div>
-  <div *ngIf="data; else noData" class="mat-elevation-z8">
+  <div *ngIf="data && data.length; else noData" class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" style="position: relative; width: 100%;">
 
       <ng-container *ngFor="let item of displayedColumns" [matColumnDef]="item">
@@ -47,7 +47,9 @@
   </div>
 
   <ng-template #noData >
-    No games available
+    <div style="text-align: center;">
+      <h2>No games available</h2>
+    </div>
   </ng-template>
 
 </div>

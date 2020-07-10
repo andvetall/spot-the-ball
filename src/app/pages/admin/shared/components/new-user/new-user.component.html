@@ -1,71 +1,92 @@
-<h1 style="text-align: center;">Create new user</h1>
-<form #myForm = "ngForm" [formGroup]="form" (ngSubmit)="submit(); myForm.resetForm()">
-  <mat-form-field appearance="fill" class="form-data">
-    <mat-label>Email *</mat-label>
-    <input matInput formControlName="email" />
+<div class="form-overlay" style="padding: 30px 24px">
+  <div *ngIf="data.type === 'add'">
+    <h1>Create new user</h1>
+  </div>
+  <div *ngIf="data.type === 'update'">
+    <h1>Update user</h1>
+  </div>
+  <form [formGroup]="form">
+    <mat-dialog-content class="mat-typography">
+      <mat-form-field appearance="fill" class="form-data">
+        <mat-label>Email *</mat-label>
+          <input matInput formControlName="email" />
+        <mat-error
+          *ngIf="form.controls['email'].invalid"
+        >
+          <mat-error *ngIf="form.get('email').errors.required">
+            Enter your Email
+          </mat-error>
+          <mat-error *ngIf="form.get('email').errors.email">
+            This field should contain @ character
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
 
-    <mat-error
-      *ngIf="form.controls['email'].invalid"
-    >
-      <mat-error *ngIf="form.get('email').errors.required">
-        Enter your Email
-      </mat-error>
-      <mat-error *ngIf="form.get('email').errors.email">
-        This field should contain @ character
-      </mat-error>
-    </mat-error>
-  </mat-form-field>
+      <mat-form-field appearance="fill" class="form-data">
+        <mat-label>First Name *</mat-label>
+        <input matInput formControlName="firstName" />
+        <mat-error
+          *ngIf="
+            !form.controls['firstName'].valid
+          "
+        >
+          This field is required. Enter First Name.
+        </mat-error>
+      </mat-form-field>
 
-  <br />
+      <mat-form-field appearance="fill" class="form-data">
+        <mat-label>Last Name *</mat-label>
+        <input matInput formControlName="lastName" />
+        <mat-error
+          *ngIf="
+            !form.controls['lastName'].valid
+          "
+        >
+          This field is required. Enter Last Name.
+        </mat-error>
+      </mat-form-field>
 
-  <mat-form-field appearance="fill" class="form-data">
-    <mat-label>First Name *</mat-label>
-    <input matInput formControlName="firstName" />
-    <mat-error
-      *ngIf="
-        !form.controls['firstName'].valid
-      "
-    >
-      This field is required. Enter First Name.
-    </mat-error>
-  </mat-form-field>
+      <mat-form-field class="form-data">
+        <mat-label style="padding-left: 10px;">Game Type</mat-label>
+        <select matNativeControl required formControlName="gameType">
+          <option disabled value="Choose Game Type">Game Type</option>
+          <option value="football">Football</option>
+          <option value="hockey">Hockey</option>
+        </select>
 
-  <br />
+        <mat-error
+          *ngIf="
+            !form.controls['gameType'].valid
+          "
+        >
+          This field is required. Choose Game Type.
+        </mat-error>
+      </mat-form-field>
+    </mat-dialog-content>
 
-  <mat-form-field appearance="fill" class="form-data">
-    <mat-label>Last Name *</mat-label>
-    <input matInput formControlName="lastName" />
-    <mat-error
-      *ngIf="
-        !form.controls['lastName'].valid
-      "
-    >
-      This field is required. Enter Last Name.
-    </mat-error>
-  </mat-form-field>
-
-  <br />
-
-  <mat-form-field class="form-data">
-    <mat-label style="padding-left: 10px;">Game Type</mat-label>
-    <select matNativeControl required formControlName="gameType">
-      <option disabled value="Choose Game Type">Game Type</option>
-      <option value="football">Football</option>
-      <option value="hockey">Hockey</option>
-    </select>
-
-    <mat-error
-      *ngIf="
-        !form.controls['gameType'].valid
-      "
-    >
-      This field is required. Choose Game Type.
-    </mat-error>
-  </mat-form-field>
-
-  <br />
-
-  <button mat-raised-button color="primary" [disabled]="!form.valid">
-    Submit
-  </button>
-</form>
+    <mat-dialog-actions align="center">
+      <div *ngIf="data.type === 'add'">
+        <button 
+          mat-raised-button 
+          color="primary" 
+          [disabled]="!form.valid"
+          (click)="submit()"
+          [mat-dialog-close]="true"
+          >
+          Submit
+        </button>
+      </div>
+      <div *ngIf="data.type === 'update'">
+        <button  
+          mat-raised-button 
+          color="primary" 
+          [disabled]="!form.valid"
+          (click)="update()"
+          [mat-dialog-close]="true"
+          >
+          Save
+        </button>
+      </div>
+    </mat-dialog-actions>
+  </form>
+</div>

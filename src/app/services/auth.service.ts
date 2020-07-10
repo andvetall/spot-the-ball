@@ -18,8 +18,8 @@ export class AuthService {
     return this._httpClient.post(`${environment.apiUrl}/auth/login`, user)
   }
 
-  addUser(user): Observable<any> {
-    return this._httpClient.post(`${environment.apiUrl}/auth/addUser`, user)
-  }
+  // addUser(user): Observable<any> {
+  //   return this._httpClient.post(`${environment.apiUrl}/auth/addUser`, user)
+  // }
 
 }

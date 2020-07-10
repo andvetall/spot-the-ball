@@ -16,6 +16,8 @@ import { NewUserComponent } from './shared/components/new-user/new-user.componen
 import { GameTable } from './shared/components/game-table/game-table.component';
 import { MainDashboardComponent } from './components/dashboard/main.dashboard.component';
 import { ToCamelCasePipe } from 'src/app/shared/pipes/camel.case.pipe';
+import { UserTableComponent } from './shared/components/user-table/user-table.component';
+import { UserDataDialogComponent } from './shared/components/user-data/user-data.dialog.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { ToCamelCasePipe } from 'src/app/shared/pipes/camel.case.pipe';
     MainDashboardComponent,
     GameForm,
     NewUserComponent,
+    UserTableComponent,
     GameTable,
+    UserDataDialogComponent,
     ToCamelCasePipe
   ],
   exports: [
@@ -43,6 +47,6 @@ import { ToCamelCasePipe } from 'src/app/shared/pipes/camel.case.pipe';
     LoginGuard, 
     AdminGuard
   ],
-  entryComponents: [GameForm]
+  entryComponents: [GameForm, NewUserComponent, UserDataDialogComponent]
 })
 export class AdminModule { }

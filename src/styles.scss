@@ -6,3 +6,8 @@
 @import "./assets/scss/normalize";
 @import "./assets/scss/base";
 @import "~ngx-toastr/toastr";
+@import "~roboto-fontface/css/roboto/roboto-fontface.css";
+
+* {
+  font-family: Roboto;
+}

@@ -33,7 +33,10 @@ export class UserTableComponent implements OnInit {
         const tableItems = res.filter(value => {
           return value.role !== 'admin' && value.gameType !== undefined;
         })
-  
+        tableItems.sort(function (a, b) {
+          return ('' + a.gameType).localeCompare(b.gameType);
+        })
+        
         this.displayedColumns = Object.keys(tableItems[0]).filter(
           (key) => key !== "_id" && key !== "__v" && key !== 'password'
         );
@@ -95,13 +98,17 @@ export class UserTableComponent implements OnInit {
   }
 
   deleteUser(user) {
-    if(user) {
+    if (user) {
       this.userService.deleteUser(user).subscribe(res => {
+        this.data.forEach((item, index) => {
+          if(item._id === user._id) {
+            this.data.splice(index, 1);
+            this.dataSource = new MatTableDataSource(this.data);
+          }
+        })
         this.toastr.success('User deleted');
         this.getAllUsers();
-      }, err => {
-        this.toastr.error(err);
-      })
+      }, err => err);
     }
   }
 }

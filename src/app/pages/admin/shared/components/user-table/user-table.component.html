@@ -1,19 +1,18 @@
 <div>
   <div *ngIf="data; else noData" class="mat-elevation-z8">
-    <table  mat-table [dataSource]="dataSource" style="position: relative; width: 100%;"  cellspacing="0" cellpadding="0">
-
+    <table  mat-table [dataSource]="dataSource" >
       <ng-container *ngFor="let item of displayedColumns" [matColumnDef]="item">
         <th mat-header-cell *matHeaderCellDef> {{ item | toCamelCase }} </th>
         <td id="cell" mat-cell *matCellDef="let element" cellpadding="0"> 
-            <div class="table-cell" (click)="showUserData(element)" style="cursor: pointer;">
+            <div class="table-cell" (click)="showUserData(element)">
               {{element[item]}} 
             </div> 
             
             <div *ngIf="item === 'actions'" >
-              <button mat-raised-button color="warn" style="margin-right: 10px;" (click)="deleteUser(element)">
+              <button mat-raised-button color="warn"  class="action-button" (click)="deleteUser(element)">
                 Delete
               </button>  
-              <button mat-raised-button color="primary" style="margin-right: 10px;" (click)="openModal('update', element)">
+              <button mat-raised-button color="primary" class="action-button" (click)="openModal('update', element)">
                 Edit
               </button>
             </div>
@@ -27,14 +26,16 @@
   </div>
 
 
-  <div style="height: 80px;">
-    <button mat-fab  class="add-button" (click)="openModal('add')">+
+  <div class="button-wrapper">
+    <button mat-mini-fab  class="add-button" (click)="openModal('add')">
       <img src="../../../../../../assets/images/green-button-add.jpg" alt="button" class="button-img">
     </button> 
   </div>
 
   <ng-template #noData>
-    No users available
+    <div class="template-text">
+      <h2>No users available</h2>
+    </div>
   </ng-template>
 
 </div>

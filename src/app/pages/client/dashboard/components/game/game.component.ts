@@ -122,7 +122,7 @@ export class GameComponent implements OnInit {
     let resX = ((this.width / 100) * resultX) / 100;
     let resY = ((this.height / 100) * resultY) / 100;
 
-    const res = Math.sqrt((realPosX - resX) ** 2 + (realPosY - resY) ** 2);
+    const res = Math.sqrt((resX - realPosX) ** 2 + (resY - realPosY) ** 2);
     const finalRes = 100 - +res;
 
     return +finalRes.toFixed(2);

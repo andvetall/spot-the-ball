@@ -96,13 +96,13 @@ export class UserTableComponent implements OnInit {
   }
 
   createCSVUsers() {
-    // this.resultService.createCsv(id._id).subscribe(
-    //   res => {
-    //     setTimeout(() => {
-    //       window.open(`${environment.apiUrl}/download`);
-    //     }, 3000);
-    //   },
-    //   err => err);
+    this.userService.createUsersCsv().subscribe(
+      res => {
+        setTimeout(() => {
+          window.open(`${environment.apiUrl}/usersCsv`);
+        }, 3000);
+      },
+      err => err);
   }
 
   showUserData(element) {

@@ -87,6 +87,17 @@
           Save
         </button>
       </div>
+      <div *ngIf="data.type === 'addFromRequest'">
+        <button  
+          mat-raised-button 
+          color="primary" 
+          [disabled]="!form.valid"
+          (click)="invite()"
+          [mat-dialog-close]="true"
+          >
+          Confirm
+        </button>
+      </div>
     </mat-dialog-actions>
   </form>
 </div>

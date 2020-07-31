@@ -18,6 +18,7 @@ import { MainDashboardComponent } from './components/dashboard/main.dashboard.co
 import { ToCamelCasePipe } from 'src/app/shared/pipes/camel.case.pipe';
 import { UserTableComponent } from './shared/components/user-table/user-table.component';
 import { UserDataDialogComponent } from './shared/components/user-data/user-data.dialog.component';
+import { RequestTableComponent } from './shared/components/request-table/request-table.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { UserDataDialogComponent } from './shared/components/user-data/user-data
     NewUserComponent,
     UserTableComponent,
     GameTable,
+    RequestTableComponent,
     UserDataDialogComponent,
     ToCamelCasePipe
   ],

@@ -11,17 +11,20 @@ import { ResultComponent } from './components/result/result.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from 'src/app/modules/material/material.module';
+import { FriendsComponent } from './components/friends/friends.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
+    ReactiveFormsModule
   ],
   declarations: [
     GameComponent,
     DashboardComponent,
     ResultDialogComponent,
-
+    FriendsComponent,
     GameWrapperComponent,
     ResultComponent
   ],

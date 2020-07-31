@@ -2,7 +2,7 @@ export const MenuConstants = {
   menuData: [
     {
       title: 'Demo Game',
-      path: '',
+      path: 'dashboard',
       icon: '../../../assets/images/platform-settings-item.png',
       arrow: '../../../assets/images/menu-arrow.png',
       children: [
@@ -11,6 +11,11 @@ export const MenuConstants = {
           path: 'dashboard',
         },
       ]
+    },
+    {
+      title: 'Invite Friends',
+      path: 'friends',
+      icon: '../../../assets/images/friends.png',
     }
   ],
   logoutItem: {

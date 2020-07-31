@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -10,9 +11,13 @@ import { Router } from '@angular/router';
 
 export class MainDashboardComponent {
 
+  public requestAmount: number = null;
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    private userService: UserService,
+  ) {
+    this.userService.requestAmount.asObservable().subscribe((amount: number) => this.requestAmount = amount)
+  }
 
   logout() {
     localStorage.removeItem('user');

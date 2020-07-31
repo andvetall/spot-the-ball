@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { NewUserComponent } from '../new-user/new-user.component';
 import { UserDataDialogComponent } from '../user-data/user-data.dialog.component';
+import { ResultService } from 'src/app/services/result.service';
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "user-table",
@@ -16,21 +18,18 @@ export class UserTableComponent implements OnInit {
   public displayedColumns: string[] = [];
   public dataSource = new MatTableDataSource();
   public data: any;
+  public result: any;
 
   constructor(
     private userService: UserService,
     private dialog: MatDialog,
-    private toastr: ToastrService
-  ) {}
-
-  ngOnInit() {
-    this.getAllUsers();    
-  }
-
-  getAllUsers() {
-    this.userService.getAllUsers().subscribe(res => {
-      if(res.length !== 0) {
-        const tableItems = res.filter(value => {
+    private toastr: ToastrService,
+    private resultService: ResultService,
+  ) {
+    this.userService.allUsers.subscribe(res => {
+      this.result = res;
+      if(this.result) {
+        const tableItems = this.result.filter(value => {
           return value.role !== 'admin' && value.gameType !== undefined;
         })
         tableItems.sort(function (a, b) {
@@ -44,6 +43,18 @@ export class UserTableComponent implements OnInit {
         this.dataSource = new MatTableDataSource(tableItems);
         this.dataSource = tableItems;
         this.data = tableItems;
+      }
+    }, err => err)
+  }
+
+  ngOnInit() {
+    this.getAllUsers();    
+  }
+
+  getAllUsers() {
+    this.userService.getAllUsers().subscribe(res => {
+      if(res.length !== 0) {
+        this.userService.setAllUsers(res);
       }
     }, err => err)
   }
@@ -77,9 +88,21 @@ export class UserTableComponent implements OnInit {
         data: data,
       });
       dialogRef.afterClosed().subscribe((result) => {
-        this.getAllUsers();
+        setTimeout(() => {
+          this.getAllUsers();
+        }, 2000)
       });
     }
+  }
+
+  createCSVUsers() {
+    // this.resultService.createCsv(id._id).subscribe(
+    //   res => {
+    //     setTimeout(() => {
+    //       window.open(`${environment.apiUrl}/download`);
+    //     }, 3000);
+    //   },
+    //   err => err);
   }
 
   showUserData(element) {

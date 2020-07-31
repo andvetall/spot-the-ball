@@ -47,15 +47,23 @@ export class MenuItemComponent implements OnInit {
     }
 
     public toggleChildren() {
+        if(!this.childrenOpened) {
+            return;
+        }
         this._menuService.setToggledMenuIndex(this.indexItem)
     }
 
     public menuItemClick(menuItem) {
+        if(!this.childrenOpened) {
+            return;
+        }
         this._router.navigate([menuItem.path])
+        this._menuService.showFullSizeMenu(false);
         this._menuService.setActiveMenuTab({
             activeSubTab: menuItem.path,
             activeTab: menuItem.path.split('/')[0]
         })
+        this._menuService.activeMenuTab.subscribe(res => console.log(res))
     }
 
 }

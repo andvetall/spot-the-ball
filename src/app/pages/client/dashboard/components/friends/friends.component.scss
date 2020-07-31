@@ -1,0 +1,79 @@
+h1, h2{
+    color: #2b303cad;
+}
+.invite-wrapper{
+    width: 60%;
+    margin: 0 auto;
+}
+.error-innput-wrapper {
+    input {
+        border: 1.5px solid #FA6363 !important;
+    }
+
+    label {
+        color: #FA6363 !important;
+    }
+}
+.input-wrapper {
+    img {
+        position: absolute;
+        top: 35px;
+        right: 16px;
+        cursor: pointer;
+    }
+
+    position: relative;
+}
+
+input {
+    background: #FFFFFF;
+    border: 1px solid #f5832a;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    width: 100%;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+label {
+    font-size: 14px;
+    line-height: 18px;
+    color: #f5832a;
+    margin-right: 20px;
+}
+.action-buttons {
+    button {
+        color: #ffffff;
+        width: 150px;
+        margin: 0;
+    }
+
+
+    .none-background-button {
+        background: transparent;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        text-decoration: underline;
+    }
+
+    .background-button {
+        background: #f5832a;
+        border-radius: 4px;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .disabled {
+        background-color: #7f8fa445;
+    }
+
+    margin: 25px 0 0 0;
+    display: flex !important;
+    justify-content: space-between;
+}

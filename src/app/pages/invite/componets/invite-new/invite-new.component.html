@@ -1,0 +1,62 @@
+<div *ngIf="!access && !requested && !oops" style="margin-left: 100px;">
+  <h1 style="text-align: center;">
+    Email validation
+  </h1>
+  <div class="logo-wrapper">
+    <img style="max-width: 200px;" src="../../../../assets/images/cmyk1.png" alt="logo">
+  </div>
+  <h2 style="text-align: center; margin-top: 50px;">Please enter the email address used for the invitation.</h2>
+  <form [formGroup]='formEmailValidation'  class="invite-wrapper">
+
+    <div [ngClass] = "{'error-innput-wrapper' : formEmailValidation.controls['email'].invalid && !formEmailValidation.controls['email'].untouched}" class="input-wrapper">
+      <label for="email">Email</label>
+      <input (keyup)="inputHandlerEmail()" formControlName="email">
+    </div>
+
+    <div class="action-buttons">
+      <button disabled="{{!submitButtonEmailDisabled}}" mat-button class="background-button" (click)="validateEmail()" [ngClass]="{'disabled' : submitButtonEmailDisabled == false}" style="margin: auto">Invite</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="access && !requested && !oops" class="page-wrapper">
+  <div class="logo-wrapper">
+    <img style="max-width: 200px;" src="../../../../assets/images/cmyk1.png" alt="logo">
+  </div>
+  <h2 style="text-align: center; margin-top: 50px;">For the registration fill in all the fields below.</h2>
+  <form [formGroup]='formRequest' class="register-wrapper">
+
+    <div class="input-wrapper">
+      <label for="email">Email</label>
+      <input formControlName="email" value="{{user.email}}" disabled>
+    </div>
+
+    <div [ngClass] = "{'error-innput-wrapper' : formRequest.controls['firstName'].invalid && !formRequest.controls['firstName'].untouched}" class="input-wrapper">
+      <label for="password">First Name</label>
+      <input (keyup)="inputHandler()" formControlName="firstName">
+    </div>
+
+    <div [ngClass] = "{'error-innput-wrapper' : formRequest.controls['lastName'].invalid && !formRequest.controls['lastName'].untouched}" class="input-wrapper">
+      <label for="password">Last Name</label>
+      <input (keyup)="inputHandler()" formControlName="lastName">
+    </div>
+
+    <div class="action-buttons">
+      <button disabled="{{!submitButtonDisabled}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false}" style="margin: auto">Request</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="requested" class="page-wrapper">
+  <div class="logo-wrapper">
+    <img style="max-width: 200px;" src="../../../../assets/images/cmyk1.png" alt="logo">
+  </div>
+  <h2 style="text-align: center; margin-top: 50px;">Thank you! Your request had been sent successfully!</h2>
+</div>
+
+<div *ngIf="oops" class="page-wrapper">
+  <div class="logo-wrapper">
+    <img style="max-width: 200px;" src="../../../../assets/images/cmyk1.png" alt="logo">
+  </div>
+  <h2 style="text-align: center; margin-top: 50px;">OOPS!</h2>
+</div>

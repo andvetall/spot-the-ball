@@ -21,18 +21,18 @@ export class NewUserComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.form = new FormGroup({
-      _id: new FormControl(this.data._id), 
-      email: new FormControl(this.data.email ? {value: this.data.email, disabled: true} : null, [Validators.required, Validators.email]),
-      password: new FormControl(this.data.password ? this.data.password : this.res, [
-        Validators.required,
-        Validators.minLength(6),
-      ]),
-      firstName: new FormControl(this.data.firstName ? this.data.firstName : null, Validators.required),
-      lastName: new FormControl(this.data.lastName ? this.data.lastName : null, Validators.required),
-      gameType: new FormControl(this.data.gameType ? this.data.gameType : null, Validators.required),
-      role: new FormControl(this.data.role ? this.data.role : "user", Validators.required),
-    });
+      this.form = new FormGroup({
+        _id: new FormControl(this.data._id), 
+        email: new FormControl(this.data.email ? this.data.email : null, [Validators.required, Validators.email]),
+        password: new FormControl(this.data.password ? this.data.password : this.res, [
+          Validators.required,
+          Validators.minLength(6),
+        ]),
+        firstName: new FormControl(this.data.firstName ? this.data.firstName : null, Validators.required),
+        lastName: new FormControl(this.data.lastName ? this.data.lastName : null, Validators.required),
+        gameType: new FormControl(this.data.gameType ? this.data.gameType : null, Validators.required),
+        role: new FormControl(this.data.role ? this.data.role : "user", Validators.required),
+      });
   }
 
   submit() {
@@ -40,6 +40,18 @@ export class NewUserComponent implements OnInit {
       this.toastr.success('User created');
     }, err => err );
     this.userService.getAllUsers().subscribe(res => res, err => err)
+  }
+
+  invite() {
+    this.userService.addUser(this.form.value).subscribe((res) => {
+      this.userService.deleteRequest(this.form.value.email).subscribe(res => {
+        this.userService.getAllUsers().subscribe(res => {
+          this.userService.setAllUsers(res)
+        }, err => err)
+        this.toastr.success('User created');
+      }, err => err)
+    }, err => err );
+    
   }
 
   update() {

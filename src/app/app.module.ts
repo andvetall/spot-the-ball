@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { LoginGuard } from './core/guards/login-guard';
 import { HttpErrorInterceptor } from './core/interceptors/http.interceptor';
 import { ErrorService } from './core/error-handler/error.handler';
+import { InviteModule } from './pages/invite/invite-user.module';
 
 const COMPONENTS = [
 ];
@@ -26,6 +27,7 @@ const COMPONENTS = [
   ],
   imports: [
     AuthModule,
+    InviteModule,
     ClientModule,
     AdminModule,
     AppRoutingModule,

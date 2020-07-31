@@ -6,14 +6,16 @@ import { RoleGuard } from 'src/app/core/guards/role-guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ResultComponent } from './dashboard/components/result/result.component';
 import { GameComponent } from './dashboard/components/game/game.component';
+import { FriendsComponent } from './dashboard/components/friends/friends.component';
 const routes: Routes = [
   {
     path: '',
     component: ClientComponent,
     children: [
-      { path: '', component: DashboardComponent, canActivate:[RoleGuard]},
-      {path: 'game', component: GameComponent},
-      { path: 'result', component: ResultComponent },
+      { path: 'dashboard', component: DashboardComponent, canActivate:[RoleGuard]},
+      { path: 'game', component: GameComponent, canActivate:[RoleGuard]},
+      { path: 'result', component: ResultComponent, canActivate:[RoleGuard]},
+      { path: 'friends', component: FriendsComponent, canActivate:[RoleGuard]},
     ]
   },
 ];

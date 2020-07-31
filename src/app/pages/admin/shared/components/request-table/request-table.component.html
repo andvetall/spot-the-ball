@@ -4,17 +4,17 @@
       <ng-container *ngFor="let item of displayedColumns" [matColumnDef]="item">
         <th mat-header-cell *matHeaderCellDef> {{ item | toCamelCase }} </th>
         <td id="cell" mat-cell *matCellDef="let element" cellpadding="0"> 
-            <div class="table-cell" (click)="showUserData(element)">
+            <div class="table-cell">
               {{element[item]}} 
             </div> 
             
             <div *ngIf="item === 'actions'" >
-              <button mat-raised-button color="warn"  class="action-button" (click)="deleteUser(element)">
+              <button (click)="openModal('addFromRequest', element)" mat-raised-button color="primary" class="action-button">
+                Confirm
+              </button>
+              <button mat-raised-button color="warn"  class="action-button" (click)="deleteRequest(element)">
                 Delete
               </button>  
-              <button mat-raised-button color="primary" class="action-button" (click)="openModal('update', element)">
-                Edit
-              </button>
             </div>
         </td>
         
@@ -23,16 +23,6 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr id="row" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-  </div>
-
-
-  <div class="button-wrapper">
-    <button mat-mini-fab  class="add-button" (click)="openModal('add')">
-      <img src="../../../../../../assets/images/green-button-add.jpg" alt="button" class="button-img">
-    </button>
-    <button class="csv-button" (click)="createCSVUsers()">
-      <img src="../../../../../../assets/images/csv.png" alt="button" class="button-img">
-    </button> 
   </div>
 
   <ng-template #noData>

@@ -1,7 +1,5 @@
 <router-outlet></router-outlet>
 <div #toolBar class="tool-bar" [ngClass]="{'opened' : showFullSizeMenu}">
-  
-  <button style="color: #f5832a;position: relative;width: inherit;height: 34px;background: transparent;font-weight: 600;" (click)="this.toggleMenu()">{{showFullSizeMenu ? '<<' : '>>'}}</button>
   <p class="menu-title" *ngIf="showFullSizeMenu">
     Spot that ball
   </p>

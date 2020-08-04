@@ -85,7 +85,6 @@ export class RequestTableComponent implements OnInit {
         gameType: null,
         password: null,
         role: null
-        
         ,
       };
       const dialogRef = this.dialog.open(NewUserComponent, {
@@ -96,6 +95,9 @@ export class RequestTableComponent implements OnInit {
       dialogRef.afterClosed().subscribe((result) => {
         setTimeout(() => {
           this.getData();
+          this.userService.getAllUsers().subscribe(res => {
+            this.userService.setAllUsers(res)
+          }, err => err)
         }, 2000)
       });
     }

@@ -51,7 +51,7 @@ export class UserService {
   }
 
   public deleteRequest(email): Observable<any> {
-    return this._httpClient.post(`${environment.apiUrl}/user/deleteRequest`, email)
+    return this._httpClient.get(`${environment.apiUrl}/user/deleteRequest/${email}`)
   }
 
   public createUsersCsv(): Observable<any> {

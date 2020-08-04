@@ -43,15 +43,9 @@ export class NewUserComponent implements OnInit {
   }
 
   invite() {
-    this.userService.addUser(this.form.value).subscribe((res) => {
-      this.userService.deleteRequest(this.form.value.email).subscribe(res => {
-        this.userService.getAllUsers().subscribe(res => {
-          this.userService.setAllUsers(res)
-        }, err => err)
-        this.toastr.success('User created');
-      }, err => err)
-    }, err => err );
-    
+    const data = this.form.value
+    this.userService.addUser(this.form.value).subscribe((res) => res, err => err)
+    this.userService.deleteRequest(data.email).subscribe(res => res, err => err)
   }
 
   update() {

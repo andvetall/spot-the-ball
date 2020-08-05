@@ -160,5 +160,10 @@ export const nhlTeams = {
             city: 'WASHINGTON',
             image: 'CAPITALS.svg'
         },
+        {
+            title: 'KRAKEN',
+            city: 'SEATTLE',
+            image: 'KRAKEN.svg'
+        },
     ]
 }

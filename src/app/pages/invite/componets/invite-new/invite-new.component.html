@@ -20,11 +20,11 @@
       <input (keyup)="inputHandler()" formControlName="lastName">
     </div>
 
-    <div [ngClass] = "{'error-innput-wrapper' : !teamSelected}" class="input-wrapper">
+    <div [ngClass] = "{'error-innput-wrapper' : teamSelected === undefined}" class="input-wrapper">
       <label for="favoriteTeam">Favorite Team</label>
       <div style="display: flex;">
         <div class="favorite-team-input">
-          <p style="margin: 0; color: #6f737b;" *ngIf="!teamSelected">No selected team</p>
+          <p style="margin: 0; color: #6f737bb8;" *ngIf="!teamSelected">No selected team</p>
           <div *ngIf="teamSelected" style="display: flex;">
             <img style="max-width: 36px; position: relative; top: 0; right: 0; cursor: auto;" src="../../../../../assets/images/nhl/{{teamSelected.image}}" alt="{{teamSelected.image}}">
             <h3 style="font-size: 10px; margin: 0 2px;">{{teamSelected.city}}  </h3>

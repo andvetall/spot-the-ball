@@ -16,6 +16,7 @@ import { LoginGuard } from './core/guards/login-guard';
 import { HttpErrorInterceptor } from './core/interceptors/http.interceptor';
 import { ErrorService } from './core/error-handler/error.handler';
 import { InviteModule } from './pages/invite/invite-user.module';
+import { FavotiteTeamComponent } from './shared/components/favotite-team/favotite-team.component';
 
 const COMPONENTS = [
 ];
@@ -23,6 +24,7 @@ const COMPONENTS = [
 @NgModule({
   declarations: [
     AppComponent,
+    FavotiteTeamComponent,
     COMPONENTS
   ],
   imports: [
@@ -56,5 +58,6 @@ const COMPONENTS = [
     }
   ],
   bootstrap: [AppComponent],
+  entryComponents: [FavotiteTeamComponent]
 })
 export class AppModule { }

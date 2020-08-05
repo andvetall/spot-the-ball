@@ -2,8 +2,9 @@
   <h1 mat-dialog-title>User Information</h1>
   <mat-dialog-content>
     <p><b>Email:</b> {{data.email}}</p>
-    <p><b>First Name:</b> {{data.firstName}}</p>
-    <p><b>Last Name:</b> {{data.lastName}}</p>
+    <p><b>First Name:</b> {{data.firstName | titlecase}}</p>
+    <p><b>Last Name:</b> {{data.lastName | titlecase}}</p>
+    <p><b>Favorite Team:</b> {{data.favoriteTeam}}</p>
     <p><b>Game Type:</b> {{data.gameType}}</p>
     <p><b>User Role:</b> {{data.role}}</p>
   </mat-dialog-content>

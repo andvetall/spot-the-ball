@@ -74,8 +74,8 @@
 
 .item-wrapper:hover {
     .img-wrapper {
-        background: #f5832a;
-        border: 2px solid #f5832a;
+        background: #00aae8;
+        border: 2px solid #00aae8;
 
         img {
             filter: brightness(220%);
@@ -84,15 +84,15 @@
 
     .hidden-part {
         .vertival-line {
-            background: #f5832a;
+            background: #00aae8;
         }
     }
 }
 
 .active-tab {
     .img-wrapper {
-        background: #f5832a;
-        border: 2px solid #f5832a;
+        background: #00aae8;
+        border: 2px solid #00aae8;
 
         img {
             filter: brightness(220%);
@@ -101,11 +101,11 @@
 }
 
 .active-child-tab {
-    background: #d5b296;
+    background: #7ed6f7;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.24);
     opacity: 1;
     transition: all 0.3s;
-    border-right: 3px solid #f5832a;
+    border-right: 3px solid #00aae8;
 }
 
 .hidden {
@@ -148,11 +148,11 @@
         }
 
         p:hover {
-            background: #f5832a;
+            background: #00aae8;
             box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.24);
             opacity: 1;
             transition: all 0.3s;
-            border-right: 3px solid #f5832a;
+            border-right: 3px solid #00aae8;
         }
     }
 

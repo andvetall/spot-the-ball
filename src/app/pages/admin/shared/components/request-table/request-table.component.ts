@@ -52,6 +52,7 @@ export class RequestTableComponent implements OnInit {
         email: element.email,
         firstName: element.firstName,
         lastName: element.lastName,
+        favoriteTeam: element.favoriteTeam,
         gameType: element.gameType,
         password: element.password,
         role: element.role,
@@ -82,6 +83,7 @@ export class RequestTableComponent implements OnInit {
         email: element.email,
         firstName: element.firstName,
         lastName: element.lastName,
+        favoriteTeam: element.favoriteTeam,
         gameType: null,
         password: null,
         role: null

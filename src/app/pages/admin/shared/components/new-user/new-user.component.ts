@@ -3,7 +3,8 @@ import { Component, OnInit, ViewChild, Inject } from "@angular/core";
 import { FormGroup, FormControl, Validators, NgForm } from "@angular/forms";
 import { PasswordGen1, PasswordGen2 } from 'src/app/shared/constants/password.generator';
 import { ToastrService } from 'ngx-toastr';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { FavotiteTeamComponent } from 'src/app/shared/components/favotite-team/favotite-team.component';
 
 @Component({
   selector: "new-user",
@@ -18,38 +19,57 @@ export class NewUserComponent implements OnInit {
     private userService: UserService,
     private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private dialog: MatDialog,
     ) {}
 
   ngOnInit() {
       this.form = new FormGroup({
         _id: new FormControl(this.data._id), 
-        email: new FormControl(this.data.email ? this.data.email : null, [Validators.required, Validators.email]),
+        email: new FormControl(this.data.email ? this.data.email.toLocaleLowerCase() : null, [Validators.required, Validators.email]),
         password: new FormControl(this.data.password ? this.data.password : this.res, [
           Validators.required,
           Validators.minLength(6),
         ]),
         firstName: new FormControl(this.data.firstName ? this.data.firstName : null, Validators.required),
         lastName: new FormControl(this.data.lastName ? this.data.lastName : null, Validators.required),
+        favoriteTeam: new FormControl(this.data.favoriteTeam ? this.data.favoriteTeam : null,  Validators.required),
         gameType: new FormControl(this.data.gameType ? this.data.gameType : null, Validators.required),
         role: new FormControl(this.data.role ? this.data.role : "user", Validators.required),
       });
   }
 
   submit() {
-    this.userService.addUser(this.form.value).subscribe((res) => {
+    const data = this.form.value;
+    data.email = data.email.toLocaleLowerCase();
+    this.userService.addUser(data).subscribe((res) => {
       this.toastr.success('User created');
     }, err => err );
     this.userService.getAllUsers().subscribe(res => res, err => err)
   }
 
   invite() {
-    const data = this.form.value
-    this.userService.addUser(this.form.value).subscribe((res) => res, err => err)
+    const data = this.form.value;
+    data.email = data.email.toLocaleLowerCase();
+    this.userService.addUser(data).subscribe((res) => res, err => err)
     this.userService.deleteRequest(data.email).subscribe(res => res, err => err)
   }
 
+  selectTeam() {
+    const dialogRef = this.dialog.open(FavotiteTeamComponent, {
+      width: "700px",
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if(result){
+        this.form.controls.favoriteTeam.setValue(`${result.city} ${result.title}`)
+      }
+    });
+  }
+
   update() {
-    this.userService.updateUserInfo(this.form.value).subscribe(res => {
+    const data = this.form.value;
+    data.email = data.email.toLocaleLowerCase();
+    this.userService.updateUserInfo(data).subscribe(res => {
       this.toastr.success('User updated');
     }, err => {
       this.toastr.error(err);

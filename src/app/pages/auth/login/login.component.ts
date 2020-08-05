@@ -56,7 +56,9 @@ export class LoginComponent implements OnInit {
     if (this.formLogin.invalid) {
       return;
     }
-    this._authService.loginUser(this.formLogin.value).subscribe(a => {
+    const data = this.formLogin.value;
+    data.email = data.email.toLocaleLowerCase();
+    this._authService.loginUser(data).subscribe(a => {
       localStorage.setItem('user', a.token)
       const role = a.user.role
       role === "admin" ? this._router.navigate(['admin/main-dashboard']) : this._router.navigate(['dashboard'])

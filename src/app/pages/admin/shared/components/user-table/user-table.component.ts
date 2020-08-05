@@ -67,6 +67,7 @@ export class UserTableComponent implements OnInit {
         email: element.email,
         firstName: element.firstName,
         lastName: element.lastName,
+        favoriteTeam: element.favoriteTeam,
         gameType: element.gameType,
         password: element.password,
         role: element.role,
@@ -111,6 +112,7 @@ export class UserTableComponent implements OnInit {
       email: element.email,
       firstName: element.firstName,
       lastName: element.lastName,
+      favoriteTeam: element.favoriteTeam,
       gameType: element.gameType,
       role: element.role,
     };

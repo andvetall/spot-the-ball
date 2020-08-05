@@ -25,9 +25,9 @@ h1, h2{
     position: relative;
 }
 
-input {
+input, select {
     background: #FFFFFF;
-    border: 1px solid #f5832a;
+    border: 1px solid #00aae8;
     box-sizing: border-box;
     border-radius: 4px;
     padding: 10px;
@@ -37,10 +37,23 @@ input {
     line-height: 20px;
 }
 
+.favorite-team-input{
+    background: #FFFFFF;
+    border: 1px solid #00aae8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    width: 300px;
+    font-size: 16px;
+    line-height: 20px;
+    min-height: 50px;
+}
+
 label {
     font-size: 14px;
     line-height: 18px;
-    color: #f5832a;
+    color: #00aae8;
     margin-right: 20px;
 }
 .action-buttons {
@@ -61,7 +74,7 @@ label {
     }
 
     .background-button {
-        background: #f5832a;
+        background: #00aae8;
         border-radius: 4px;
         padding: 10px;
         font-weight: 600;
@@ -127,7 +140,7 @@ label {
 
 input {
     background: #FFFFFF;
-    border: 1px solid #f5832a;
+    border: 1px solid #00aae8;
     box-sizing: border-box;
     border-radius: 4px;
     padding: 10px;
@@ -140,7 +153,7 @@ input {
 label {
     font-size: 14px;
     line-height: 18px;
-    color: #f5832a;
+    color: #00aae8;
 }
 
 .action-buttons {
@@ -161,7 +174,7 @@ label {
     }
 
     .background-button {
-        background: #f5832a;
+        background: #00aae8;
         border-radius: 4px;
         padding: 10px;
         font-weight: 600;

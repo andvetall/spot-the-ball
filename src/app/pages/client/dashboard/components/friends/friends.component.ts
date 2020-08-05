@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { ToastrService } from 'ngx-toastr';
+import * as jwtdecode from 'jwt-decode';
 
 @Component({
   selector: 'app-friends',
@@ -51,7 +52,11 @@ export class FriendsComponent implements OnInit {
     if (this.formInvite.invalid) {
       return;
     }
-    this._userService.inviteUser(this.formInvite.value).subscribe(user => {
+    const data = this.formInvite.value;
+    data.email = data.email.toLocaleLowerCase()
+    const user = localStorage.getItem('user')
+    const sender = jwtdecode(user)
+    this._userService.inviteUser(data, sender).subscribe(user => {
       if(user) {
         this.toastr.success(`The invite was sent to ${user.email}`);
         this.formInvite.reset();

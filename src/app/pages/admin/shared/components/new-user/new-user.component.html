@@ -46,6 +46,18 @@
         </mat-error>
       </mat-form-field>
 
+      <mat-form-field  (click)='selectTeam()' appearance="fill" class="form-data">
+        <mat-label>Favorite Team *</mat-label>
+        <input matInput formControlName="favoriteTeam" />
+        <mat-error
+          *ngIf="
+            !form.controls['favoriteTeam'].valid
+          "
+        >
+          This field is required. Enter Last Name.
+        </mat-error>
+      </mat-form-field>
+
       <mat-form-field class="form-data">
         <mat-label style="padding-left: 10px;">Game Type</mat-label>
         <select matNativeControl required formControlName="gameType">
@@ -62,6 +74,8 @@
           This field is required. Choose Game Type.
         </mat-error>
       </mat-form-field>
+
+      
     </mat-dialog-content>
 
     <mat-dialog-actions align="center">

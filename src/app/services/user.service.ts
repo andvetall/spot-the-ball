@@ -33,8 +33,9 @@ export class UserService {
     return this._httpClient.get(`${environment.apiUrl}/user/getAllUsers`);
   }
 
-  public inviteUser(userEmail): Observable<any> {
-    return this._httpClient.post(`${environment.apiUrl}/user/inviteUser`, userEmail);
+  public inviteUser(userEmail, sender): Observable<any> {
+    const data = {userEmail, sender}
+    return this._httpClient.post(`${environment.apiUrl}/user/inviteUser`, data);
   }
 
   public sendRequest(newUser): Observable<any> {

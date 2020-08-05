@@ -1,34 +1,13 @@
-<div *ngIf="!access && !requested && !oops" style="margin-left: 100px;">
-  <h1 style="text-align: center;">
-    Email validation
-  </h1>
+<div *ngIf="!requested && !oops" class="page-wrapper">
   <div class="logo-wrapper">
-    <img style="max-width: 200px;" src="../../../../assets/images/cmyk1.png" alt="logo">
-  </div>
-  <h2 style="text-align: center; margin-top: 50px;">Please enter the email address used for the invitation.</h2>
-  <form [formGroup]='formEmailValidation'  class="invite-wrapper">
-
-    <div [ngClass] = "{'error-innput-wrapper' : formEmailValidation.controls['email'].invalid && !formEmailValidation.controls['email'].untouched}" class="input-wrapper">
-      <label for="email">Email</label>
-      <input (keyup)="inputHandlerEmail()" formControlName="email">
-    </div>
-
-    <div class="action-buttons">
-      <button disabled="{{!submitButtonEmailDisabled}}" mat-button class="background-button" (click)="validateEmail()" [ngClass]="{'disabled' : submitButtonEmailDisabled == false}" style="margin: auto">Invite</button>
-    </div>
-  </form>
-</div>
-
-<div *ngIf="access && !requested && !oops" class="page-wrapper">
-  <div class="logo-wrapper">
-    <img style="max-width: 200px;" src="../../../../assets/images/cmyk1.png" alt="logo">
+    <img style="max-width: 200px;" src="../../../../assets/images/LOGO.png" alt="logo">
   </div>
   <h2 style="text-align: center; margin-top: 50px;">For the registration fill in all the fields below.</h2>
   <form [formGroup]='formRequest' class="register-wrapper">
 
-    <div class="input-wrapper">
+    <div [ngClass] = "{'error-innput-wrapper' : formRequest.controls['email'].invalid && !formRequest.controls['email'].untouched}" class="input-wrapper">
       <label for="email">Email</label>
-      <input formControlName="email" value="{{user.email}}" disabled>
+      <input (keyup)="inputHandler()" formControlName="email">
     </div>
 
     <div [ngClass] = "{'error-innput-wrapper' : formRequest.controls['firstName'].invalid && !formRequest.controls['firstName'].untouched}" class="input-wrapper">
@@ -41,22 +20,41 @@
       <input (keyup)="inputHandler()" formControlName="lastName">
     </div>
 
+    <div [ngClass] = "{'error-innput-wrapper' : !teamSelected}" class="input-wrapper">
+      <label for="favoriteTeam">Favorite Team</label>
+      <div style="display: flex;">
+        <div class="favorite-team-input">
+          <p style="margin: 0; color: #6f737b;" *ngIf="!teamSelected">No selected team</p>
+          <div *ngIf="teamSelected" style="display: flex;">
+            <img style="max-width: 36px; position: relative; top: 0; right: 0; cursor: auto;" src="../../../../../assets/images/nhl/{{teamSelected.image}}" alt="{{teamSelected.image}}">
+            <h3 style="font-size: 10px; margin: 0 2px;">{{teamSelected.city}}  </h3>
+            <h2 style="font-size: 12px; margin: 0 2px;">{{teamSelected.title}}</h2>
+          </div>
+        </div>
+        <div class="action-buttons" style="height: 50px; margin: 5px 0 0 11px;">
+          <button mat-button class="background-button" (click)="selectTeam()">
+            Select team
+          </button>
+        </div>
+      </div>
+    </div>
+
     <div class="action-buttons">
-      <button disabled="{{!submitButtonDisabled}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false}" style="margin: auto">Request</button>
+      <button disabled="{{!submitButtonDisabled || !teamSelected}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false || !teamSelected}" style="margin: auto">Request</button>
     </div>
   </form>
 </div>
 
 <div *ngIf="requested" class="page-wrapper">
   <div class="logo-wrapper">
-    <img style="max-width: 200px;" src="../../../../assets/images/cmyk1.png" alt="logo">
+    <img style="max-width: 200px;" src="../../../../assets/images/LOGO.png" alt="logo">
   </div>
   <h2 style="text-align: center; margin-top: 50px;">Thank you! Your request had been sent successfully!</h2>
 </div>
 
 <div *ngIf="oops" class="page-wrapper">
   <div class="logo-wrapper">
-    <img style="max-width: 200px;" src="../../../../assets/images/cmyk1.png" alt="logo">
+    <img style="max-width: 200px;" src="../../../../assets/images/LOGO.png" alt="logo">
   </div>
   <h2 style="text-align: center; margin-top: 50px;">OOPS!</h2>
 </div>

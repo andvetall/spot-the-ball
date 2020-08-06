@@ -2,7 +2,7 @@
   <div class="logo-wrapper">
     <img style="max-width: 200px;" src="../../../../assets/images/LOGO.png" alt="logo">
   </div>
-  <h2 style="text-align: center; margin-top: 50px;">For the registration fill in all the fields below.</h2>
+  <h2 style="text-align: center; margin-top: 50px;">For the registration fill in all the fields below and hit submit.</h2>
   <form [formGroup]='formRequest' class="register-wrapper">
 
     <div [ngClass] = "{'error-innput-wrapper' : formRequest.controls['email'].invalid && !formRequest.controls['email'].untouched}" class="input-wrapper">
@@ -40,7 +40,7 @@
     </div>
 
     <div class="action-buttons">
-      <button disabled="{{!submitButtonDisabled || !teamSelected}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false || !teamSelected}" style="margin: auto">Request</button>
+      <button disabled="{{!submitButtonDisabled || !teamSelected}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false || !teamSelected}" style="margin: auto">Submit</button>
     </div>
   </form>
 </div>

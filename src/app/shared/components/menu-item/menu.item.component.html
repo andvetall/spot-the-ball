@@ -1,32 +1,20 @@
 <div class="menuItem">
-    <div *ngIf='menuItem.children' (click)="toggleChildren()" class="item-wrapper" [ngClass]="{'active-tab' : menuItem.path == activeTab}">
+    <div *ngIf="menuItem.title !== 'Refer a Friend'" (click)="menuItemClick(menuItem)" class="item-wrapper" [ngClass]="{'active-tab' : menuItem.path === activeTab}">
         <div class="img-wrapper">
             <img src={{menuItem.icon}} alt="icon">
         </div>
         <div class="hidden-part" [ngClass] = "{'hidden' : !fullSizeMenu}">
             <p>{{menuItem.title}}</p>
-            <div class="arrow-wrapper"  [ngClass]="{'rotated-arrow' : childrenOpened && menuItem.children}">
-                <img *ngIf='menuItem.arrow && menuItem.children' src={{menuItem.arrow}} alt="arrow">
-            </div>
             <div class="vertival-line"></div>
         </div>
     </div>
-    <div *ngIf='!menuItem.children' (click)="menuItemClick(menuItem)" class="item-wrapper" [ngClass]="{'active-tab' : menuItem.path === activeTab}">
+    <div *ngIf="menuItem.title === 'Refer a Friend'" (click)="menuItemClick(menuItem)" class="item-wrapper friends" [ngClass]="{'active-tab' : menuItem.path === activeTab}">
         <div class="img-wrapper">
             <img src={{menuItem.icon}} alt="icon">
         </div>
         <div class="hidden-part" [ngClass] = "{'hidden' : !fullSizeMenu}">
             <p>{{menuItem.title}}</p>
-            <div class="arrow-wrapper"  [ngClass]="{'rotated-arrow' : childrenOpened && menuItem.children}">
-                <img *ngIf='menuItem.arrow && menuItem.children' src={{menuItem.arrow}} alt="arrow">
-            </div>
             <div class="vertival-line"></div>
         </div>
-    </div>
-    <div *ngIf='menuItem.children' class="children-wrapper" [ngClass]="{'closed' : !childrenOpened, 'hidden-children' : !fullSizeMenu}">
-        <div class="children" *ngFor="let child of menuItem.children" [ngClass]="{'active-child-tab' : child.path === activeChildTab}">
-            <p class="sub-menu-title" (click)="menuItemClick(child)">{{child.title}}</p>
-        </div>
-        <div class="vertival-line"></div>
     </div>
 </div>

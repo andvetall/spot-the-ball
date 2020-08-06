@@ -1,7 +1,7 @@
 <div>
-  <h2 style="text-align: center;">Active Games</h2>
+  <h2 style="text-align: center; color: #292929a1;">Active Games</h2>
   <div *ngIf="gamesFilter.length; else noActiveGames" class="all-games-wrapper">
-    <div *ngFor="let game of gamesFilter">
+    <div style="margin: 0 auto;" *ngFor="let game of gamesFilter">
       <div class="game" (click)="writeResult(game)">
         <game-wrapper [image]="game.image" [title]="game.title" [dueDate]="game.dateTo"></game-wrapper>
       </div>
@@ -14,9 +14,9 @@
   </ng-template>
 </div>
 <div>
-  <h2 style="text-align: center;">Expired Games</h2>
+  <h2 style="text-align: center; color: #292929a1;">Expired Games</h2>
   <div *ngIf="gamesAfterDueDate.length; else noExpiredGames" class="all-games-wrapper">
-    <div *ngFor="let game of gamesAfterDueDate">
+    <div style="margin: 0 auto;" *ngFor="let game of gamesAfterDueDate">
       <div class="game" (click)="writeResult(game)">
         <game-wrapper [image]="game.image" [title]="game.title" [dueDate]="game.dateTo"></game-wrapper>
       </div>

@@ -1,9 +1,9 @@
 .game-wrapper{
-  max-width: 200px;
+    max-width: 200px;
     position: relative;
     border: 1px solid transparent;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 10px 5px 5px grey;
+    border-radius: 10px;
+    box-shadow: 5px 8px 8px grey;
     top: 0;
     left: 0;
     transition: all 0.5s;
@@ -17,18 +17,10 @@
     }
 }
 .game-wrapper:hover{
-  box-shadow: 15px 10px 5px grey;
-  transition: all 1s;
+  box-shadow: 15px 10px 5px #80808047;
+  transition: all 0.3s;
   top: -5px;
   left: -5px;
-  animation-name: rotate;
-  animation-duration: 4s;
-}
-
-@keyframes rotate {
-  25% {transform: rotate(15deg);}
-  60% {transform: rotate(-15deg);}
-  100% {transform: rotate(0deg);}
 }
 
 .game-image {

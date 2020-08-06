@@ -9,7 +9,6 @@ export class MenuService {
 
   constructor() { }
 
-  public toggledMenuIndex = new Subject<number>()
   public activeMenuTab = new Subject<MenuControl>()
   public fullSizeMenu = new Subject<boolean>()
   
@@ -22,7 +21,4 @@ export class MenuService {
     this.activeMenuTab.next(tab)
   }
 
-  public setToggledMenuIndex(index: number){
-    this.toggledMenuIndex.next(index)
-  }
 }

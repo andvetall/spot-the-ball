@@ -82,7 +82,7 @@
 }
 
 .menu {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .tool-bar {
@@ -97,6 +97,7 @@
   box-sizing: border-box;
 
   .menu-title {
+    position: absolute;
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 700;

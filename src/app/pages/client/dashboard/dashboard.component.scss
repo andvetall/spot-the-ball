@@ -4,10 +4,11 @@
   display: flex; 
   overflow-x: auto;
   overflow-y: hidden;
-  border: 1px solid gray;
-  border-radius: 20px 20px 0 0;
+  border: 1px solid #00aae82e;
+  border-radius: 10px;
   min-height: 300px;
   text-align: center;
+  flex-wrap: wrap;
 }
 
 .game {

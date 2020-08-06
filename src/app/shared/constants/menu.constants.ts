@@ -1,19 +1,12 @@
 export const MenuConstants = {
   menuData: [
     {
-      title: 'Demo Game',
+      title: 'Games',
       path: 'dashboard',
       icon: '../../../assets/images/platform-settings-item.png',
-      arrow: '../../../assets/images/menu-arrow.png',
-      children: [
-        {
-          title: 'Games',
-          path: 'dashboard',
-        },
-      ]
     },
     {
-      title: 'Invite Friends',
+      title: 'Refer a Friend',
       path: 'friends',
       icon: '../../../assets/images/friends.png',
     }

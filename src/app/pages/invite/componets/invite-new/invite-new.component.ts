@@ -73,15 +73,11 @@ export class InviteNewComponent implements OnInit {
     data.email = data.email.toLocaleLowerCase();
     this._userService.sendRequest(data).subscribe(res => {
       this.requested = true;
-      setTimeout(() => {
-        this._router.navigate(['login']);
-      }, 3000)
     }, err => {
       this.oops = true;
       setTimeout(() => {
         this._router.navigate(['login']);
-      }, 3000)
-    })
+      }, 3000)})
   }
 
 }

@@ -58,7 +58,7 @@ export class FriendsComponent implements OnInit {
     const sender = jwtdecode(user)
     this._userService.inviteUser(data, sender).subscribe(user => {
       if(user) {
-        this.toastr.success(`The invite was sent to ${user.email}`);
+        this.toastr.success(`The invite was sent`);
         this.formInvite.reset();
         this.submitButtonDisabled = false;
       }

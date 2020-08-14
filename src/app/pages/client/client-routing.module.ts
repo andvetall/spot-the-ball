@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ResultComponent } from './dashboard/components/result/result.component';
 import { GameComponent } from './dashboard/components/game/game.component';
 import { FriendsComponent } from './dashboard/components/friends/friends.component';
+import { PersonalInfoComponent } from './dashboard/components/personal-info/personal-info.component';
 const routes: Routes = [
   {
     path: '',
@@ -16,6 +17,8 @@ const routes: Routes = [
       { path: 'game', component: GameComponent, canActivate:[RoleGuard]},
       { path: 'result', component: ResultComponent, canActivate:[RoleGuard]},
       { path: 'friends', component: FriendsComponent, canActivate:[RoleGuard]},
+      { path: 'personal-info', component: PersonalInfoComponent, canActivate:[RoleGuard]},
+      
     ]
   },
 ];

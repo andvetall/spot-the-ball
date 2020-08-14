@@ -35,12 +35,14 @@ export class NewUserComponent implements OnInit {
         favoriteTeam: new FormControl(this.data.favoriteTeam ? this.data.favoriteTeam : null,  Validators.required),
         gameType: new FormControl(this.data.gameType ? this.data.gameType : null, Validators.required),
         role: new FormControl(this.data.role ? this.data.role : "user", Validators.required),
+        referredBy: new FormControl(this.data.referredBy ? this.data.referredBy.senderEmail : "Admin", Validators.required),
       });
   }
 
   submit() {
     const data = this.form.value;
     data.email = data.email.toLocaleLowerCase();
+    data.referredBy = {senderEmail: this.form.value.referredBy};
     this.userService.addUser(data).subscribe((res) => {
       this.toastr.success('User created');
     }, err => err );
@@ -50,6 +52,7 @@ export class NewUserComponent implements OnInit {
   invite() {
     const data = this.form.value;
     data.email = data.email.toLocaleLowerCase();
+    data.referredBy = {senderEmail: this.form.value.referredBy};
     this.userService.addUser(data).subscribe((res) => res, err => err)
     this.userService.deleteRequest(data.email).subscribe(res => res, err => err)
   }
@@ -69,6 +72,7 @@ export class NewUserComponent implements OnInit {
   update() {
     const data = this.form.value;
     data.email = data.email.toLocaleLowerCase();
+    data.referredBy = {senderEmail: this.form.value.referredBy};
     this.userService.updateUserInfo(data).subscribe(res => {
       this.toastr.success('User updated');
     }, err => {

@@ -1,0 +1,84 @@
+<div *ngIf="userData" style="margin-left: 100px;">
+  <h1>
+    My Account
+  </h1>
+  <h2 style="text-align: center; color: #5e6973;">Wellcome  <b>{{user.firstName | titlecase}}  {{user.lastName | titlecase}}</b>!</h2>
+    <div style="
+      text-align: center;
+      margin: 20px auto;
+      color: #5e6973;
+    ">
+      <div>
+        <form [formGroup]='form' class="register-wrapper">
+
+          <div [ngClass] = "{'error-innput-wrapper' : form.controls['firstName'].invalid && !form.controls['firstName'].untouched}" class="input-wrapper disabled">
+            <label for="firstName">First Name</label>
+            <input disabled formControlName="firstName">
+          </div>
+
+          <div [ngClass] = "{'error-innput-wrapper' : form.controls['lastName'].invalid && !form.controls['lastName'].untouched}" class="input-wrapper disabled">
+            <label for="lastName">Last Name</label>
+            <input disabled formControlName="lastName">
+          </div>
+
+          <div [ngClass] = "{'error-innput-wrapper' : form.controls['email'].invalid && !form.controls['email'].untouched}" class="input-wrapper disabled">
+            <label for="email">Email</label>
+            <input disabled formControlName="email">
+          </div>
+
+          <div [ngClass] = "{'error-innput-wrapper' : form.controls['gameType'].invalid && !form.controls['gameType'].untouched}" class="input-wrapper disabled">
+            <label for="gameType">Game Type</label>
+            <input disabled formControlName="gameType">
+          </div>
+
+          <div [ngClass] = "{'error-innput-wrapper' : form.controls['referredBy'].invalid && !form.controls['referredBy'].untouched}" class="input-wrapper disabled">
+            <label for="referredBy">Referred By</label>
+            <input disabled formControlName="referredBy">
+          </div>
+      
+          <div>
+            <label style="width: 123px;" for="password">Change Password</label>
+            <div style="display: flex; width: calc(100% - 8px);">
+              <div [ngClass] = "{'error-innput-wrapper' : !_samePasswordsOld && !form.controls['password'].untouched}" class="input-wrapper" style="margin: 0 auto; width: 32%;">
+                <input placeholder="enter old password" style="width: 100%;" (keyup)="inputHandler()" (change)="samePasswordsOld()" type="{{!showPassword ? 'password' : 'text'}}" formControlName="password">
+                <img *ngIf="!showPassword" (click)="showPasswordToggle('showPassword')" src="../../../../assets/images/visible.png" alt="vector">
+                <img *ngIf="showPassword" (click)="showPasswordToggle('showPassword')" src="../../../../assets/images/not-visible.png" alt="vector">
+              </div>
+              <div [ngClass] = "{'error-innput-wrapper' : form.controls['passwordNew'].invalid && !form.controls['passwordNew'].untouched}" class="input-wrapper" style="margin: 0 auto; width: 32%;">
+                <input placeholder="enter new password" style="width: 100%;" (keyup)="inputHandler()" type="{{!showPasswordNew ? 'password' : 'text'}}" formControlName="passwordNew">
+                <img *ngIf="!showPasswordNew" (click)="showPasswordToggle('showPasswordNew')" src="../../../../assets/images/visible.png" alt="vector">
+                <img *ngIf="showPasswordNew" (click)="showPasswordToggle('showPasswordNew')" src="../../../../assets/images/not-visible.png" alt="vector">
+              </div>
+              <div [ngClass] = "{'error-innput-wrapper' : !_samePasswordsNew && !form.controls['passwordNew1'].untouched}" class="input-wrapper" style="margin: 0 auto; width: 32%;">
+                <input placeholder="confirm new password" style="width: 100%;" (keyup)="inputHandler()" type="{{!showPasswordNew1 ? 'password' : 'text'}}" formControlName="passwordNew1">
+                <img *ngIf="!showPasswordNew1" (click)="showPasswordToggle('showPasswordNew1')" src="../../../../assets/images/visible.png" alt="vector">
+                <img *ngIf="showPasswordNew1" (click)="showPasswordToggle('showPasswordNew1')" src="../../../../assets/images/not-visible.png" alt="vector">
+              </div>
+            </div>
+          </div>
+          
+          <div class="action-buttons">
+            <div [ngClass] = "{'error-innput-wrapper' : teamSelected === undefined}" class="input-wrapper">
+              <label for="favoriteTeam">Favorite Team</label>
+              <div style="display: flex;">
+                <div class="favorite-team-input">
+                  <p style="margin: 0; color: #6f737bb8;" *ngIf="!teamSelected">No selected team</p>
+                  <div *ngIf="teamSelected" style="display: flex;">
+                    <img style="max-width: 36px; position: relative; top: 0; right: 0; cursor: auto;" src="../../../../../assets/images/nhl/{{teamSelected.image}}" alt="{{teamSelected.image}}">
+                    <h3 style="font-size: 10px; margin: 0 2px;">{{teamSelected.city}}  </h3>
+                    <h2 style="font-size: 12px; margin: 0 2px;">{{teamSelected.title}}</h2>
+                  </div>
+                </div>
+                <div class="action-buttons" style="height: 50px; margin: 5px 0 0 11px;">
+                  <button mat-button class="background-button" (click)="selectTeam()">
+                    Select team
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button disabled="{{!submitButtonDisabled}}" style="height: 53px;"  mat-button class="background-button" (click)="submit()" [ngClass]="{'disabled' : submitButtonDisabled == false}">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>

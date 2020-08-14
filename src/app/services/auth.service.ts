@@ -18,4 +18,12 @@ export class AuthService {
     return this._httpClient.post(`${environment.apiUrl}/auth/login`, user)
   }
 
+  public checkEmail(email): Observable<any> {
+    return this._httpClient.get(`${environment.apiUrl}/auth/checkEmail/${email}`)
+  }
+
+  public resetPassword(email): Observable<any> {
+    return this._httpClient.get(`${environment.apiUrl}/auth/resetPassword/${email}`)
+  }
+
 }

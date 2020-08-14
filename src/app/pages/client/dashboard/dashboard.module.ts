@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from 'src/app/modules/material/material.module';
 import { FriendsComponent } from './components/friends/friends.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     ResultDialogComponent,
     FriendsComponent,
+    PersonalInfoComponent,
     GameWrapperComponent,
     ResultComponent
   ],

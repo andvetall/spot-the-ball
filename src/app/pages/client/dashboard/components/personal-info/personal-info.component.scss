@@ -1,0 +1,133 @@
+.button{
+    padding: 13px;
+    color: white;
+    background: #00aae8;
+    border-radius: 5px;
+    transition: all 0.5s;
+    position: fixed;
+    right: 90px;
+    top: 80px;
+}
+.button:hover{
+    background: #949798;
+    transition: all 0.5s;
+}
+.register-wrapper {
+    margin: 10px auto 0;
+    height: 300px;
+    width: 60vw;
+    padding: 30px;
+
+    & * {
+        display: flex;
+        width: 100%;
+        font-family: Source Sans Pro
+    }
+}
+
+.error-innput-wrapper {
+    input {
+        border: 1.5px solid #FA6363 !important;
+    }
+
+    label {
+        color: #FA6363 !important;
+    }
+}
+
+.input-wrapper {
+    display: flex;
+    img {
+        position: absolute;
+        top: 17px;
+        right: 6px;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+    }
+    label{
+        width: 130px;
+        padding: 16px 0;
+    }
+    input{
+        display: flex;
+    }
+
+    position: relative;
+}
+
+.disabled{
+
+    label{
+        color: #949da0;
+    }
+    input{
+        border: 1px solid #949da0;
+        color: #949da0;
+    }
+}
+
+input {
+    background: #FFFFFF;
+    border: 1px solid #00aae8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    width: 100%;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+label {
+    font-size: 14px;
+    line-height: 18px;
+    color: #00aae8;
+}
+
+.action-buttons {
+    button {
+        color: #ffffff;
+        width: 150px;
+        margin: 0;
+    }
+
+
+    .none-background-button {
+        background: transparent;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        text-decoration: underline;
+    }
+
+    .background-button {
+        background: #00aae8;
+        border-radius: 4px;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .disabled {
+        background-color: #7f8fa445;
+    }
+
+    margin: 25px 0 0 0;
+    display: flex !important;
+    justify-content: space-between;
+}
+.favorite-team-input{
+    background: #FFFFFF;
+    border: 1px solid #00aae8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    width: 300px;
+    font-size: 16px;
+    line-height: 20px;
+    min-height: 50px;
+}

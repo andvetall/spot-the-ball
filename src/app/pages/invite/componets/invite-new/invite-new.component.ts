@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { FavotiteTeamComponent } from 'src/app/shared/components/favotite-team/favotite-team.component';
+import * as jwtdecode from "jwt-decode";
 
 @Component({
   selector: 'app-invite-new',
@@ -16,13 +17,19 @@ export class InviteNewComponent implements OnInit {
   private requested: boolean = false;
   private oops: boolean = false;
   private teamSelected: any = null;
+  private sender: any = null;
 
   constructor(
     private _router : Router,
     private _formBuilder: FormBuilder,
     private _userService: UserService,
     private dialog: MatDialog,
-  ) {  }
+    private rote: ActivatedRoute,
+  ) {
+    this.rote.queryParams.subscribe(res => {
+      this.sender = jwtdecode(res.token)
+    })
+  }
 
   ngOnInit() {
     this._createForm();
@@ -69,7 +76,7 @@ export class InviteNewComponent implements OnInit {
     if (this.formRequest.invalid) {
       return;
     }
-    const data = Object.assign(this.formRequest.value, {favoriteTeam: `${this.teamSelected.city} ${this.teamSelected.title}`});
+    const data = Object.assign(this.formRequest.value, {favoriteTeam: `${this.teamSelected.city} ${this.teamSelected.title}`}, {referredBy: this.sender});
     data.email = data.email.toLocaleLowerCase();
     this._userService.sendRequest(data).subscribe(res => {
       this.requested = true;

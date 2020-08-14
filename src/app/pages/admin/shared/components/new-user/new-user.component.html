@@ -58,6 +58,18 @@
         </mat-error>
       </mat-form-field>
 
+      <mat-form-field appearance="fill" class="form-data">
+        <mat-label>Referred By</mat-label>
+        <input matInput formControlName="referredBy" />
+        <mat-error
+          *ngIf="
+            !form.controls['referredBy'].valid
+          "
+        >
+          This field is required. Enter Last Name.
+        </mat-error>
+      </mat-form-field>
+
       <mat-form-field class="form-data">
         <mat-label style="padding-left: 10px;">Game Type</mat-label>
         <select matNativeControl required formControlName="gameType">

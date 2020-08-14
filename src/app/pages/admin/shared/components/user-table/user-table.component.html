@@ -5,7 +5,7 @@
         <th mat-header-cell *matHeaderCellDef> {{ item | toCamelCase }} </th>
         <td id="cell" mat-cell *matCellDef="let element" cellpadding="0"> 
             <div class="table-cell" (click)="showUserData(element)">
-              {{ (item == 'firstName' || item == 'lastName') ? (element[item] | titlecase) : element[item]}} 
+              {{ (item == 'firstName' || item == 'lastName') ? (element[item] | titlecase) : element[item] && item === "referredBy" ? element[item].senderEmail : element[item] }} 
             </div> 
             
             <div *ngIf="item === 'actions'" >

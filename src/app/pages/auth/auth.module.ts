@@ -6,6 +6,7 @@ import { MaterialModule } from 'src/app/modules/material/material.module';
 
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     AuthComponent,
     LoginComponent,
+    ResetPasswordComponent
   ],
 })
 export class AuthModule { }

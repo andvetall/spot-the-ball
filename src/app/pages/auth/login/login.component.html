@@ -17,7 +17,13 @@
     </div>
 
     <div class="action-buttons">
-      <button disabled="{{!submitButtonDisabled}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false}" style="margin: auto">Login</button>
+      <button
+      style="
+          background: transparent;
+          color: #00aae8;
+      "
+      (click)="navigateToForgotPassword()">Reset password</button>
+      <button disabled="{{!submitButtonDisabled}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false}">Login</button>
     </div>
   </form>
 </div>

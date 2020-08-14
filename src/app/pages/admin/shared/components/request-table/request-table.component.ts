@@ -45,38 +45,6 @@ export class RequestTableComponent implements OnInit {
   }
 
   openModal(type, element?) {
-    if (type === "update") {
-      const data: any = {
-        type: type,
-        _id: element._id,
-        email: element.email,
-        firstName: element.firstName,
-        lastName: element.lastName,
-        favoriteTeam: element.favoriteTeam,
-        gameType: element.gameType,
-        password: element.password,
-        role: element.role,
-      };
-      const dialogRef = this.dialog.open(NewUserComponent, {
-        width: "700px",
-        data: data,
-      });
-
-      dialogRef.afterClosed().subscribe((result) => {
-        this.getData();
-      });
-    } else if (type === "add") {
-      const data: any = {
-        type: type,
-      };
-      const dialogRef = this.dialog.open(NewUserComponent, {
-        width: "700px",
-        data: data,
-      });
-      dialogRef.afterClosed().subscribe((result) => {
-        this.getData();
-      });
-    } else if(type === "addFromRequest") {
       const data: any = {
         type: type,
         _id: null,
@@ -86,7 +54,8 @@ export class RequestTableComponent implements OnInit {
         favoriteTeam: element.favoriteTeam,
         gameType: null,
         password: null,
-        role: null
+        role: null,
+        referredBy: element.referredBy
         ,
       };
       const dialogRef = this.dialog.open(NewUserComponent, {
@@ -102,7 +71,6 @@ export class RequestTableComponent implements OnInit {
           }, err => err)
         }, 2000)
       });
-    }
   }
 
   deleteRequest(request) {

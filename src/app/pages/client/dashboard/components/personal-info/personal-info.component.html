@@ -2,7 +2,7 @@
   <h1>
     My Account
   </h1>
-  <h2 style="text-align: center; color: #5e6973;">Wellcome  <b>{{user.firstName | titlecase}}  {{user.lastName | titlecase}}</b>!</h2>
+  <h2 style="text-align: center; color: #5e6973;">Welcome  <b>{{user.firstName | titlecase}}  {{user.lastName | titlecase}}</b>!</h2>
     <div style="
       text-align: center;
       margin: 20px auto;
@@ -11,7 +11,7 @@
       <div>
         <form [formGroup]='form' class="register-wrapper">
 
-          <div [ngClass] = "{'error-innput-wrapper' : form.controls['firstName'].invalid && !form.controls['firstName'].untouched}" class="input-wrapper disabled">
+          <!-- <div [ngClass] = "{'error-innput-wrapper' : form.controls['firstName'].invalid && !form.controls['firstName'].untouched}" class="input-wrapper disabled">
             <label for="firstName">First Name</label>
             <input disabled formControlName="firstName">
           </div>
@@ -34,7 +34,7 @@
           <div [ngClass] = "{'error-innput-wrapper' : form.controls['referredBy'].invalid && !form.controls['referredBy'].untouched}" class="input-wrapper disabled">
             <label for="referredBy">Referred By</label>
             <input disabled formControlName="referredBy">
-          </div>
+          </div> -->
       
           <div>
             <label style="width: 123px;" for="password">Change Password</label>

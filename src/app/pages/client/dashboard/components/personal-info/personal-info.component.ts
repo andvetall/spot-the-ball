@@ -69,22 +69,22 @@ export class PersonalInfoComponent implements OnInit {
       email: new FormControl(this.userData.email ? this.userData.email.toLocaleLowerCase() : null, [Validators.required, Validators.email]),
       password: new FormControl(null, [
         Validators.required,
-        Validators.minLength(6),
+        Validators.minLength(9),
       ]),
-      passwordNew: new FormControl(null, [
+      passwordNew: new FormControl({value: null, disabled: true}, [
         Validators.required,
-        Validators.minLength(6),
+        Validators.minLength(9),
       ]),
-      passwordNew1: new FormControl(null, [
+      passwordNew1: new FormControl({value: null, disabled: true}, [
         Validators.required,
-        Validators.minLength(6),
+        Validators.minLength(9),
       ]),
       firstName: new FormControl(this.userData.firstName ? this.userData.firstName : null, Validators.required),
       lastName: new FormControl(this.userData.lastName ? this.userData.lastName : null, Validators.required),
       favoriteTeam: new FormControl(this.userData.favoriteTeam ? this.userData.favoriteTeam : null,  Validators.required),
-      gameType: new FormControl(this.userData.gameType ? this.userData.gameType : null, Validators.required),
-      role: new FormControl(this.userData.role ? this.userData.role : "user", Validators.required),
-      referredBy: new FormControl(this.userData.referredBy ? this.userData.referredBy.senderEmail : "Admin", Validators.required),
+      // gameType: new FormControl(this.userData.gameType ? this.userData.gameType : null, Validators.required),
+      // role: new FormControl(this.userData.role ? this.userData.role : "user", Validators.required),
+      // referredBy: new FormControl(this.userData.referredBy ? this.userData.referredBy.senderEmail : "Admin", Validators.required),
     });
   }
 
@@ -93,26 +93,27 @@ export class PersonalInfoComponent implements OnInit {
       this.submitButtonDisabled = false;
       return
     }
-    this.samePasswordsOld();
-    this.samePasswordsNew();
-    if(this.form.status === "INVALID"){
-      this.submitButtonDisabled = false;
-      return
-    } 
-    for(let item in this.form){
-      if(item.length === 0){
-        debugger
+    if(this.form.value.password && this.form.value.password.length > 0){
+      this.samePasswordsOld();
+      if(!this._samePasswordsOld || this.form.value.password.length === 0){
+        this.form.controls['passwordNew'].disable()
+        this.form.controls['passwordNew'].reset()
+        this.form.controls['passwordNew1'].disable()
+        this.form.controls['passwordNew1'].reset()
         this.submitButtonDisabled = false;
         return
+      } else {
+        this.samePasswordsNew();
+        this.form.controls['passwordNew'].enable()
+        this.form.controls['passwordNew1'].enable()
+        if(!this._samePasswordsNew){
+          this.submitButtonDisabled = false;
+          return
+        } else if(!this.form.controls['firstName'].valid || !this.form.controls['lastName'].valid || !this.form.controls['favoriteTeam'].valid) {
+          this.submitButtonDisabled = false;
+          return
+        }
       }
-    }
-    if(!this._samePasswordsOld){
-      this.submitButtonDisabled = false;
-      return
-    }
-    if(!this._samePasswordsNew){
-      this.submitButtonDisabled = false;
-      return
     }
     this.submitButtonDisabled = true;
   }
@@ -127,6 +128,14 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   private samePasswordsNew() {
+    if(!this.form.value.passwordNew){
+      this._samePasswordsNew = false;
+      return
+    }
+    if(!this.form.value.passwordNew1){
+      this._samePasswordsNew = false;
+      return
+    }
     if(this.form.value.passwordNew !== this.form.value.passwordNew1 && this.form.controls['passwordNew'].valid){
       this._samePasswordsNew = false;
       return
@@ -141,6 +150,7 @@ export class PersonalInfoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.teamSelected = result;
+      this.inputHandler();
     });
   }
 
@@ -162,10 +172,16 @@ export class PersonalInfoComponent implements OnInit {
   submit(){
     this.form.controls['favoriteTeam'].setValue(`${this.teamSelected.city} ${this.teamSelected.title}`)
     const data = this.form.value;
-    data.password = this.getHash(data.passwordNew)
-    data.referredBy = {senderEmail: data.referredBy}
-    delete data.passwordNew;
-    delete data.passwordNew1;
+    if(data.password){
+      data.password = this.getHash(data.passwordNew)
+      data.referredBy = {senderEmail: data.referredBy}
+      delete data.passwordNew;
+      delete data.passwordNew1;
+    } else {
+      delete data.password;
+      delete data.passwordNew;
+      delete data.passwordNew1;
+    }
     this.userService.updateUserInfo(data).subscribe(res => {
       this.toastr.success('Account is updated');
       this.userData = data;

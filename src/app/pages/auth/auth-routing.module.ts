@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { LoginGuard } from 'src/app/core/guards/login-guard';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
     component: AuthComponent,
     children: [
       {path : "login", component: LoginComponent},
-    ]
+    ],
+    canActivate: [LoginGuard]
   },
   {
     path: '',

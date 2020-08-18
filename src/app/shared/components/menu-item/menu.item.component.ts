@@ -29,6 +29,10 @@ export class MenuItemComponent implements OnInit {
     }
 
     public menuItemClick(menuItem) {
+        if(menuItem.title === 'Log Out') {
+            localStorage.removeItem('user')
+            this._router.navigate([menuItem.path])
+        }
         this._router.navigate([menuItem.path])
         this._menuService.setActiveMenuTab({
             activeTab: menuItem.path.split('/')[0]

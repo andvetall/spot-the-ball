@@ -36,9 +36,5 @@ export class ClientComponent implements OnInit, AfterViewInit {
     this.showFullSizeMenu = !this.showFullSizeMenu;
     this._menuService.showFullSizeMenu(this.showFullSizeMenu);
   }
-
-  public logOutClick() {
-    localStorage.clear();
-    this._router.navigate(["auth"]);
-  }
+  
 }

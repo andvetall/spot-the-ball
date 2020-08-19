@@ -17,6 +17,7 @@ import { HttpErrorInterceptor } from './core/interceptors/http.interceptor';
 import { ErrorService } from './core/error-handler/error.handler';
 import { InviteModule } from './pages/invite/invite-user.module';
 import { FavotiteTeamComponent } from './shared/components/favotite-team/favotite-team.component';
+import { HowToPlayComponent } from './shared/components/how-to-play/how-to-play.component';
 
 const COMPONENTS = [
 ];
@@ -25,6 +26,7 @@ const COMPONENTS = [
   declarations: [
     AppComponent,
     FavotiteTeamComponent,
+    HowToPlayComponent,
     COMPONENTS
   ],
   imports: [
@@ -58,6 +60,6 @@ const COMPONENTS = [
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [FavotiteTeamComponent]
+  entryComponents: [FavotiteTeamComponent, HowToPlayComponent]
 })
 export class AppModule { }

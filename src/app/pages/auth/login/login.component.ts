@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { HowToPlayComponent } from 'src/app/shared/components/how-to-play/how-to-play.component';
 
 
 
@@ -20,6 +22,7 @@ export class LoginComponent implements OnInit {
     private _authService : AuthService,
     private _router : Router,
     private _formBuilder: FormBuilder,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit() {
@@ -61,7 +64,16 @@ export class LoginComponent implements OnInit {
     this._authService.loginUser(data).subscribe(a => {
       localStorage.setItem('user', a.token)
       const role = a.user.role
-      role === "admin" ? this._router.navigate(['admin/main-dashboard']) : this._router.navigate(['dashboard'])
+      if(role === "admin") {
+        this._router.navigate(['admin/main-dashboard'])
+      } else {
+        this._router.navigate(['dashboard'])
+        setTimeout(() => {
+          const dialogRef = this.dialog.open(HowToPlayComponent, {
+            width: "700px",
+          });
+        }, 1000)
+      }
     })
   }
 

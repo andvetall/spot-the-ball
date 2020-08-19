@@ -5,6 +5,8 @@ import { Router } from "@angular/router";
 import { ResultService } from "src/app/services/result.service";
 import { GameModel, UserModel } from "src/app/shared/interfaces";
 import * as moment from 'moment';
+import { MatDialog } from '@angular/material/dialog';
+import { HowToPlayComponent } from 'src/app/shared/components/how-to-play/how-to-play.component';
 
 @Component({
   selector: "dashboard",
@@ -22,6 +24,7 @@ export class DashboardComponent implements OnInit {
     private gamesService: GamesService,
     private router: Router,
     private resultService: ResultService,
+    private dialog: MatDialog,
   ) {}
 
   ngOnInit() {
@@ -75,5 +78,11 @@ export class DashboardComponent implements OnInit {
     const userId = user.id;
     let gameId = game._id;
     return this.gamesFilter3(gameId, userId);
+  }
+
+  howToPlay() {
+    const dialogRef = this.dialog.open(HowToPlayComponent, {
+      width: "700px",
+    });
   }
 }

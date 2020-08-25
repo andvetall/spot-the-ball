@@ -12,6 +12,17 @@
       <menu-item [menu-item]='item' [index-item]='i'
         [full-size-menu]='showFullSizeMenu'></menu-item>
     </div>
+    <p *ngIf="!showFullSizeMenu"
+      style="
+            color: #00aae8;
+            transform: rotate(-90deg);
+            width: 250px;
+            font-size: 30px;
+            position: relative;
+            top: 86px;
+            left: -90px;
+      "
+    >Refer a Friend >></p>
     <menu-item class="log-out" [menu-item]='menuData.logoutItem'
       [full-size-menu]='showFullSizeMenu'></menu-item>
   </div>

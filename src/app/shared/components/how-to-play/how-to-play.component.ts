@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-how-to-play',
   templateUrl: './how-to-play.component.html',
   styleUrls: ['./how-to-play.component.scss']
 })
-export class HowToPlayComponent implements OnInit {
+export class HowToPlayComponent {
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog,
+  ) { }
 
-  ngOnInit() {
+  close() {
+    this.dialog.closeAll();
   }
 
 }

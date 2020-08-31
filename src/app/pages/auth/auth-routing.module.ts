@@ -24,7 +24,8 @@ const routes: Routes = [
     component: AuthComponent,
     children: [
       {path : "reset-password", component: ResetPasswordComponent},
-    ]
+    ],
+    canActivate: [LoginGuard]
   },
 ];
 

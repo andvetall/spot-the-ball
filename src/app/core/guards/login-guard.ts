@@ -18,7 +18,7 @@ export class LoginGuard implements CanActivate {
       const tokenInfo = this.getDecodedAccessToken(localStorage.getItem('user'));
       if(tokenInfo){
         if(tokenInfo.role === 'admin') {
-          this.router.navigate(['admin']);
+          this.router.navigate(['admin/main-dashboard']);
           return false
         } else if(tokenInfo.role === 'user') {
           this.router.navigate(['dashboard']);

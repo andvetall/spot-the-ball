@@ -160,7 +160,7 @@ label {
     button {
         color: #ffffff;
         width: 150px;
-        margin: 0;
+        margin: 0 auto;
     }
 
 
@@ -176,7 +176,7 @@ label {
     .background-button {
         background: #00aae8;
         border-radius: 4px;
-        padding: 10px;
+        padding: 15px;
         font-weight: 600;
         font-size: 16px;
         line-height: 20px;
@@ -187,6 +187,6 @@ label {
     }
 
     margin: 25px 0 0 0;
-    display: flex !important;
+    display: block !important;
     justify-content: space-between;
 }

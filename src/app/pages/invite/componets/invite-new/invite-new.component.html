@@ -40,7 +40,14 @@
         </div>
     
         <div class="action-buttons">
-          <button disabled="{{!submitButtonDisabled || !teamSelected}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false || !teamSelected}" style="margin: auto">Submit</button>
+          <button disabled="{{!submitButtonDisabled || !teamSelected}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false || !teamSelected}">Submit</button>
+          <p style="display: flex; justify-content: space-around; width: 80%; margin: 21px auto;">
+              <span style="color: #6f7394;">You have an account already?</span>
+            <!-- <span style="cursor: pointer;" (click)="loginRedirect()"> -->
+              <b style="cursor: pointer; color: #00aae8;" (click)="loginRedirect()">Login HERE</b>
+            <!-- </span> -->
+          </p>
+          <!-- <button (click)="loginRedirect()" type="button" style="color: #00aae8; background: transparent; width: auto; margin: 10px auto; width: auto;">You have an account already? Login HERE</button> -->
         </div>
       </form>
     </div>

@@ -27,7 +27,10 @@ export class InviteNewComponent implements OnInit {
     private rote: ActivatedRoute,
   ) {
     this.rote.queryParams.subscribe(res => {
-      this.sender = jwtdecode(res.token)
+      if(res.token) {
+        this.sender = jwtdecode(res.token);
+        return
+      }
     })
   }
 
@@ -85,6 +88,11 @@ export class InviteNewComponent implements OnInit {
       setTimeout(() => {
         this._router.navigate(['login']);
       }, 3000)})
+  }
+
+  loginRedirect() {
+    this.formRequest.reset();
+    this._router.navigate(['login']);
   }
 
 }

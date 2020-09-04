@@ -1,3 +1,70 @@
+*{
+
+    font-family: futuraBold;
+}
+main{
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    header{
+        width: 100%;
+        max-height: 120px;
+        height: 120px;
+        display: flex;
+        justify-content: space-between;
+        border: solid 0.5px #ffffff;
+        background-color: #f1f1f1;
+        .image{
+            height: inherit;
+            background: #00adef;
+            padding: 0 33px;
+            img{
+                height: inherit;
+            }
+        }
+        .sign-in-up{
+            padding: 44px 45px 46px;
+            position: relative;
+        }
+        .sign-in-up span{
+            color: #a7a9ac;
+            margin: 0 40px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 25px;
+            position: relative;
+        }
+        .sign-in-up span:hover{
+            top: 2px;
+        }
+        .sign-in-up span:nth-child(1):after {
+            content: "";
+            width: 0;
+            height: 68px;
+            position: absolute;
+            border: 1px solid #00adef;
+            top: 6px;
+            left: 130px;
+        }
+        .sign-in-up span:nth-child(2):before {
+            content: "";
+            width: 0;
+            height: 27px;
+            position: absolute;
+            border: 1px solid #00adef;
+            top: -43px;
+            right: 122px;
+        }
+
+    }
+    section{
+        height: calc(100vh - 120px - 256px);
+    }
+}
+
+
+
+
 h1, h2{
     color: #2b303cad;
 }

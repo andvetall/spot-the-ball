@@ -1,4 +1,24 @@
-<div *ngIf="!requested && !oops" class="page-wrapper">
+<main>
+  <header>
+    <div class="image">
+      <img src="../../../../../assets/images/Web_Puckhunt_Logo.png" alt="logo">
+    </div>
+    <div class="sign-in-up">
+      <span>Sign In</span>
+      <span>Sign Up</span>
+    </div>
+  </header>
+
+  <section>
+    section
+  </section>
+
+  <footer>
+    footer
+  </footer>
+</main>
+
+<!-- <div *ngIf="!requested && !oops" class="page-wrapper">
       <div class="logo-wrapper">
         <img style="max-width: 200px;" src="../../../../assets/images/LOGO.png" alt="logo">
       </div>
@@ -43,11 +63,8 @@
           <button disabled="{{!submitButtonDisabled || !teamSelected}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false || !teamSelected}">Submit</button>
           <p style="display: flex; justify-content: space-around; width: 80%; margin: 21px auto;">
               <span style="color: #6f7394;">You have an account already?</span>
-            <!-- <span style="cursor: pointer;" (click)="loginRedirect()"> -->
               <b style="cursor: pointer; color: #00aae8;" (click)="loginRedirect()">Login HERE</b>
-            <!-- </span> -->
           </p>
-          <!-- <button (click)="loginRedirect()" type="button" style="color: #00aae8; background: transparent; width: auto; margin: 10px auto; width: auto;">You have an account already? Login HERE</button> -->
         </div>
       </form>
     </div>
@@ -65,4 +82,4 @@
         <img style="max-width: 200px;" src="../../../../assets/images/LOGO.png" alt="logo">
       </div>
       <h2 style="text-align: center; margin-top: 50px;">OOPS!</h2>
-    </div>
+    </div> -->

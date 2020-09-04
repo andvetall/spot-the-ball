@@ -5,9 +5,10 @@
 // @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 @import "./assets/scss/normalize";
 @import "./assets/scss/base";
+@import "./assets/scss/_fonts.scss";
 @import "~ngx-toastr/toastr";
 @import "~roboto-fontface/css/roboto/roboto-fontface.css";
 
 * {
-  font-family: Roboto;
+  font-family: futura;
 }

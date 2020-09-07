@@ -174,7 +174,6 @@ export class PersonalInfoComponent implements OnInit {
     const data = this.form.value;
     if(data.password){
       data.password = this.getHash(data.passwordNew)
-      data.referredBy = {senderEmail: data.referredBy}
       delete data.passwordNew;
       delete data.passwordNew1;
     } else {

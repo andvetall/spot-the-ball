@@ -27,22 +27,24 @@ export class UserTableComponent implements OnInit {
     private resultService: ResultService,
   ) {
     this.userService.allUsers.subscribe(res => {
-      this.result = res;
-      if(this.result) {
-        const tableItems = this.result.filter(value => {
-          return value.role !== 'admin' && value.gameType !== undefined;
-        })
-        tableItems.sort(function (a, b) {
-          return ('' + a.gameType).localeCompare(b.gameType);
-        })
-        
-        this.displayedColumns = Object.keys(tableItems[0]).filter(
-          (key) => key !== "_id" && key !== "__v" && key !== 'password'
-        );
-        this.displayedColumns.push("actions");
-        this.dataSource = new MatTableDataSource(tableItems);
-        this.dataSource = tableItems;
-        this.data = tableItems;
+      if(res && res.length > 1) {
+        this.result = res;
+        if(this.result) {
+          const tableItems = this.result.filter(value => {
+            return value.role !== 'admin' && value.gameType !== undefined;
+          })
+          tableItems.sort(function (a, b) {
+            return ('' + a.gameType).localeCompare(b.gameType);
+          })
+          
+          this.displayedColumns = Object.keys(tableItems[0]).filter(
+            (key) => key !== "_id" && key !== "__v" && key !== 'password'
+          );
+          this.displayedColumns.push("actions");
+          this.dataSource = new MatTableDataSource(tableItems);
+          this.dataSource = tableItems;
+          this.data = tableItems;
+        }
       }
     }, err => err)
   }

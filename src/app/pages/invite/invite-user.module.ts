@@ -5,6 +5,7 @@ import { MaterialModule } from 'src/app/modules/material/material.module';
 import { InviteRoutingModule } from './invite-routing.module';
 import { InviteComponent } from './invite.component';
 import { InviteNewComponent } from './componets/invite-new/invite-new.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { InviteNewComponent } from './componets/invite-new/invite-new.component'
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
-    InviteRoutingModule
+    InviteRoutingModule,
+    CarouselModule
   ],
   declarations: [
     InviteComponent,

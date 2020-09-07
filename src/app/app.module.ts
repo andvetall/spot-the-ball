@@ -10,7 +10,6 @@ import { MaterialModule } from './modules/material/material.module';
 import { AuthModule } from './pages/auth/auth.module';
 import { ClientModule } from './pages/client/client.module';
 import { AdminModule } from './pages/admin/admin.module';
-import { NgImageSliderModule } from 'ng-image-slider';
 //Components
 import { AppComponent } from './app.component';
 import { LoginGuard } from './core/guards/login-guard';
@@ -47,7 +46,6 @@ const COMPONENTS = [
     }),
     ToastContainerModule,
     MatSidenavModule,
-    NgImageSliderModule
   ],
   providers: [
     LoginGuard,

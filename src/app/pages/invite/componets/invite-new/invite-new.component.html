@@ -1,85 +1,331 @@
-<main>
+<main  *ngIf="!requested && !oops">
   <header>
     <div class="image">
-      <img src="../../../../../assets/images/Web_Puckhunt_Logo.png" alt="logo">
+      <img
+        src="../../../../../assets/images/Web_Puckhunt_Logo.png"
+        alt="logo"
+      />
     </div>
     <div class="sign-in-up">
-      <span>Sign In</span>
-      <span>Sign Up</span>
+      <span (click)="loginRedirect()">Sign In</span>
+      <span (click)="toggleExpansion(true, 0)">Sign Up</span>
     </div>
   </header>
 
   <section>
-    section
-  </section>
+    <mat-accordion>
+      <mat-expansion-panel
+      style="background: #f1f1f1; margin-top: -49px;box-shadow: none;"
+      disabled [expanded]="expansionOpened" hideToggle>
+        <mat-expansion-panel-header> </mat-expansion-panel-header>
 
-  <footer>
-    footer
-  </footer>
-</main>
+        <div class="page-wrapper">
+          <h2 style="text-align: center;">
+            SIGN UP
+          </h2>
+          <form [formGroup]="formRequest" class="register-wrapper">
+            <div
+              [ngClass]="{
+                'error-innput-wrapper':
+                  formRequest.controls['email'].invalid &&
+                  !formRequest.controls['email'].untouched
+              }"
+              class="input-wrapper"
+            >
+              <!-- <label for="email">Email</label> -->
+              <input (keyup)="inputHandler()" placeholder="Email *" formControlName="email" />
+            </div>
 
-<!-- <div *ngIf="!requested && !oops" class="page-wrapper">
-      <div class="logo-wrapper">
-        <img style="max-width: 200px;" src="../../../../assets/images/LOGO.png" alt="logo">
-      </div>
-      <h2 style="text-align: center; margin-top: 50px;">For the registration fill in all the fields below and hit submit.</h2>
-      <form [formGroup]='formRequest' class="register-wrapper">
-    
-        <div [ngClass] = "{'error-innput-wrapper' : formRequest.controls['email'].invalid && !formRequest.controls['email'].untouched}" class="input-wrapper">
-          <label for="email">Email</label>
-          <input (keyup)="inputHandler()" formControlName="email">
-        </div>
-    
-        <div [ngClass] = "{'error-innput-wrapper' : formRequest.controls['firstName'].invalid && !formRequest.controls['firstName'].untouched}" class="input-wrapper">
-          <label for="password">First Name</label>
-          <input (keyup)="inputHandler()" formControlName="firstName">
-        </div>
-    
-        <div [ngClass] = "{'error-innput-wrapper' : formRequest.controls['lastName'].invalid && !formRequest.controls['lastName'].untouched}" class="input-wrapper">
-          <label for="password">Last Name</label>
-          <input (keyup)="inputHandler()" formControlName="lastName">
-        </div>
-    
-        <div [ngClass] = "{'error-innput-wrapper' : teamSelected === undefined}" class="input-wrapper">
-          <label for="favoriteTeam">Favorite Team</label>
-          <div style="display: flex;">
-            <div class="favorite-team-input">
-              <p style="margin: 0; color: #6f737bb8;" *ngIf="!teamSelected">No selected team</p>
-              <div *ngIf="teamSelected" style="display: flex;">
-                <img style="max-width: 36px; position: relative; top: 0; right: 0; cursor: auto;" src="../../../../../assets/images/nhl/{{teamSelected.image}}" alt="{{teamSelected.image}}">
-                <h3 style="font-size: 10px; margin: 0 2px;">{{teamSelected.city}}  </h3>
-                <h2 style="font-size: 12px; margin: 0 2px;">{{teamSelected.title}}</h2>
+            <div
+              [ngClass]="{
+                'error-innput-wrapper':
+                  formRequest.controls['firstName'].invalid &&
+                  !formRequest.controls['firstName'].untouched
+              }"
+              class="input-wrapper"
+            >
+              <!-- <label for="password">First Name</label> -->
+              <input (keyup)="inputHandler()" placeholder="First Name *" formControlName="firstName" />
+            </div>
+
+            <div
+              [ngClass]="{
+                'error-innput-wrapper':
+                  formRequest.controls['lastName'].invalid &&
+                  !formRequest.controls['lastName'].untouched
+              }"
+              class="input-wrapper"
+            >
+              <!-- <label for="password">Last Name</label> -->
+              <input (keyup)="inputHandler()" placeholder="Last Name *" formControlName="lastName" />
+            </div>
+
+            <div
+              [ngClass]="{ 'error-innput-wrapper': teamSelected === undefined }"
+              class="input-wrapper"
+            >
+              <!-- <label for="favoriteTeam">Favorite Team</label> -->
+              <div style="display: flex">
+                <div class="favorite-team-input">
+                  <p style="margin: 0; color: rgb(117 117 117);" *ngIf="!teamSelected">
+                    No selected team *
+                  </p>
+                  <div *ngIf="teamSelected" style="display: flex">
+                    <img
+                      style="
+                        max-height: 20px;
+                        position: relative;
+                        top: 0;
+                        right: 0;
+                        cursor: auto;
+                      "
+                      src="../../../../../assets/images/nhl/{{
+                        teamSelected.image
+                      }}"
+                      alt="{{ teamSelected.image }}"
+                    />
+                    <h3 style="font-size: 10px; margin: 0 2px">
+                      {{ teamSelected.city }}
+                    </h3>
+                    <h2 style="font-size: 12px; margin: 0 2px">
+                      {{ teamSelected.title }}
+                    </h2>
+                  </div>
+                </div>
+                <div
+                  class="action-buttons"
+                  style="height: 50px; margin: 5px 0 0 11px"
+                >
+                  <button
+                    mat-button
+                    class="background-button"
+                    (click)="selectTeam()"
+                  >
+                    Select team
+                  </button>
+                </div>
               </div>
             </div>
-            <div class="action-buttons" style="height: 50px; margin: 5px 0 0 11px;">
-              <button mat-button class="background-button" (click)="selectTeam()">
-                Select team
+
+            <div class="action-buttons">
+              <div 
+                style="position: relative;top: 0; left: 0;"
+                class="hover1"
+              >
+                <div class="hover2">
+                  <button
+                    disabled="{{ !submitButtonDisabled || !teamSelected }}"
+                    mat-button
+                    class="background-button"
+                    (click)="submitForm()"
+                    [ngClass]="{
+                      disabled: submitButtonDisabled == false || !teamSelected
+                    }"
+                    type="button"
+                    style="width: auto;font-size: 20px;padding: 10px 75px;">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              
+            </div>
+          </form>
+          <p
+              style="
+                display: flex;
+                justify-content: space-around;
+                width: 17%;
+                margin: 0 auto;
+              "
+            >
+              <span style="color: #6f7394">You have an account already?</span>
+              <b
+                style="cursor: pointer; color: #00aae8"
+                (click)="loginRedirect()"
+                >Login HERE</b
+              >
+            </p>
+        </div>
+
+        <div class="line">
+          <div
+          style="color: #fff;padding: 4px 0 0 0;font-size: 20px;"
+          class="half-circle" 
+          (click)="toggleExpansion(false, 0)">
+            X
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide>
+        <div
+          style="background-image: url(../../../../../assets/images/260.png)"
+          data-aos="fade-up"
+          class="block1"
+        >
+          <div class="dots-block1">
+            <div class="ellipse-1" *ngFor="let dot of dotsBlock1"></div>
+          </div>
+          <div
+            data-aos="fade-left"
+            data-aos-duration="2000"
+            class="dots-block2"
+          >
+            <div class="ellipse-1" *ngFor="let dot of dotsBlock2"></div>
+          </div>
+          <div class="hover1">
+            <div class="hover2">
+              <button type="button" (click)="toggleExpansion(true, 0)">
+                JOIN US <span style="margin-right: 10px">>></span>
               </button>
             </div>
           </div>
         </div>
-    
-        <div class="action-buttons">
-          <button disabled="{{!submitButtonDisabled || !teamSelected}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false || !teamSelected}">Submit</button>
-          <p style="display: flex; justify-content: space-around; width: 80%; margin: 21px auto;">
-              <span style="color: #6f7394;">You have an account already?</span>
-              <b style="cursor: pointer; color: #00aae8;" (click)="loginRedirect()">Login HERE</b>
-          </p>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div
+          style="
+            background-image: url(../../../../../assets/images/example.png);
+            background-position-y: top;
+          "
+          data-aos="fade-up"
+          class="block1"
+        >
+          <div 
+          style="
+          left: 105px;
+          max-width: 710px;"
+          class="dots-block1">
+            <div class="ellipse-1" *ngFor="let dot of dotsBlock1"></div>
+          </div>
+          <div
+            data-aos="fade-left"
+            data-aos-duration="2000"
+            class="dots-block2"
+          >
+            <div class="ellipse-1" *ngFor="let dot of dotsBlock2"></div>
+          </div>
+          <div 
+          style="
+          top: 72%;
+          left: 20%;"
+          class="hover1">
+            <div class="hover2">
+              <button type="button" (click)="toggleExpansion(true, 0)">
+                JOIN US <span style="margin-right: 10px">>></span>
+              </button>
+            </div>
+          </div>
         </div>
-      </form>
-    </div>
-    
-    <div *ngIf="requested" class="page-wrapper">
-      <div class="logo-wrapper">
-        <img style="max-width: 200px;" src="../../../../assets/images/LOGO.png" alt="logo">
+      </ng-template>
+    </owl-carousel-o>
+
+    <div data-aos="fade-up" class="block2">
+      <div class="title">
+        <h2>HOW DOES IT WORK?</h2>
       </div>
-      <h1 style="text-align: center; margin-top: 50px;">Thank you! Your request has been sent successfully!</h1>
-      <h2 style="text-align: center; margin-top: 50px;">Please wait for your email which will contain your login and password.</h2>
-    </div>
-    
-    <div *ngIf="oops" class="page-wrapper">
-      <div class="logo-wrapper">
-        <img style="max-width: 200px;" src="../../../../assets/images/LOGO.png" alt="logo">
+      <div
+        data-aos="fade-right"
+        data-aos-duration="2000"
+        class="content-wrapper"
+      >
+        <div class="content-item" *ngFor="let item of howDoesItWork">
+          <h3>{{ item.title }}</h3>
+          <img src="{{ item.image }}" alt="image" />
+          <img class="background" src="{{ item.image1 }}" alt="image2" />
+          <p>{{ item.desc }}</p>
+        </div>
       </div>
-      <h2 style="text-align: center; margin-top: 50px;">OOPS!</h2>
-    </div> -->
+    </div>
+
+    <div data-aos="fade-up" class="block3">
+      <div data-aos="fade-right" data-aos-duration="2000" class="texst-wrapper">
+        <h3>HOW TO PLAY?</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+      <div data-aos="fade-left" data-aos-duration="2000" class="video-wrapper">
+        <iframe
+          class="video"
+          src="https://www.youtube.com/embed/C6Dyb2mu-pA"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <div data-aos="fade-up" class="block4">
+      <div data-aos="fade-right" data-aos-duration="2000" class="dots-block3">
+        <div class="ellipse-2" *ngFor="let dot of dotsBlock3"></div>
+      </div>
+      <div data-aos="fade-up" class="hover1">
+        <div class="hover2">
+          <button type="button" (click)="toggleExpansion(true, 1000)">
+            JOIN US
+            <span style="margin-left: 20px">
+              <img src="../../../../../assets/images/arrow.png" alt="" />
+            </span>
+            <span>
+              <img src="../../../../../assets/images/arrow.png" alt="" />
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <img src="../../../../../assets/images/Web_Puckhunt_Logo.png" alt="logo" />
+    <p>
+      <span>Terms of Play | </span>
+      <span>Privacy Policy | </span>
+      <span>Cookie Policy | </span>
+      <span>Contact Us</span>
+    </p>
+    <div class="sotial">
+      <a href="https://www.instagram.com/puckhunt/" style="padding: 6px 6px;" class="sotial-item">
+        <img src="../../../../../assets/images/instagram.png" alt="" />
+      </a>
+      <a href="https://www.youtube.com/channel/UC1dLkYZN8jo0_WDPmrLmD0Q" style="padding: 10px 6px;" class="sotial-item">
+        <img src="../../../../../assets/images/youtube.png" alt="" />
+      </a>
+    </div>
+  </footer>
+</main>
+
+<div *ngIf="requested" class="page-wrapper">
+  <div class="logo-wrapper">
+    <img
+      style="max-width: 200px"
+      src="../../../../assets/images/LOGO.png"
+      alt="logo"
+    />
+  </div>
+  <h1 style="text-align: center; margin-top: 50px">
+    Thank you! Your request has been sent successfully!
+  </h1>
+  <h2 style="text-align: center; margin-top: 50px">
+    Please wait for your email which will contain your login and
+    password.
+  </h2>
+</div>
+
+<div *ngIf="oops" class="page-wrapper">
+  <div class="logo-wrapper">
+    <img
+      style="max-width: 200px"
+      src="../../../../assets/images/LOGO.png"
+      alt="logo"
+    />
+  </div>
+  <h2 style="text-align: center; margin-top: 50px">OOPS!</h2>
+</div>

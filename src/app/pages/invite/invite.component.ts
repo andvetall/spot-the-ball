@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-invite',
@@ -9,6 +10,7 @@ export class InviteComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    AOS.init();
   }
 
 }

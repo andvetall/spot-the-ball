@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
@@ -18,6 +19,57 @@ export class InviteNewComponent implements OnInit {
   private oops: boolean = false;
   private teamSelected: any = null;
   private sender: any = null;
+  public dotsBlock1: any = [];
+  public dotsBlock2: any = [];
+  public dotsBlock3: any = [];
+  public expansionOpened: boolean = false;
+  public howDoesItWork: any = [
+    {
+      title: "CHOOSE A GAME",
+      image: "../../../../../assets/images/ticket.png",
+      image1: "../../../../../assets/images/ticket1.png",
+      desc: "Lorem ipsum dolor sit amet, consectetur."
+    },
+    {
+      title: "PLAY GAME",
+      image: "../../../../../assets/images/vr-gaming.png",
+      image1: "../../../../../assets/images/vr-gaming1.png",
+      desc: "Lorem ipsum dolor sit amet, consectetur."
+    },
+    {
+      title: "WEEKLY WINNER",
+      image: "../../../../../assets/images/quality.png",
+      image1: "../../../../../assets/images/quality1.png",
+      desc: "Lorem ipsum dolor sit amet, consectetur."
+    }
+  ]
+  public customOptions: any = {
+    autoplay: true,
+    loop: true,
+    autoplayTimeout: 3000,
+    mouseDrag: false,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 1000,
+    navText: ['&#8249;', '&#8250;'],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      400: {
+        items: 1
+      },
+      740: {
+        items: 1
+      },
+      940: {
+        items: 1
+      }
+    },
+    nav: true
+  }
+
 
   constructor(
     private _router : Router,
@@ -25,6 +77,7 @@ export class InviteNewComponent implements OnInit {
     private _userService: UserService,
     private dialog: MatDialog,
     private rote: ActivatedRoute,
+    @Inject(DOCUMENT) private document: Document
   ) {
     this.rote.queryParams.subscribe(res => {
       if(res.token) {
@@ -35,9 +88,43 @@ export class InviteNewComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.fillDotsBlocks(this.dotsBlock1, 88);
+    this.fillDotsBlocks(this.dotsBlock2, 187);
+    this.fillDotsBlocks(this.dotsBlock3, 93);
     this._createForm();
-    this.inputHandler()
+    this.inputHandler();
+    this.attachNavs()
   }
+
+  fillDotsBlocks(block, amount){
+    for(let i = 0; i < amount; i++){
+      block.push(i)
+    }
+  }
+  toggleExpansion(p:boolean, velocity: number){
+    this.document.defaultView.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+     });
+     setTimeout(() => {
+       if(this.formRequest){
+         this.formRequest.reset();
+       }
+       this.expansionOpened = p
+     }, velocity)
+  }
+
+  attachNavs(){
+    setTimeout(() => {
+      let prev: any = this.document.querySelector('.owl-prev')
+      prev.style = "position: absolute;left: 21px;top: 450px;border-radius: 50%;padding: 14px;font-size: 93px;background: transparent;color: #00adef;;"
+      let next: any = this.document.querySelector('.owl-next')
+      next.style = "position: absolute;right: 21px;top: 450px;border-radius: 50%;padding: 14px;font-size: 93px;background: transparent;color: #00adef;"
+    }, 1000)
+    
+  }
+
 
   private inputHandler(){
     if(!this.formRequest) {

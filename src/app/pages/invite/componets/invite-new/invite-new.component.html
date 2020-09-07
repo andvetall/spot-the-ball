@@ -65,7 +65,7 @@
               class="input-wrapper"
             >
               <!-- <label for="favoriteTeam">Favorite Team</label> -->
-              <div style="display: flex">
+              <div class="favT">
                 <div class="favorite-team-input">
                   <p style="margin: 0; color: rgb(117 117 117);" *ngIf="!teamSelected">
                     No selected team *
@@ -106,10 +106,8 @@
                 </div>
               </div>
             </div>
-
             <div class="action-buttons">
               <div 
-                style="position: relative;top: 0; left: 0;"
                 class="hover1"
               >
                 <div class="hover2">
@@ -130,13 +128,8 @@
               
             </div>
           </form>
-          <p
-              style="
-                display: flex;
-                justify-content: space-around;
-                width: 17%;
-                margin: 0 auto;
-              "
+          <p class="have-acc"
+              
             >
               <span style="color: #6f7394">You have an account already?</span>
               <b
@@ -157,12 +150,12 @@
         </div>
       </mat-expansion-panel>
     </mat-accordion>
-    <owl-carousel-o [options]="customOptions">
+    <owl-carousel-o [options]="customOptions" class="my-carousel">
       <ng-template carouselSlide>
         <div
-          style="background-image: url(../../../../../assets/images/260.png)"
+          style="background-image: url(../../../../../assets/images/260.png); background-position: center top; position: relative;"
           data-aos="fade-up"
-          class="block1"
+          class="block1 main-img"
         >
           <div class="dots-block1">
             <div class="ellipse-1" *ngFor="let dot of dotsBlock1"></div>
@@ -186,17 +179,18 @@
       <ng-template carouselSlide>
         <div
           style="
-            background-image: url(../../../../../assets/images/example.png);
+            background-image: url(../../../../../assets/images/banner2.png);
             background-position-y: top;
+            position: relative;
           "
           data-aos="fade-up"
-          class="block1"
+          class="block1 second-img"
         >
           <div 
-          style="
-          left: 105px;
-          max-width: 710px;"
-          class="dots-block1">
+            style="
+            max-width: 710px;"
+            class="dots-block1"
+          >
             <div class="ellipse-1" *ngFor="let dot of dotsBlock1"></div>
           </div>
           <div
@@ -207,9 +201,6 @@
             <div class="ellipse-1" *ngFor="let dot of dotsBlock2"></div>
           </div>
           <div 
-          style="
-          top: 72%;
-          left: 20%;"
           class="hover1">
             <div class="hover2">
               <button type="button" (click)="toggleExpansion(true, 0)">
@@ -222,6 +213,9 @@
     </owl-carousel-o>
 
     <div data-aos="fade-up" class="block2">
+      <div data-aos="fade-right" data-aos-duration="2000" class="dots-block4">
+        <div class="ellipse-3" *ngFor="let dot of dotsBlock4"></div>
+      </div>
       <div class="title">
         <h2>HOW DOES IT WORK?</h2>
       </div>
@@ -285,18 +279,18 @@
 
   <footer>
     <img src="../../../../../assets/images/Web_Puckhunt_Logo.png" alt="logo" />
-    <p>
-      <span>Terms of Play | </span>
-      <span>Privacy Policy | </span>
-      <span>Cookie Policy | </span>
-      <span>Contact Us</span>
-    </p>
+    <div class='wrapper'>
+      <div>Terms of Play <span class="line2">|</span> </div>
+      <div>Privacy Policy <span class="line">|</span> </div>
+      <div>Cookie Policy <span class="line2">|</span> </div>
+      <div>Contact Us</div>
+    </div>
     <div class="sotial">
       <a href="https://www.instagram.com/puckhunt/" style="padding: 6px 6px;" class="sotial-item">
-        <img src="../../../../../assets/images/instagram.png" alt="" />
+        <img src="../../../../../assets/images/instagram.png" alt="instagram" />
       </a>
       <a href="https://www.youtube.com/channel/UC1dLkYZN8jo0_WDPmrLmD0Q" style="padding: 10px 6px;" class="sotial-item">
-        <img src="../../../../../assets/images/youtube.png" alt="" />
+        <img src="../../../../../assets/images/youtube.png" alt="youtube" />
       </a>
     </div>
   </footer>

@@ -22,6 +22,7 @@ export class InviteNewComponent implements OnInit {
   public dotsBlock1: any = [];
   public dotsBlock2: any = [];
   public dotsBlock3: any = [];
+  public dotsBlock4: any = [];
   public expansionOpened: boolean = false;
   public howDoesItWork: any = [
     {
@@ -91,10 +92,15 @@ export class InviteNewComponent implements OnInit {
     this.fillDotsBlocks(this.dotsBlock1, 88);
     this.fillDotsBlocks(this.dotsBlock2, 187);
     this.fillDotsBlocks(this.dotsBlock3, 93);
+    this.fillDotsBlocks(this.dotsBlock4, 44);
     this._createForm();
     this.inputHandler();
-    this.attachNavs()
+    // this.attachNavs()
   }
+
+  // ngOnChanges() {
+  //   this.attachNavs()
+  // }
 
   fillDotsBlocks(block, amount){
     for(let i = 0; i < amount; i++){
@@ -115,15 +121,30 @@ export class InviteNewComponent implements OnInit {
      }, velocity)
   }
 
-  attachNavs(){
-    setTimeout(() => {
-      let prev: any = this.document.querySelector('.owl-prev')
-      prev.style = "position: absolute;left: 21px;top: 450px;border-radius: 50%;padding: 14px;font-size: 93px;background: transparent;color: #00adef;;"
-      let next: any = this.document.querySelector('.owl-next')
-      next.style = "position: absolute;right: 21px;top: 450px;border-radius: 50%;padding: 14px;font-size: 93px;background: transparent;color: #00adef;"
-    }, 1000)
+  // attachNavs(){
+  //   setTimeout(() => {
+  //     console.log(this.document.defaultView);
+  //     let prev: any = this.document.querySelector('.owl-prev')
+  //     let next: any = this.document.querySelector('.owl-next')
+  //     // let prev: any = this.document.querySelector('.owl-prev')
+  //     // prev.style = "position: absolute;left: 21px;top: calc(100vh - 70%);border-radius: 50%;padding: 14px;font-size: 93px;background: transparent;color: #00adef;;"
+  //     // let next: any = this.document.querySelector('.owl-next')
+  //     // next.style = "position: absolute;right: 21px;top: calc(100vh - 70%);border-radius: 50%;padding: 14px;font-size: 93px;background: transparent;color: #00adef;"
+  //   if(this.document.defaultView.outerWidth > 900) {
+      
+  //     prev.style = "position: absolute;left: 21px;top: calc(100vh - 70%);border-radius: 50%;padding: 14px;font-size: 93px;background: transparent;color: #00adef;;"
+  //     next.style = "position: absolute;right: 21px;top: calc(100vh - 70%);border-radius: 50%;padding: 14px;font-size: 93px;background: transparent;color: #00adef;"
+  //   }
+  //    else if (this.document.defaultView.outerWidth < 900) {
+  //     prev.style = "display: none"
+  //     next.style = "display: none"
+      
+  //     this.customOptions.nav = false;
+  //   }
+
+  //   }, 1000)
     
-  }
+  // }
 
 
   private inputHandler(){

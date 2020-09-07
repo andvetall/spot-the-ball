@@ -6,7 +6,7 @@
     border-radius: 8px;
     padding: 11px 12px;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 7%;
     transition: all 1s;
     .hover2{
@@ -26,6 +26,10 @@
         }
     }
 }
+
+.dots-block4 {
+    display: none;
+}
 .hover1:hover{
     background-color: #a7a9ac20;
     transition: all 1s;
@@ -42,13 +46,41 @@
     position: absolute;
     left: 21px;
     top: 450px;
+
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding: 14px;
+    font-size: 93px;
+    background: transparent;
+    color: #00adef;
+
+    display: block!important;
 }
-.owl-nav .owl-next{
+.my-carousel .owl-nav .owl-next{
     position: absolute;
     right: 21px;
     top: 450px;
+
+    border-radius: 50%;
+    padding: 14px;
+    font-size: 93px;
+    background: transparent;
+    color: #00adef;
+
+    display: block!important;
 }
 
+.have-acc {
+    display: flex;
+    justify-content: space-around;
+    width: 18%;
+    margin: 0 auto;           
+}
+.favT {
+    display: flex; 
+    justify-content: center;
+}
 main{
     max-width: 1920px;
     width: 100%;
@@ -122,8 +154,8 @@ main{
                 max-width: 266px;
                 display: flex;
                 flex-wrap: wrap;
-                position: absolute;
-                bottom: 0;
+                // position: absolute;
+                // bottom: 0;
                 .ellipse-1 {
                     width: 8px;
                     height: 8px;
@@ -153,6 +185,27 @@ main{
             
         }
 
+        .main-img {
+            .dots-block1 {
+                position: absolute;
+                bottom: 215px;
+            }
+            .dots-block2 {
+                position: absolute;
+                top: 335px;
+            }
+        } 
+        .second-img {
+            .dots-block1 {
+                position: absolute;
+                bottom: 320px;
+            }
+            .dots-block2 {
+                position: absolute;
+                top: 280px;
+            }
+        }
+
         .block2{
             height: auto;
             width: auto;
@@ -166,7 +219,10 @@ main{
                 background: #ffffff;
                 width: 568px;
                 position: relative;
-                left: -65px;
+                // left: -65px;
+
+                left: 0px;
+
                 text-align: end;
                 padding: 11px;
                 h2{
@@ -191,6 +247,7 @@ main{
                     text-align: center;
                     margin-right: 96px;
                     position: relative;
+                    margin-bottom: 15px;
                     h3{
                         font-size: 25px;
                         color: #000000;
@@ -266,7 +323,8 @@ main{
             }
             .hover1{
                 top: 14%;
-                left: 40%;
+                left: 50%;
+                transform: translate(-50%);
             }
         }
     }
@@ -280,9 +338,11 @@ main{
             max-width: 413px;
             width: 100%;
         }
-        p{  
-            margin: 0 0 30px 0;          
-            span{
+        .wrapper{  
+            margin: 0 0 30px 0;  
+            display: flex;
+            justify-content: center;        
+            div{
                 font-family: futura !important;
                 cursor: pointer;
                 font-size: 25px;
@@ -399,7 +459,7 @@ input, select {
     box-sizing: border-box;
     border-radius: 4px;
     padding: 10px;
-    margin: 5px 0 15px 0;
+    margin: 5px auto 15px auto;
     width: 300px;
     font-size: 16px;
     line-height: 20px;
@@ -412,6 +472,7 @@ label {
     margin-right: 20px;
 }
 .action-buttons {
+    
     button {
         color: #ffffff;
         width: 150px;
@@ -444,6 +505,12 @@ label {
     margin: 25px 0 0 0;
     display: flex !important;
     justify-content: space-between;
+}
+
+.action-buttons > div {
+    position: relative;
+    top: 0; 
+    left: 0;
 }
 
 .logo-wrapper {
@@ -554,3 +621,480 @@ label {
     display: block !important;
     justify-content: space-between;
 }
+
+
+
+
+
+@media screen and (max-width: 1600px) {
+    .page-wrapper{
+        height: 50vh;
+        padding: 10px;
+    }
+
+    .have-acc {
+        width: 25%;      
+    }
+
+   main section{
+        .block1{
+            height: 800px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1400px) { 
+
+   main section{
+        .block1{
+            height: 800px;
+        }
+    }
+
+    .page-wrapper{
+        height: 72vh;
+        padding: 0 10px 0;
+    }
+
+    .register-wrapper {
+        margin: 0 auto;
+        height: auto;
+        width: 60%;
+        padding: 5px 30px 0;
+        display: flex;
+        flex-wrap: wrap;
+        *{
+            font-family: futura !important;
+        }
+    
+        .input-wrapper{
+            width: 55%;
+            display: block;
+            font-family: futura;
+            margin: 0 auto;
+        }
+    }
+
+    .action-buttons {
+        width: 100%;
+        margin: 20px 0 10px 0;
+    }
+
+    .action-buttons > div {
+        position: relative;
+        top: -20px; 
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .favorite-team-input {
+        width: 760px;
+    }
+
+    .main-img {
+        
+        .dots-block1 {
+            bottom: 270px;
+        }
+        .dots-block2 {
+            top: 390px;
+        }
+
+        .hover1 {
+            top: 42%
+        }
+    } 
+    .second-img {
+        .dots-block1 {
+            bottom: 380px;
+        }
+        .dots-block2 {
+            top: 340px;
+        }
+
+        .hover1 {
+            top: 32%
+        }
+    }
+
+    main section .block2 .content-wrapper{
+        flex-direction: column;
+        margin: 0 auto;
+        .content-item {
+            width: 40%;
+            margin: 0 auto 10px auto;
+        }
+    }
+    main section  .block2 {
+        margin-top: -176px;
+        background-position-y: -7%;
+        padding-top: 133px;
+        margin-bottom: -70px;
+    }
+    
+
+    main section .block3{
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 0;
+        .texst-wrapper{
+            max-width: 100%;
+            padding: 43px 49px 43px 65px;
+            background: #ffffff;
+            border-left: solid 10px #00adef;
+
+            h3{
+                font-size: 30px;
+            }
+            p{
+                font-size: 20px;
+                color: #a7a9ac;
+                line-height: 1.75;
+                text-align: start;
+                letter-spacing: 1px;
+            }
+        }
+        .video-wrapper{
+            max-width: 100%;
+            width: 100%;
+            height: 600px;
+            .video{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .main-img {
+        .ellipse-1 {
+            display: none;
+        }
+        .ellipse-2 {
+            display: none;
+        }
+    } 
+    .second-img {
+        .ellipse-1 {
+            display: none;
+        }
+        .ellipse-2 {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 1140px) {
+    // main section .block1 {
+    //     height: 500px;
+    // }
+    .register-wrapper {
+        width: 85%;
+    
+        .input-wrapper{
+            width: 75%;
+        }
+        .action-buttons {
+            width: 30%;
+            margin: 20px auto 0 auto;
+        }
+    }
+
+    register-wrapper {
+        margin: 0 auto;
+        height: auto;
+        width: 70%;
+    }
+    .input-wrapper{ 
+        width: 68%;
+    }
+
+    .have-acc {
+        width: 38%;
+    }
+
+    main section .block2 .title {
+        left: 50%;
+        transform: translate(-108%);
+    }
+}
+
+@media screen and (max-width: 960px) { 
+    owl-carousel .owl-nav {
+        display: none!important;
+    }
+    main header .image {
+        padding: 0;
+    } 
+    header{
+        flex-wrap: wrap;
+        height: 240px;
+        margin-bottom: 120px;
+        div {
+            width: 100%;
+        }
+        .image {
+            text-align: center;
+            height: 240px;
+            padding: 0;
+            img {
+                padding: 0;
+            }
+            
+        }
+        .sign-in-up {
+            height: 120px;
+            text-align: center;
+        }
+    } 
+
+    main section .block2 .content-wrapper{
+        .content-item {
+            width: 55%;
+        }
+    }
+
+    .main-img {
+        .hover1 {
+            top: 30%
+        }
+    } 
+    .second-img {
+        .hover1 {
+            top: 23%
+        }
+    }
+
+    main section .block2 {
+        margin-top: -220px;
+    }
+
+    main footer {
+        .wrapper {
+            overflow: hidden;
+            margin: 0 auto;
+            width: 65%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            div {
+                width: 40%;
+            }
+            .line {
+                display: none;
+            }
+        }
+    }
+
+    .block4 {
+        .hover1 {
+            button {
+                padding: 12px 25px;
+                width: 240px;
+            }
+        }
+    }
+ }
+
+ @media screen and (max-width: 700px)  {
+    main footer {
+        .wrapper {
+            width: 90%;
+            div {
+                width: 45%;
+                margin: 0;
+            }
+        }
+    }
+
+    main form {
+        padding: 0!important;
+    }
+   main section .input-wrapper {
+        width: 100%;
+    }
+
+    main section .favorite-team-input {
+        width: 76%;
+    }
+    main section .action-buttons {
+        width: 41%;
+    }
+    main section .block2 .content-wrapper{
+        .content-item {
+            width: 80%;
+        }
+    }
+
+    main section .block2 {
+        margin-top: -390px;
+        background-position-y: 0%;
+    }
+
+    .action-buttons > div {
+        left: 30%;
+    }
+    .have-acc {
+        width: 70%;
+    }
+ }
+
+ @media screen and (max-width: 480px)  {
+    main footer {
+        .wrapper {
+            width: 95%;
+            div {
+                width: 41%;
+                height: 30px;
+                overflow: hidden;
+            }
+        }
+    }
+
+    .owl-prev, .owl-next {
+        display: none!important;
+      }
+
+      main section .block2 .content-wrapper{
+        .content-item {
+            width: 95%;
+        }
+    }
+    .line .half-circle {
+        right: 44%;
+    }
+    main section .block2 {
+        background-position-y: 2%;
+        background-position-x: 520%;
+    }
+    .dots-block4{
+        margin-top: -426px;
+
+        position: relative;
+        top: 235px;
+        // left: -45px;
+        left: 0;
+        display: block;
+        padding: 25px 0 33px;
+        max-width: 144px;
+        display: flex;
+        flex-wrap: wrap;
+        .ellipse-3 {
+            width: 8px;
+            height: 8px;
+            background-color: #a7a9acb3;
+            margin: 12px;
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+    }
+
+    .action-buttons > div {
+        left: 9%;
+    }
+    .sign-in-up {
+        padding: 44px 20px 46px;
+        width: 100%;
+    }
+    .sign-in-up span:nth-child(1):after {
+        display: none;
+    }
+    .sign-in-up span:nth-child(2):before {
+        display: none;
+    }
+ }
+
+ @media screen and (max-width: 430px)  {
+    main section .block2 {
+        margin-top: -704px;
+        background-position-y: 18%;
+    }
+
+    main footer {
+        .wrapper {
+            width: 95%;
+            div {
+                width: 65%;
+            }
+            .line2 {
+                display: none;
+            }
+        }
+    }
+    main section .block2 {
+        padding: 0;
+        .content-wrapper{
+            .content-item {
+                padding: 0;
+                height: 380px;
+                width: 95%;
+            }
+        }
+    }
+
+    main section .favT {
+        flex-wrap: wrap;
+        .favorite-team-input {
+            width: 100%;
+        }
+    }
+  }
+
+  @media screen and (max-width: 370px ) {
+    main section .action-buttons {
+        width: 62%;
+    }
+
+    .action-buttons > div {
+        left: 20%;
+    }
+
+    main header .sign-in-up {
+        padding: 44px 0px 46px;
+        span {
+            margin: 0 10px;
+        }
+    }
+    main section .block2 {
+        margin-top: -860px;
+        background-position-y: 17%;
+    }
+
+    .hover1 .hover2 {
+        padding: 9px 0px;
+    }
+
+    .hover1 .hover2 button {
+        padding: 17px 35px;
+    }
+
+    .main-img {
+        .hover1 {
+            top: 18%
+        }
+    } 
+    .second-img {
+        .hover1 {
+            top: 16%
+        }
+    }
+
+    .line .half-circle {
+        right: 42%;
+    }
+
+    .line {
+        width: 90%;
+        margin: 16px auto 23px;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    main section .action-buttons {
+        width: 81%;
+    }
+
+    .action-buttons > div {
+        left: 30%;
+    }
+  }

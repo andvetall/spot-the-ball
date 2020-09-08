@@ -1,16 +1,21 @@
-<div *ngIf="userData" style="margin-left: 100px;">
-  <h1>
+<div class="my-account-wrapper" *ngIf="userData">
+  <h1 style="margin: 0 0 0 50px;">
     My Account
   </h1>
-  <h2 style="text-align: center; color: #5e6973;">Welcome  <b>{{user.firstName | titlecase}}  {{user.lastName | titlecase}}</b>!</h2>
     <div style="
       text-align: center;
       margin: 20px auto;
       color: #5e6973;
     ">
-      <div>
+      <div 
+      style="
+      background: #ffffff;
+      width: 60vw;
+      margin: 0 auto;
+      padding: 30px 60px;
+      ">
+        <h2 style="text-align: center; color: #5e6973;">Welcome  <b>{{user.firstName | titlecase}}  {{user.lastName | titlecase}}</b>!</h2>
         <form [formGroup]='form' class="register-wrapper">
-
           <div [ngClass] = "{'error-innput-wrapper' : form.controls['firstName'].invalid && !form.controls['firstName'].untouched}" class="input-wrapper">
             <label for="firstName">First Name</label>
             <input (keyup)="inputHandler()" formControlName="firstName">

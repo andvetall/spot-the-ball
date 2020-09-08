@@ -6,6 +6,11 @@ export const MenuConstants = {
       icon: '../../../assets/images/platform-settings-item.png',
     },
     {
+      title: 'Prizes',
+      path: 'prizes',
+      icon: '../../../assets/images/personal.png',
+    },
+    {
       title: 'My Account',
       path: 'personal-info',
       icon: '../../../assets/images/personal.png',

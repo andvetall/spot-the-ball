@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit, AfterViewInit } from "@angular/core";
+import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { MenuConstants } from "../../shared/constants/menu.constants";
 import { MenuService } from "src/app/services/menu-service";
@@ -8,11 +8,11 @@ import { MenuService } from "src/app/services/menu-service";
   templateUrl: "./client.component.html",
   styleUrls: ["./client.component.scss"],
 })
-export class ClientComponent implements OnInit, AfterViewInit {
+export class ClientComponent implements OnInit {
 
   @ViewChild("toolBar", null) toolBar: ElementRef;
   public menuData = MenuConstants;
-  public showFullSizeMenu: boolean = false;
+  public showFullSizeMenu: boolean = true;
   public badgeData: number = 0;
 
   constructor(
@@ -27,14 +27,14 @@ export class ClientComponent implements OnInit, AfterViewInit {
     this.toolBar;
   }
 
-  ngAfterViewInit() {
-    this.elementRef.nativeElement.querySelector('.tool-bar').addEventListener('mouseenter', this.toggleMenu.bind(this));
-    this.elementRef.nativeElement.querySelector('.tool-bar').addEventListener('mouseleave', this.toggleMenu.bind(this));
-  }
+  // ngAfterViewInit() {
+  //   this.elementRef.nativeElement.querySelector('.tool-bar').addEventListener('mouseenter', this.toggleMenu.bind(this));
+  //   this.elementRef.nativeElement.querySelector('.tool-bar').addEventListener('mouseleave', this.toggleMenu.bind(this));
+  // }
 
   public toggleMenu() {
-    this.showFullSizeMenu = !this.showFullSizeMenu;
-    this._menuService.showFullSizeMenu(this.showFullSizeMenu);
+    // this.showFullSizeMenu = !this.showFullSizeMenu;
+    // this._menuService.showFullSizeMenu(this.showFullSizeMenu);
   }
   
 }

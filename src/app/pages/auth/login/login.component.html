@@ -1,6 +1,6 @@
 <div class="page-wrapper">
   <div class="logo-wrapper">
-    <img style="max-width: 200px;" src="../../../../assets/images/LOGO.png" alt="logo">
+    <img style="max-width: 400px;" src="../../../../assets/images/Web_Puckhunt_Logo.png" alt="logo">
   </div>
   <form [formGroup]='formLogin' class="register-wrapper">
 
@@ -12,8 +12,8 @@
     <div [ngClass] = "{'error-innput-wrapper' : formLogin.controls['password'].invalid && !formLogin.controls['password'].untouched}" class="input-wrapper">
       <label for="password">Password</label>
       <input (keyup)="inputHandler()" type="{{!showPassword ? 'password' : 'text'}}" formControlName="password">
-      <img style="max-width: 20px; right: -25px;" *ngIf="!showPassword" (click)="showPasswordToggle()" src="../../../../assets/images/visible.png" alt="vector">
-      <img style="max-width: 20px; right: -25px;" *ngIf="showPassword" (click)="showPasswordToggle()" src="../../../../assets/images/not-visible.png" alt="vector">
+      <img style="max-width: 20px; right: 7px;" *ngIf="!showPassword" (click)="showPasswordToggle()" src="../../../../assets/images/visible.png" alt="vector">
+      <img style="max-width: 20px; right: 7px;" *ngIf="showPassword" (click)="showPasswordToggle()" src="../../../../assets/images/not-visible.png" alt="vector">
     </div>
 
     <div class="action-buttons">

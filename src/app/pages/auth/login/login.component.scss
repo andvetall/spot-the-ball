@@ -1,4 +1,11 @@
-
+.page-wrapper{
+    background: url('../../../../assets/images/image_3.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: calc(100vh - 100px);
+    padding: 100px 0 0 0;
+    background-attachment: fixed;
+}
 .logo-wrapper {
     text-align: center;
     h1 {
@@ -8,17 +15,16 @@
         color: #34af74;
         padding: 20vh 0 0 0;
     }
-    margin-top: 80px;
     width: 100%;
     height: auto;
 }
 
 .register-wrapper {
-    margin: 60px auto 0;
-    height: 300px;
+    margin: 0 auto;
+    height: auto;
     width: 400px;
     padding: 30px;
-
+    background: #ffffff;
     & * {
         display: block;
         font-family: Roboto

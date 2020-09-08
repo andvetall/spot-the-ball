@@ -1,8 +1,13 @@
-<router-outlet></router-outlet>
+<div class="main-wrapper">
+  <router-outlet></router-outlet>
+</div>
 <div #toolBar class="tool-bar" [ngClass]="{'opened' : showFullSizeMenu}">
-  <p class="menu-title" *ngIf="showFullSizeMenu">
+  <!-- <p class="menu-title" *ngIf="showFullSizeMenu">
     Puck Hunt
-  </p>
+  </p> -->
+  <div style="width: 100%; background: #09aff1;">
+    <img style="width: 100%" src="../../../assets/images/Web_Puckhunt_Logo.png" alt="">
+  </div>
   <p class="menu-title" *ngIf="!showFullSizeMenu">
     PH
   </p>

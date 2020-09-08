@@ -1,9 +1,26 @@
+.friend-wrapper{
+    padding: 50px 0 0 0;
+    height: calc(100vh - 50px);
+    background: url('../../../../../../assets/images/image_2.jpg');
+    background-repeat: no-repeat;
+    background-size: 105%;
+    background-attachment: fixed;
+    .image{
+        width: 50%;
+        margin: 0 auto;
+        img{
+            width: 100%;
+        }
+    }
+}
 h1, h2{
     color: #2b303cad;
 }
 .invite-wrapper{
     width: 60%;
     margin: 0 auto;
+    background: #ffffff;
+    padding: 33px;
 }
 .error-innput-wrapper {
     input {

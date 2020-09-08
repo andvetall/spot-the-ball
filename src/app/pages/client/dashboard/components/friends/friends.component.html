@@ -1,9 +1,12 @@
-<div style="margin-left: 100px;">
-  <h1>
+<div class="friend-wrapper">
+  <h1 style="margin-left: 50px;">
     Invite a friend.
   </h1>
-  <h2 style="text-align: center;">Enter an email address of your friend</h2>
+  <div class="image">
+    <img src="../../../../../../assets/images/Web_Puckhunt_Logo.png" alt="logo">
+  </div>
   <form [formGroup]='formInvite'  class="invite-wrapper">
+    <h2 style="text-align: center;">Enter an email address of your friend</h2>
 
     <div [ngClass] = "{'error-innput-wrapper' : formInvite.controls['email'].invalid && !formInvite.controls['email'].untouched}" class="input-wrapper">
       <label for="email">Email</label>

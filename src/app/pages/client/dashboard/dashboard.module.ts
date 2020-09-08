@@ -14,6 +14,7 @@ import { MaterialModule } from 'src/app/modules/material/material.module';
 import { FriendsComponent } from './components/friends/friends.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
+import { PrizesComponent } from './components/prizes/prizes.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { PersonalInfoComponent } from './components/personal-info/personal-info.
     DashboardComponent,
     ResultDialogComponent,
     FriendsComponent,
+    PrizesComponent,
     PersonalInfoComponent,
     GameWrapperComponent,
     ResultComponent

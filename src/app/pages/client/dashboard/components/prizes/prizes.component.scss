@@ -1,0 +1,36 @@
+.prize-wrapper{
+    width: 100%;
+    height: 100vh;
+    background: url('../../../../../../assets/images/image_4 (1).jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position: center;
+
+    .prizes{
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+        margin: 0 auto;
+        .prize{
+            width: 40%;
+            display: flex;
+            background: #ffffff;
+            border: solid 4px #00b9f0;
+            margin: 35px auto;
+            position: relative;
+            box-sizing: border-box;
+            padding: 10px;
+            img{
+                max-height: 230px;
+                width: 50%;
+                position: absolute;
+                right: 0;
+                top: -66px;
+            }
+            p{
+                width: 50%; 
+            }
+        }
+    }
+}

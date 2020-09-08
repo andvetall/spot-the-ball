@@ -26,7 +26,7 @@ export class InviteNewComponent implements OnInit {
   public expansionOpened: boolean = false;
   public howDoesItWork: any = [
     {
-      title: "CHOOSE A GAME",
+      title: "CHOOSE GAME",
       image: "../../../../../assets/images/ticket.png",
       image1: "../../../../../assets/images/ticket1.png",
       desc: "Lorem ipsum dolor sit amet, consectetur."
@@ -45,7 +45,7 @@ export class InviteNewComponent implements OnInit {
     }
   ]
   public customOptions: any = {
-    autoplay: true,
+    // autoplay: true,
     loop: true,
     autoplayTimeout: 3000,
     mouseDrag: false,

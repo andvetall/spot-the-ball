@@ -191,7 +191,8 @@ main{
         .main-img {
             .dots-block1 {
                 position: absolute;
-                bottom: 0;
+                // bottom: 0;
+                bottom: 30px;
             }
             .dots-block2 {
                 position: absolute;
@@ -222,10 +223,7 @@ main{
                 background: #ffffff;
                 width: 568px;
                 position: relative;
-                // left: -65px;
-
                 left: 0px;
-
                 text-align: end;
                 padding: 11px;
                 h2{
@@ -238,7 +236,7 @@ main{
             }
             .content-wrapper{
                 display: flex;
-                padding-top: 144px;
+                padding-top: 90px;
                 padding-bottom: 239px;
                 .content-item{
                     cursor: pointer;
@@ -277,16 +275,48 @@ main{
         }
         .block3{
             padding: 0 64px 113px 0;
+
+            // .title{
+            //     background: #ffffff;
+            //     width: 568px;
+            //     position: relative;
+            //     left: 0px;
+            //     text-align: end;
+            //     padding: 11px;
+            //     h2{
+            //         font-size: 30px;
+            //         color: #000000;
+            //         margin: 0;
+            //         position: relative;
+            //         left: 230px;
+            //     }
+            // }
+
             .texst-wrapper{
-                width: 80%;
-                margin: 0 auto;
-                box-sizing: border-box;
+                // background: #ffffff;
+                // width: 50%;
+                position: relative;
+                // left: 0px;
                 text-align: center;
-                padding: 43px 49px 43px 65px;
-                background: #ffffff;
-                border-left: solid 10px #00adef;
+                padding: 11px;
                 h3{
+                    // font-size: 30px;
+
                     font-size: 30px;
+                    color: #000000;
+                    margin: 0 auto;
+                    position: relative;
+                    // left: 140px;
+                    // left: 14%;
+                }
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: -3px;
+                    left: 0;
+                    width: 51%;
+                    height: 60px;
+                    background: #fff;
                 }
             }
             .video-wrapper{
@@ -326,7 +356,7 @@ main{
     }
     footer{
         padding: 14px 0 37px;
-        max-height: 256px;
+        max-height: 300px;
         height: auto;
         background-color: #00adef;
         text-align: center;
@@ -384,7 +414,7 @@ main{
 .line{
     width: 100%;
     border: solid 1px #00aae8;
-    margin: 0 auto 23px;
+    margin: 15px auto 23px;
     .half-circle {
         cursor: pointer;
         width: 68px;
@@ -630,7 +660,7 @@ label {
     }
 
     .have-acc {
-        width: 25%;      
+        width: 30%;      
     }
 
    main section{
@@ -646,6 +676,13 @@ label {
             }
         }
     }
+
+    main section .second-img {
+        .dots-block1 {
+            position: absolute;
+            bottom: 220px;
+        }
+    }
 }
 
 
@@ -658,7 +695,8 @@ label {
     }
 
     .page-wrapper{
-        height: 50vh;
+        // height: 65vh;
+        height: 100%;
         padding: 0 10px 0;
     }
 
@@ -735,17 +773,17 @@ label {
         // margin-top: -176px;
         background-position-y: -7%;
         padding-top: 133px;
-        margin-bottom: -70px;
+        margin-bottom: -160px;
     }
     
 
     main section .block3{
         padding: 0;
         .texst-wrapper{
-            max-width: 100%;
-            padding: 43px 49px 43px 65px;
-            background: #ffffff;
-            border-left: solid 10px #00adef;
+            // max-width: 100%;
+            // padding: 43px 49px 43px 65px;
+            // background: #ffffff;
+            // border-left: solid 10px #00adef;
 
             h3{
                 font-size: 30px;
@@ -779,9 +817,14 @@ label {
 }
 
 @media screen and (max-width: 1140px) {
-    // main section .block1 {
-    //     height: 500px;
+
+    // main section .block3{
+    //     .texst-wrapper{
+    //         left: 50%;
+    //         transform: translate(-50%);
+    //     }
     // }
+
     .register-wrapper {
         width: 85%;
     
@@ -810,7 +853,14 @@ label {
     main section .block2 .title {
         left: 50%;
         transform: translate(-108%);
+        margin-top: 20px;
     }
+
+    // main section .block3 .texst-wrapper {
+    //     width: 70%;
+    //     left: 50%;
+    //     transform: translate(-80%);
+    // }
 }
 
 @media screen and (max-width: 960px) { 
@@ -840,6 +890,10 @@ label {
             padding: 32px 0 0 0 !important;
             text-align: center;
         }
+    } 
+
+    main section .register-wrapper .action2 {
+        width: auto;
     } 
 
     main section .block2 .content-wrapper{
@@ -898,6 +952,24 @@ label {
  }
 
  @media screen and (max-width: 700px)  {
+    main header {
+        max-height: 88px;
+        height: 107px;
+        .image {
+            height: 132px;
+        }
+        .sign-in-up {
+            padding: 15px 0 0 0 !important;
+        }
+    }
+
+    .sign-in-up span:nth-child(1):after {
+        display: none;
+    }
+    .sign-in-up span:nth-child(2):before {
+        display: none;
+    }
+
     main footer {
         .wrapper {
             width: 90%;
@@ -917,9 +989,11 @@ label {
 
     main section .favorite-team-input {
         width: 76%;
+        margin-right: 10px;
     }
     main section .action-buttons {
-        width: 41%;
+        // width: 41%;
+        width: 50%;
     }
     main section .block2 .content-wrapper{
         .content-item {
@@ -934,10 +1008,10 @@ label {
     main section .block3{
         padding: 0;
         .texst-wrapper{
-            width: 100%;
-            padding: 43px 49px 43px 65px;
-            background: #ffffff;
-            border-left: solid 10px #00adef;
+            // width: 100%;
+            // padding: 43px 49px 43px 65px;
+            // background: #ffffff;
+            // border-left: solid 10px #00adef;
 
             h3{
                 font-size: 30px;
@@ -970,12 +1044,19 @@ label {
     .have-acc {
         width: 100%;
     }
+    main footer {
+        z-index: 80;
+        margin-top: -50px;
+        position: relative;
+    }
  }
 
  @media screen and (max-width: 480px)  {
+    main header .sign-in-up span {
+        font-size: 22px;
+    }
      main section .page-wrapper{
          padding: 0;
-         height: calc(100vh - 293px);
          .register-wrapper{
              width: 100%;
              .input-wrapper{
@@ -1006,11 +1087,20 @@ label {
             display: block;
             position: relative;
             left: 0;
+            
         }
         .my-carousel .block1 .hover1 {
             display: none;
         }
      }
+
+     main section .hover1 .hover2 {
+        button {
+            padding: 11px 27px;
+            font-size: 16px;
+        }
+    }
+
     .main-img {
         .hover1 {
             top: 62%;
@@ -1076,7 +1166,7 @@ label {
         .ellipse-3 {
             width: 8px;
             height: 8px;
-            background-color: #a7a9acb3;
+            background-color: #00aae8;
             margin: 12px;
             border-radius: 50%;
             opacity: 0.4;
@@ -1098,17 +1188,27 @@ label {
     }
     main section .block3{
         .texst-wrapper{
-            padding: 15px;
+            // left: 45%;
+            // padding: 15px;
             h3{
                 font-size: 22px;
+
+                // left: 50%;
+                // transform: translate(-21%);
             }
         }
+    }
+
+    main section .block4 .hover1 button {
+        padding: 12px 4px;
+        width: 156px;
     }
  }
 
  @media screen and (max-width: 430px)  {
-    main section .block2 {
-        background-position-y: 18%;
+
+    main footer .wrapper div {
+        font-size: 19px;
     }
 
     main footer {
@@ -1123,11 +1223,12 @@ label {
         }
     }
     main section .block2 {
+        background-position-y: -2%;
         padding: 0;
         .content-wrapper{
             .content-item {
-                padding: 0;
-                height: 380px;
+                padding: 20px 3px 0 3px;
+                height: 360px;
                 width: 95%;
             }
         }
@@ -1139,6 +1240,10 @@ label {
             width: 100%;
         }
     }
+
+    main section .favorite-team-input {
+        margin-right: 0;
+    }
   }
 
   @media screen and (max-width: 370px ) {
@@ -1146,9 +1251,9 @@ label {
         width: 62%;
     }
 
-    .action-buttons > div {
-        left: 20%;
-    }
+    // .action-buttons > div {
+    //     left: 20%;
+    // }
 
     main header .sign-in-up {
         padding: 44px 0px 46px;
@@ -1157,7 +1262,7 @@ label {
         }
     }
     main section .block2 {
-        background-position-y: 17%;
+        background-position-y: 0%;
     }
 
     .hover1 .hover2 {
@@ -1194,7 +1299,7 @@ label {
         width: 81%;
     }
 
-    .action-buttons > div {
-        left: 30%;
-    }
+    // .action-buttons > div {
+    //     left: 30%;
+    // }
   }

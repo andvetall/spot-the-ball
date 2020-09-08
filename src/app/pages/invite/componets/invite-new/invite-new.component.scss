@@ -146,7 +146,6 @@ main{
         .block1{
             width: inherit;
             height: 1000px;
-            // background-image: url(../../../../../assets/images/260.png);
             background-size: 100%;
             background-repeat: no-repeat;
             background-position-x: center;
@@ -157,8 +156,6 @@ main{
                 max-width: 266px;
                 display: flex;
                 flex-wrap: wrap;
-                // position: absolute;
-                // bottom: 0;
                 .ellipse-1 {
                     width: 8px;
                     height: 8px;
@@ -191,7 +188,6 @@ main{
         .main-img {
             .dots-block1 {
                 position: absolute;
-                // bottom: 0;
                 bottom: 30px;
             }
             .dots-block2 {
@@ -274,40 +270,35 @@ main{
             }
         }
         .block3{
-            padding: 0 64px 113px 0;
+            padding: 0 65px 113px 65px;
 
-            // .title{
-            //     background: #ffffff;
-            //     width: 568px;
-            //     position: relative;
-            //     left: 0px;
-            //     text-align: end;
-            //     padding: 11px;
-            //     h2{
-            //         font-size: 30px;
-            //         color: #000000;
-            //         margin: 0;
-            //         position: relative;
-            //         left: 230px;
-            //     }
-            // }
+            .title{
+                background: #ffffff;
+                width: 568px;
+                position: relative;
+                left: 0px;
+                text-align: end;
+                padding: 11px;
+                margin: 0 0 50px 0;
+                h2{
+                    font-size: 30px;
+                    color: #000000;
+                    margin: 0;
+                    position: relative;
+                    left: 155px;
+                    
+                }
+            }
 
             .texst-wrapper{
-                // background: #ffffff;
-                // width: 50%;
                 position: relative;
-                // left: 0px;
                 text-align: center;
                 padding: 11px;
                 h3{
-                    // font-size: 30px;
-
                     font-size: 30px;
                     color: #000000;
                     margin: 0 auto;
                     position: relative;
-                    // left: 140px;
-                    // left: 14%;
                 }
                 &:before {
                     content: "";
@@ -695,7 +686,6 @@ label {
     }
 
     .page-wrapper{
-        // height: 65vh;
         height: 100%;
         padding: 0 10px 0;
     }
@@ -770,7 +760,6 @@ label {
         }
     }
     main section  .block2 {
-        // margin-top: -176px;
         background-position-y: -7%;
         padding-top: 133px;
         margin-bottom: -160px;
@@ -778,12 +767,8 @@ label {
     
 
     main section .block3{
-        padding: 0;
+        padding: 0 65px;
         .texst-wrapper{
-            // max-width: 100%;
-            // padding: 43px 49px 43px 65px;
-            // background: #ffffff;
-            // border-left: solid 10px #00adef;
 
             h3{
                 font-size: 30px;
@@ -818,13 +803,6 @@ label {
 
 @media screen and (max-width: 1140px) {
 
-    // main section .block3{
-    //     .texst-wrapper{
-    //         left: 50%;
-    //         transform: translate(-50%);
-    //     }
-    // }
-
     .register-wrapper {
         width: 85%;
     
@@ -855,12 +833,11 @@ label {
         transform: translate(-108%);
         margin-top: 20px;
     }
-
-    // main section .block3 .texst-wrapper {
-    //     width: 70%;
-    //     left: 50%;
-    //     transform: translate(-80%);
-    // }
+    main section .block3 .title{
+        left: 50%;
+        transform: translate(-108%);
+        margin-top: 20px;
+    }
 }
 
 @media screen and (max-width: 960px) { 
@@ -992,7 +969,6 @@ label {
         margin-right: 10px;
     }
     main section .action-buttons {
-        // width: 41%;
         width: 50%;
     }
     main section .block2 .content-wrapper{
@@ -1008,11 +984,6 @@ label {
     main section .block3{
         padding: 0;
         .texst-wrapper{
-            // width: 100%;
-            // padding: 43px 49px 43px 65px;
-            // background: #ffffff;
-            // border-left: solid 10px #00adef;
-
             h3{
                 font-size: 30px;
             }
@@ -1038,9 +1009,6 @@ label {
         }
     }
 
-    .action-buttons > div {
-        // left: 30%;
-    }
     .have-acc {
         width: 100%;
     }
@@ -1173,9 +1141,6 @@ label {
         }
     }
 
-    .action-buttons > div {
-        // left: 9%;
-    }
     .sign-in-up {
         padding: 44px 20px 46px;
         width: 100%;
@@ -1188,13 +1153,8 @@ label {
     }
     main section .block3{
         .texst-wrapper{
-            // left: 45%;
-            // padding: 15px;
             h3{
                 font-size: 22px;
-
-                // left: 50%;
-                // transform: translate(-21%);
             }
         }
     }
@@ -1251,10 +1211,6 @@ label {
         width: 62%;
     }
 
-    // .action-buttons > div {
-    //     left: 20%;
-    // }
-
     main header .sign-in-up {
         padding: 44px 0px 46px;
         span {
@@ -1298,8 +1254,4 @@ label {
     main section .action-buttons {
         width: 81%;
     }
-
-    // .action-buttons > div {
-    //     left: 30%;
-    // }
   }

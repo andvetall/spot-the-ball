@@ -98,10 +98,6 @@ export class InviteNewComponent implements OnInit {
     // this.attachNavs()
   }
 
-  // ngOnChanges() {
-  //   this.attachNavs()
-  // }
-
   fillDotsBlocks(block, amount){
     for(let i = 0; i < amount; i++){
       block.push(i)
@@ -120,31 +116,6 @@ export class InviteNewComponent implements OnInit {
        this.expansionOpened = p
      }, velocity)
   }
-
-  // attachNavs(){
-  //   setTimeout(() => {
-  //     console.log(this.document.defaultView);
-  //     let prev: any = this.document.querySelector('.owl-prev')
-  //     let next: any = this.document.querySelector('.owl-next')
-  //     // let prev: any = this.document.querySelector('.owl-prev')
-  //     // prev.style = "position: absolute;left: 21px;top: calc(100vh - 70%);border-radius: 50%;padding: 14px;font-size: 93px;background: transparent;color: #00adef;;"
-  //     // let next: any = this.document.querySelector('.owl-next')
-  //     // next.style = "position: absolute;right: 21px;top: calc(100vh - 70%);border-radius: 50%;padding: 14px;font-size: 93px;background: transparent;color: #00adef;"
-  //   if(this.document.defaultView.outerWidth > 900) {
-      
-  //     prev.style = "position: absolute;left: 21px;top: calc(100vh - 70%);border-radius: 50%;padding: 14px;font-size: 93px;background: transparent;color: #00adef;;"
-  //     next.style = "position: absolute;right: 21px;top: calc(100vh - 70%);border-radius: 50%;padding: 14px;font-size: 93px;background: transparent;color: #00adef;"
-  //   }
-  //    else if (this.document.defaultView.outerWidth < 900) {
-  //     prev.style = "display: none"
-  //     next.style = "display: none"
-      
-  //     this.customOptions.nav = false;
-  //   }
-
-  //   }, 1000)
-    
-  // }
 
 
   private inputHandler(){

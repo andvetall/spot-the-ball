@@ -140,6 +140,9 @@ main{
     section{
         height: auto;
         width: inherit;
+        .my-carousel .hiden {
+            display: none;
+        }
         .block1{
             width: inherit;
             height: 1000px;
@@ -188,7 +191,7 @@ main{
         .main-img {
             .dots-block1 {
                 position: absolute;
-                bottom: 215px;
+                bottom: 0;
             }
             .dots-block2 {
                 position: absolute;
@@ -273,11 +276,10 @@ main{
             }
         }
         .block3{
-            display: flex;
             padding: 0 64px 113px 0;
-            justify-content: space-between;
             .texst-wrapper{
-                max-width: 580px;
+                width: 80%;
+                margin: 0 auto;
                 box-sizing: border-box;
                 text-align: center;
                 padding: 43px 49px 43px 65px;
@@ -286,17 +288,11 @@ main{
                 h3{
                     font-size: 30px;
                 }
-                p{
-                    font-size: 20px;
-                    color: #a7a9ac;
-                    line-height: 1.75;
-                    text-align: start;
-                    letter-spacing: 1px;
-                }
             }
             .video-wrapper{
-                max-width: 1176px;
-                width: 100%;
+                width: 80%;
+                margin: 0 auto;
+                height: 50vw;
                 .video{
                     width: 100%;
                     height: 100%;
@@ -354,7 +350,7 @@ main{
         .sotial{
             display: flex;
             max-width: fit-content;
-            margin: 0 auto;
+            margin: 20px auto;
             .sotial-item{
                 width: 41px;
                 height: 41px;
@@ -386,7 +382,7 @@ main{
     padding: 20px;
 }
 .line{
-    width: 70%;
+    width: 100%;
     border: solid 1px #00aae8;
     margin: 0 auto 23px;
     .half-circle {
@@ -398,8 +394,9 @@ main{
         border-bottom-right-radius: 110px;
         border-bottom: 0;
         position: absolute;
-        right: 48%;
+        left: 50%;
         text-align: center;
+        transform: translate(-50%);
         img{
             transform: rotate(-90deg);
         }
@@ -459,8 +456,8 @@ input, select {
     box-sizing: border-box;
     border-radius: 4px;
     padding: 10px;
-    margin: 5px auto 15px auto;
-    width: 300px;
+    margin: 5px 0;
+    width: 65%;
     font-size: 16px;
     line-height: 20px;
 }
@@ -472,10 +469,9 @@ label {
     margin-right: 20px;
 }
 .action-buttons {
-    
+    width: 35%;
     button {
         color: #ffffff;
-        width: 150px;
         margin: 0;
     }
 
@@ -490,6 +486,7 @@ label {
     }
 
     .background-button {
+        width: 100%;
         background: #00aae8;
         border-radius: 4px;
         padding: 10px;
@@ -638,7 +635,15 @@ label {
 
    main section{
         .block1{
-            height: 800px;
+            height: 50vw;
+            .dots-block1{
+                bottom: 0;
+                max-width: 450px;
+            }
+            .dots-block2{
+                top: 0;
+                max-width: 800px;
+            }
         }
     }
 }
@@ -648,12 +653,12 @@ label {
 
    main section{
         .block1{
-            height: 800px;
+            height: 50vw;
         }
     }
 
     .page-wrapper{
-        height: 72vh;
+        height: 50vh;
         padding: 0 10px 0;
     }
 
@@ -702,7 +707,7 @@ label {
         }
 
         .hover1 {
-            top: 42%
+            top: 56%
         }
     } 
     .second-img {
@@ -714,7 +719,7 @@ label {
         }
 
         .hover1 {
-            top: 32%
+            top: 54%
         }
     }
 
@@ -727,7 +732,7 @@ label {
         }
     }
     main section  .block2 {
-        margin-top: -176px;
+        // margin-top: -176px;
         background-position-y: -7%;
         padding-top: 133px;
         margin-bottom: -70px;
@@ -735,8 +740,6 @@ label {
     
 
     main section .block3{
-        display: flex;
-        flex-direction: column-reverse;
         padding: 0;
         .texst-wrapper{
             max-width: 100%;
@@ -753,15 +756,6 @@ label {
                 line-height: 1.75;
                 text-align: start;
                 letter-spacing: 1px;
-            }
-        }
-        .video-wrapper{
-            max-width: 100%;
-            width: 100%;
-            height: 600px;
-            .video{
-                width: 100%;
-                height: 100%;
             }
         }
     }
@@ -810,7 +804,7 @@ label {
     }
 
     .have-acc {
-        width: 38%;
+        width: 70%;
     }
 
     main section .block2 .title {
@@ -828,8 +822,7 @@ label {
     } 
     header{
         flex-wrap: wrap;
-        height: 240px;
-        margin-bottom: 120px;
+        padding-bottom: 96px;
         div {
             width: 100%;
         }
@@ -843,7 +836,8 @@ label {
             
         }
         .sign-in-up {
-            height: 120px;
+            height: 80px;
+            padding: 32px 0 0 0 !important;
             text-align: center;
         }
     } 
@@ -856,18 +850,25 @@ label {
 
     .main-img {
         .hover1 {
-            top: 30%
+            left: 50%;
+            transform: translate(-50%);
+            top: 70%;
+            button {
+                font-size: 18px;
+                padding: 13px 50px;
+            }
         }
     } 
     .second-img {
         .hover1 {
-            top: 23%
+            top: 50%;
+            button {
+                font-size: 18px;
+                padding: 13px 50px;
+            }
         }
     }
 
-    main section .block2 {
-        margin-top: -220px;
-    }
 
     main footer {
         .wrapper {
@@ -927,19 +928,107 @@ label {
     }
 
     main section .block2 {
-        margin-top: -390px;
         background-position-y: 0%;
     }
 
+    main section .block3{
+        padding: 0;
+        .texst-wrapper{
+            width: 100%;
+            padding: 43px 49px 43px 65px;
+            background: #ffffff;
+            border-left: solid 10px #00adef;
+
+            h3{
+                font-size: 30px;
+            }
+            p{
+                font-size: 20px;
+                color: #a7a9ac;
+                line-height: 1.75;
+                text-align: start;
+                letter-spacing: 1px;
+            }
+        }
+        .video-wrapper{
+            width: 100%;
+            .video{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    main section .block4{
+        .dots-block3{
+            height: 90px;
+        }
+    }
+
     .action-buttons > div {
-        left: 30%;
+        // left: 30%;
     }
     .have-acc {
-        width: 70%;
+        width: 100%;
     }
  }
 
  @media screen and (max-width: 480px)  {
+     main section .page-wrapper{
+         padding: 0;
+         height: calc(100vh - 293px);
+         .register-wrapper{
+             width: 100%;
+             .input-wrapper{
+                 .favT{
+                     .action-buttons{
+                        margin: 5px 0 0 0 !important;
+                     }
+                 }
+             }
+             .action-buttons{
+                 width: 100%;
+             }
+         }
+     }
+     main header{
+         .image{
+             width: inherit;
+             img{
+                width: 100%;
+             }
+         }
+         .sign-in-up{
+             z-index: 999;
+         }
+     }
+     main section {
+        .my-carousel .hiden {
+            display: block;
+            position: relative;
+            left: 0;
+        }
+        .my-carousel .block1 .hover1 {
+            display: none;
+        }
+     }
+    .main-img {
+        .hover1 {
+            top: 62%;
+            button {
+                padding: 13px 40px;
+            }
+        }
+    } 
+    .second-img {
+        .hover1 {
+            left: 0;
+            top: 46%;
+            button {
+                padding: 13px 40px;
+            }
+        }
+    }
+
     main footer {
         .wrapper {
             width: 95%;
@@ -964,17 +1053,22 @@ label {
         right: 44%;
     }
     main section .block2 {
-        background-position-y: 2%;
+        padding: 50px 0 0 0;
+        .title{
+            h2{
+                left: 180px;
+                font-size: 24px;
+            }
+        }
+    }
+    main section .block2 {
+        background-position-y: -2%;
         background-position-x: 520%;
     }
     .dots-block4{
-        margin-top: -426px;
-
-        position: relative;
-        top: 235px;
-        // left: -45px;
+        position: absolute;
+        top: -94px;
         left: 0;
-        display: block;
         padding: 25px 0 33px;
         max-width: 144px;
         display: flex;
@@ -990,7 +1084,7 @@ label {
     }
 
     .action-buttons > div {
-        left: 9%;
+        // left: 9%;
     }
     .sign-in-up {
         padding: 44px 20px 46px;
@@ -1002,11 +1096,18 @@ label {
     .sign-in-up span:nth-child(2):before {
         display: none;
     }
+    main section .block3{
+        .texst-wrapper{
+            padding: 15px;
+            h3{
+                font-size: 22px;
+            }
+        }
+    }
  }
 
  @media screen and (max-width: 430px)  {
     main section .block2 {
-        margin-top: -704px;
         background-position-y: 18%;
     }
 
@@ -1056,7 +1157,6 @@ label {
         }
     }
     main section .block2 {
-        margin-top: -860px;
         background-position-y: 17%;
     }
 

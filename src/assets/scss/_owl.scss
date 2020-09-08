@@ -1,0 +1,45 @@
+
+ .owl-nav{
+   .owl-prev, .owl-next{
+     position: absolute;
+    //  left: 21px;
+     top: 450px;
+     width: 35px;
+     height: 35px;
+     border-radius: 50%!important;
+     padding: 14px!important;
+     font-size: 93px!important;
+     background: transparent!important;
+     color: #00adef!important;
+     display: block!important;
+   }
+  
+   .owl-next{
+      right: 21px !important;
+   }
+   .owl-prev{
+      left: 21px !important;
+ }
+ }
+ 
+ @media screen and (max-width: 1140px) {
+  .owl-nav{
+    .owl-prev, .owl-next {
+      top: 290px;
+    }
+  }
+ }
+ @media screen and (max-width: 960px) {
+  .owl-nav{
+    .owl-prev, .owl-next {
+      top: 160px;
+    }
+  }
+ }
+ @media screen and (max-width: 750px) {
+  .owl-nav{
+    .owl-prev, .owl-next {
+       display: none !important;
+    }
+  }
+ }

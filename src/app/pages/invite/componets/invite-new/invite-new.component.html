@@ -175,6 +175,13 @@
             </div>
           </div>
         </div>
+        <div class="hover1 hiden">
+          <div class="hover2">
+            <button type="button" (click)="toggleExpansion(true, 0)">
+              JOIN US <span style="margin-right: 10px">>></span>
+            </button>
+          </div>
+        </div>
       </ng-template>
       <ng-template carouselSlide>
         <div
@@ -209,6 +216,13 @@
             </div>
           </div>
         </div>
+        <div class="hover1 hiden">
+          <div class="hover2">
+            <button type="button" (click)="toggleExpansion(true, 0)">
+              JOIN US <span style="margin-right: 10px">>></span>
+            </button>
+          </div>
+        </div>
       </ng-template>
     </owl-carousel-o>
 
@@ -224,7 +238,7 @@
         data-aos-duration="2000"
         class="content-wrapper"
       >
-        <div class="content-item" *ngFor="let item of howDoesItWork">
+        <div data-aos="fade-up" class="content-item" *ngFor="let item of howDoesItWork">
           <h3>{{ item.title }}</h3>
           <img src="{{ item.image }}" alt="image" />
           <img class="background" src="{{ item.image1 }}" alt="image2" />
@@ -233,21 +247,14 @@
       </div>
     </div>
 
-    <div data-aos="fade-up" class="block3">
-      <div data-aos="fade-right" data-aos-duration="2000" class="texst-wrapper">
+    <div class="block3">
+      <div  data-aos="fade-up" class="texst-wrapper">
         <h3>HOW TO PLAY?</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
       </div>
-      <div data-aos="fade-left" data-aos-duration="2000" class="video-wrapper">
+      
+      <div  data-aos="fade-up" class="video-wrapper">
         <iframe
+          height="500"
           class="video"
           src="https://www.youtube.com/embed/C6Dyb2mu-pA"
           frameborder="0"

@@ -237,7 +237,6 @@ main{
                 .content-item{
                     cursor: pointer;
                     width: 315px;
-                    height: 315px;
                     box-sizing: border-box;
                     background: #fff;
                     padding: 28px 33px;
@@ -1188,7 +1187,7 @@ label {
         .content-wrapper{
             .content-item {
                 padding: 20px 3px 0 3px;
-                height: 360px;
+                // height: 360px;
                 width: 95%;
             }
         }

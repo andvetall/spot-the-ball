@@ -29,23 +29,31 @@ export class InviteNewComponent implements OnInit {
       title: "CHOOSE GAME",
       image: "../../../../../assets/images/ticket.png",
       image1: "../../../../../assets/images/ticket1.png",
-      desc: "Lorem ipsum dolor sit amet, consectetur."
+      desc: `All of our games run for a week. Choose the
+      game that is active for the current week. You
+      have until Sunday at Midnight.`
     },
     {
       title: "PLAY GAME",
       image: "../../../../../assets/images/vr-gaming.png",
       image1: "../../../../../assets/images/vr-gaming1.png",
-      desc: "Lorem ipsum dolor sit amet, consectetur."
+      desc: `When you play, you have one chance to
+      mark on the picture where you think the puck
+      is. Use your abilities to deduce the position of
+      the puck.`
     },
     {
       title: "WEEKLY WINNER",
       image: "../../../../../assets/images/quality.png",
       image1: "../../../../../assets/images/quality1.png",
-      desc: "Lorem ipsum dolor sit amet, consectetur."
+      desc: `When the week is over, our algorithm
+      determines which mark was closest to the
+      original puck’s position. The winner who is
+      the closest will receive that week’s prize.`
     }
   ]
   public customOptions: any = {
-    // autoplay: true,
+    autoplay: true,
     loop: true,
     autoplayTimeout: 3000,
     mouseDrag: false,

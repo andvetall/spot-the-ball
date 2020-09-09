@@ -55,11 +55,9 @@ export class RequestTableComponent implements OnInit {
         gameType: null,
         password: null,
         role: null,
-        referredBy: element.referredBy
-        ,
+        referredBy: element.referredBy,
+        rate: element.rate
       };
-      console.log(data);
-      
       const dialogRef = this.dialog.open(NewUserComponent, {
         width: "700px",
         data: data,

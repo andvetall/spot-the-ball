@@ -71,25 +71,8 @@
       </mat-form-field>
 
       <mat-form-field class="form-data">
-        <mat-label style="padding-left: 10px;">Game Type</mat-label>
-        <select matNativeControl required formControlName="gameType">
-          <option disabled value="Choose Game Type">Game Type</option>
-          <option value="football">Football</option>
-          <option value="hockey">Hockey</option>
-        </select>
-
-        <mat-error
-          *ngIf="
-            !form.controls['gameType'].valid
-          "
-        >
-          This field is required. Choose Game Type.
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="form-data">
         <mat-label style="padding-left: 10px;">Rate</mat-label>
-        <select matNativeControl required formControlName="rate">
+        <select style="padding-left: 10px;" matNativeControl required formControlName="rate">
           <option disabled value="Choose Game Type">Choose Rate</option>
           <option value="1">I have watched and played hockey most of my life</option>
           <option value="2">I am a serious hockey fan</option>
@@ -107,6 +90,22 @@
         </mat-error>
       </mat-form-field>
 
+      <mat-form-field class="form-data">
+        <mat-label style="padding-left: 10px;">Game Type</mat-label>
+        <select style="padding-left: 10px;" matNativeControl required formControlName="gameType">
+          <option disabled value="Choose Game Type">Game Type</option>
+          <option value="football">Football</option>
+          <option value="hockey">Hockey</option>
+        </select>
+
+        <mat-error
+          *ngIf="
+            !form.controls['gameType'].valid
+          "
+        >
+          This field is required. Choose Game Type.
+        </mat-error>
+      </mat-form-field>
       
     </mat-dialog-content>
 

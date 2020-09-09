@@ -106,6 +106,24 @@
                 </div>
               </div>
             </div>
+            <div
+              [ngClass]="{
+                'error-innput-wrapper':
+                  formRequest.controls['rate'].invalid &&
+                  !formRequest.controls['rate'].untouched
+              }"
+              class="input-wrapper select"
+            >
+              <select (change)="inputHandler()" formControlName="rate">
+                <option [ngValue]="null" disabled hidden>How do you rate yourself as a hockey fan? *</option>
+                <option value="1">I have watched and played hockey most of my life</option>
+                <option value="2">I am a serious hockey fan</option>
+                <option value="3">I am the average hockey fan</option>
+                <option value="4">I do not watch hockey very often</option>
+                <option value="5">I almost never watch hockey</option>
+              </select>
+
+            </div>
             <div class="action-buttons action2">
               <div 
                 class="hover1"

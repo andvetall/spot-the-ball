@@ -103,7 +103,6 @@ export class InviteNewComponent implements OnInit {
     this.fillDotsBlocks(this.dotsBlock4, 44);
     this._createForm();
     this.inputHandler();
-    // this.attachNavs()
   }
 
   fillDotsBlocks(block, amount){
@@ -120,6 +119,7 @@ export class InviteNewComponent implements OnInit {
      setTimeout(() => {
        if(this.formRequest){
          this.formRequest.reset();
+         this.submitButtonDisabled = false;
        }
        this.expansionOpened = p
      }, velocity)
@@ -149,6 +149,7 @@ export class InviteNewComponent implements OnInit {
       email: ['', [Validators.required, Validators.minLength(10), Validators.email]],
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.minLength(3)]],
+      rate: ['', Validators.required]
     });
   }
 

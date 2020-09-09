@@ -87,6 +87,26 @@
         </mat-error>
       </mat-form-field>
 
+      <mat-form-field class="form-data">
+        <mat-label style="padding-left: 10px;">Rate</mat-label>
+        <select matNativeControl required formControlName="rate">
+          <option disabled value="Choose Game Type">Choose Rate</option>
+          <option value="1">I have watched and played hockey most of my life</option>
+          <option value="2">I am a serious hockey fan</option>
+          <option value="3">I am the average hockey fan</option>
+          <option value="4">I do not watch hockey very often</option>
+          <option value="5">I almost never watch hockey</option>
+        </select>
+
+        <mat-error
+          *ngIf="
+            !form.controls['gameType'].valid
+          "
+        >
+          This field is required. Choose Game Type.
+        </mat-error>
+      </mat-form-field>
+
       
     </mat-dialog-content>
 

@@ -58,6 +58,8 @@ export class RequestTableComponent implements OnInit {
         referredBy: element.referredBy
         ,
       };
+      console.log(data);
+      
       const dialogRef = this.dialog.open(NewUserComponent, {
         width: "700px",
         data: data,

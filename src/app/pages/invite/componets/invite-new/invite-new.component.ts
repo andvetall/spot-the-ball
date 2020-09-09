@@ -166,7 +166,7 @@ export class InviteNewComponent implements OnInit {
     if (this.formRequest.invalid) {
       return;
     }
-    const data = Object.assign(this.formRequest.value, {favoriteTeam: `${this.teamSelected.city} ${this.teamSelected.title}`}, {referredBy: this.sender ? this.sender : {senderEmail: "N/A"}});
+    const data = Object.assign(this.formRequest.value, {favoriteTeam: `${this.teamSelected.city} ${this.teamSelected.title}`}, {referredBy: this.sender ? this.sender : {senderEmail: "Public"}});
     data.email = data.email.toLocaleLowerCase();
     this._userService.sendRequest(data).subscribe(res => {
       this.requested = true;

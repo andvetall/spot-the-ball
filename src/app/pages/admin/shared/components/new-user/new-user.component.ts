@@ -35,7 +35,7 @@ export class NewUserComponent implements OnInit {
         favoriteTeam: new FormControl(this.data.favoriteTeam ? this.data.favoriteTeam : null,  Validators.required),
         gameType: new FormControl(this.data.gameType ? this.data.gameType : null, Validators.required),
         role: new FormControl(this.data.role ? this.data.role : "user", Validators.required),
-        referredBy: new FormControl(this.data.referredBy ? this.data.referredBy.senderEmail : "Admin", Validators.required),
+        referredBy: new FormControl(this.data.type === "add" ? "Admin" : this.data.referredBy.senderEmail , Validators.required),
       });
   }
 

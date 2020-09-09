@@ -73,6 +73,7 @@ export class UserTableComponent implements OnInit {
         gameType: element.gameType,
         password: element.password,
         role: element.role,
+        referredBy: element.referredBy
       };
       const dialogRef = this.dialog.open(NewUserComponent, {
         width: "700px",

@@ -49,7 +49,7 @@ main {
 .have-acc {
     display: flex;
     justify-content: space-around;
-    width: 18%;
+    width: 25%;
     margin: 0 auto;           
 }
 .favT {
@@ -360,7 +360,8 @@ main{
 .line{
     width: 100%;
     border: solid 1px #00aae8;
-    margin: 15px auto 23px;
+    margin: 20px auto 23px;
+    position: relative;
     .half-circle {
         cursor: pointer;
         width: 68px;
@@ -371,6 +372,7 @@ main{
         border-bottom: 0;
         position: absolute;
         left: 50%;
+        top: 0;
         text-align: center;
         transform: translate(-50%);
         img{
@@ -619,7 +621,7 @@ label {
     }
 
     main section .main-img {
-        background-position: 50% -45%;
+        background-position: 50% 0%;
         .dots-block1 {
             max-width: 500px;
             bottom: 13%;

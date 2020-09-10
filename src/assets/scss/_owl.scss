@@ -2,7 +2,7 @@
  .owl-nav{
    .owl-prev, .owl-next{
      position: absolute;
-     top: 375px;
+     top: 275px;
      width: 35px;
      height: 35px;
      border-radius: 50%!important;
@@ -24,7 +24,7 @@
  @media screen and (max-width: 1490px) {
   .owl-nav{
     .owl-prev, .owl-next {
-      top: 390px;
+      top: 275px;
     }
   }
  }

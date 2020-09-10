@@ -67,11 +67,11 @@ main{
         height: 120px;
         display: flex;
         justify-content: space-between;
-        border: solid 0.5px #ffffff;
+        outline: solid 0.5px #ffffff;
         background-color: #f1f1f1;
         .image{
             height: inherit;
-            background: #00adef;
+            background: #ffffff;
             padding: 0 33px;
             img{
                 height: inherit;
@@ -162,7 +162,6 @@ main{
             background: url(../../../../../assets/images/260.png) no-repeat; 
             background-position: 50% 50%; 
             position: relative;      
-            // height: 100vh;
             background-size: cover;
             .dots-block1 {
                 position: absolute;
@@ -244,7 +243,7 @@ main{
             }
         }
         .block3{
-            padding: 0 65px 113px 65px;
+            padding: 0 65px 80px 65px;
 
             .title{
                 background: #ffffff;
@@ -286,7 +285,7 @@ main{
             .video-wrapper{
                 width: 80%;
                 margin: 0 auto;
-                height: 50vw;
+                height: 66vh;
                 .video{
                     width: 100%;
                     height: 100%;
@@ -659,10 +658,6 @@ label {
         top: 55%;
     }
 
-    main section .second-img .dots-block1 {
-        bottom: 187px;
-    }
-
     main section .main-img {
         background-position: 50% 90%;
         .dots-block1 {
@@ -713,6 +708,7 @@ label {
     main section  .block2 {
         background-position-y: -7%;
         padding-top: 133px;
+        padding-bottom: 120px;
         margin-bottom: -160px;
     }
     
@@ -848,6 +844,11 @@ label {
             text-align: center;
         }
     } 
+
+    main header .sign-in-up span:nth-child(2):before {
+        height: 20px;
+        top: -31px;
+    }
 
     main section .register-wrapper .action2 {
         width: auto;
@@ -1059,6 +1060,7 @@ label {
     }
     main section .block2 {
         padding: 50px 0 0 0;
+        margin-bottom: 80px;
         .title{
             h2{
                 left: 180px;
@@ -1086,6 +1088,10 @@ label {
             border-radius: 50%;
             opacity: 0.4;
         }
+    }
+
+    main section .block2 .content-wrapper {
+        padding-bottom: 0;
     }
 
     .sign-in-up {

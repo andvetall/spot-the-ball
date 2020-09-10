@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { RoleGuard } from 'src/app/core/guards/role-guard';
 import { MatTabsModule } from '@angular/material/tabs';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { ResultDialogQuestionComponent } from './shared/components/result-dialog-question/result-dialog-question.component';
 
 
 @NgModule({
@@ -35,6 +36,6 @@ import { DashboardModule } from './dashboard/dashboard.module';
     MenuItemComponent
   ],
   providers: [LoginGuard, RoleGuard],
-  entryComponents: [ResultDialogComponent]
+  entryComponents: [ResultDialogComponent, ResultDialogQuestionComponent]
 })
 export class ClientModule { }

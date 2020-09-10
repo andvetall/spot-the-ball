@@ -58,6 +58,7 @@ export class InviteNewComponent implements OnInit {
     pullDrag: true,
     dots: false,
     navSpeed: 2500,
+    autoplaySpeed: 2500,
     navText: ['&#8249;', '&#8250;'],
     responsive: {
       0: {

@@ -75,6 +75,7 @@ main{
             padding: 0 33px;
             img{
                 height: inherit;
+                width: auto;
             }
         }
         .sign-in-up{
@@ -114,13 +115,13 @@ main{
     section{
         height: auto;
         width: inherit;
-        .my-carousel .hiden {
+        .hiden {
             display: none;
         }
         .block1{
             width: inherit;
             height: 1000px;
-            background-size: 100%;
+            // background-size: 100%;
             background-repeat: no-repeat;
             background-position-x: center;
             background-position-y: bottom;
@@ -649,7 +650,7 @@ label {
 
     main section{
         .block1{
-            background-size: 100%;
+            // background-size: 100%;
             background-repeat: no-repeat;
             background-position: 50% 0%;
             height: 50vw;
@@ -712,6 +713,13 @@ label {
         padding-top: 133px;
         padding-bottom: 120px;
         margin-bottom: -160px;
+        .content-wrapper{
+            flex-wrap: wrap;
+            display: flex;
+            .content-item{
+                width: 25%;
+            }
+        }
     }
     
     main section .block3{
@@ -752,10 +760,11 @@ label {
         top: 51%;
     }
     main section .block2 .content-wrapper{
-        flex-direction: column;
+        // flex-direction: column;
         margin: 0 auto;
         .content-item {
-            width: 40%;
+            width: 30%;
+            padding: 15px;
             margin: 0 auto 10px auto;
         }
     }
@@ -809,6 +818,12 @@ label {
         }
         .ellipse-2 {
             display: none;
+        }
+    }
+    main section .block3 {
+        .video-wrapper{
+            width: 100%;
+            height: 60vh;
         }
     }
 }
@@ -888,6 +903,17 @@ label {
         }
     }
 
+    main section .block3{
+        .video-wrapper{
+            width: 95%;
+            height: 35vh;
+            .video{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
     .block4 {
         .hover1 {
             button {
@@ -905,6 +931,9 @@ label {
         height: 107px;
         .image {
             height: 132px;
+            img{
+                width: inherit;
+            }
         }
         .sign-in-up {
             padding: 15px 0 0 0 !important;
@@ -914,6 +943,22 @@ label {
     main section .second-img .hover1 {
         top: 50%;
         left: 2%;
+    }
+    main section {
+        .my-carousel .block1 .hover1 {
+            display: none;
+        }
+        .hiden {
+            display: block;
+            position: relative;
+            left: 0;
+            .hover2{
+                button{
+                    font-size: 18px;
+                    padding: 12px 60px;
+                }
+            }
+        }
     }
 
     .sign-in-up span:nth-child(1):after {
@@ -961,13 +1006,7 @@ label {
                 letter-spacing: 1px;
             }
         }
-        .video-wrapper{
-            width: 100%;
-            .video{
-                width: 100%;
-                height: 100%;
-            }
-        }
+        
     }
     main section .block4{
         .dots-block3{
@@ -986,8 +1025,13 @@ label {
  }
 
  @media screen and (max-width: 480px)  {
-    main header .sign-in-up span {
-        font-size: 22px;
+    main header {
+        .image{
+            height: auto;
+        }
+        .sign-in-up span {
+            font-size: 22px;
+        }
     }
      main section .page-wrapper{
          padding: 0;
@@ -1016,16 +1060,6 @@ label {
              z-index: 999;
          }
      }
-     main section {
-        .my-carousel .hiden {
-            display: block;
-            position: relative;
-            left: 0;
-        }
-        .my-carousel .block1 .hover1 {
-            display: none;
-        }
-     }
 
      main section .hover1 .hover2 {
         button {
@@ -1053,6 +1087,7 @@ label {
     }
 
     main section .block2 .content-wrapper{
+        padding-top: 60px;
         .content-item {
             width: 95%;
         }
@@ -1121,6 +1156,9 @@ label {
  }
 
  @media screen and (max-width: 430px)  {
+    main header{
+        max-height: 50px;
+    }
     main section .block2 {
         background-position-y: -2%;
         padding: 0;

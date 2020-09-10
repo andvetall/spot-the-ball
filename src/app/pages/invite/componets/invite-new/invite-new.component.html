@@ -152,10 +152,7 @@
     </mat-accordion>
     <owl-carousel-o [options]="customOptions" class="my-carousel">
       <ng-template carouselSlide>
-        <div
-          style="background-image: url(../../../../../assets/images/260.png); background-position: center 70%; position: relative;"
-          class="block1 main-img"
-        >
+        <div class="block1 main-img">
           <div class="dots-block1">
             <div class="ellipse-1" *ngFor="let dot of dotsBlock1"></div>
           </div>
@@ -183,17 +180,10 @@
         </div>
       </ng-template>
       <ng-template carouselSlide>
-        <div
-          style="
-            background-image: url(../../../../../assets/images/banner2.png);
-            background-position-y: top;
-            position: relative;
-          "
-          class="block1 second-img"
-        >
+        <div class="block1 second-img">
           <div 
             style="
-            max-width: 710px;"
+            max-width: 618px;"
             class="dots-block1"
           >
             <div class="ellipse-1" *ngFor="let dot of dotsBlock1"></div>
@@ -239,7 +229,6 @@
         <div data-aos="fade-up" class="content-item" *ngFor="let item of howDoesItWork">
           <h3>{{ item.title }}</h3>
           <img src="{{ item.image }}" alt="image" />
-          <img class="background" src="{{ item.image1 }}" alt="image2" />
           <p>{{ item.desc }}</p>
         </div>
       </div>
@@ -284,12 +273,6 @@
 
   <footer>
     <img src="../../../../../assets/images/Web_Puckhunt_Logo.png" alt="logo" />
-    <div class='wrapper'>
-      <div>Terms of Play <span class="line2">|</span> </div>
-      <div>Privacy Policy <span class="line">|</span> </div>
-      <div>Cookie Policy <span class="line2">|</span> </div>
-      <div>Contact Us</div>
-    </div>
     <div class="sotial">
       <a href="https://www.instagram.com/puckhunt/" style="padding: 6px 6px;" class="sotial-item">
         <img src="../../../../../assets/images/instagram.png" alt="instagram" />

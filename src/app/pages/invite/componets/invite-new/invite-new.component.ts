@@ -28,7 +28,6 @@ export class InviteNewComponent implements OnInit {
     {
       title: "CHOOSE GAME",
       image: "../../../../../assets/images/ticket.png",
-      image1: "../../../../../assets/images/ticket1.png",
       desc: `All of our games run for a week. Choose the
       game that is active for the current week. You
       have until Sunday at Midnight.`
@@ -36,7 +35,6 @@ export class InviteNewComponent implements OnInit {
     {
       title: "PLAY GAME",
       image: "../../../../../assets/images/vr-gaming.png",
-      image1: "../../../../../assets/images/vr-gaming1.png",
       desc: `When you play, you have one chance to
       mark on the picture where you think the puck
       is. Use your abilities to deduce the position of
@@ -45,7 +43,6 @@ export class InviteNewComponent implements OnInit {
     {
       title: "WEEKLY WINNER",
       image: "../../../../../assets/images/quality.png",
-      image1: "../../../../../assets/images/quality1.png",
       desc: `When the week is over, our algorithm
       determines which mark was closest to the
       original puck’s position. The winner who is
@@ -55,12 +52,12 @@ export class InviteNewComponent implements OnInit {
   public customOptions: any = {
     autoplay: true,
     loop: true,
-    autoplayTimeout: 3000,
+    autoplayTimeout: 7000,
     mouseDrag: false,
     touchDrag: true,
     pullDrag: true,
     dots: false,
-    navSpeed: 1000,
+    navSpeed: 2500,
     navText: ['&#8249;', '&#8250;'],
     responsive: {
       0: {

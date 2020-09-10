@@ -2,7 +2,6 @@
  .owl-nav{
    .owl-prev, .owl-next{
      position: absolute;
-    //  left: 21px;
      top: 375px;
      width: 35px;
      height: 35px;
@@ -21,8 +20,15 @@
       left: 21px !important;
  }
  }
- 
- @media screen and (max-width: 1140px) {
+
+ @media screen and (max-width: 1490px) {
+  .owl-nav{
+    .owl-prev, .owl-next {
+      top: 390px;
+    }
+  }
+ }
+ @media screen and (max-width: 1280px) {
   .owl-nav{
     .owl-prev, .owl-next {
       top: 215px;

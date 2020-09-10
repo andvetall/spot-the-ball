@@ -15,6 +15,7 @@ import { FriendsComponent } from './components/friends/friends.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
 import { PrizesComponent } from './components/prizes/prizes.component';
+import { ResultDialogQuestionComponent } from '../shared/components/result-dialog-question/result-dialog-question.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { PrizesComponent } from './components/prizes/prizes.component';
     GameComponent,
     DashboardComponent,
     ResultDialogComponent,
+    ResultDialogQuestionComponent,
     FriendsComponent,
     PrizesComponent,
     PersonalInfoComponent,
@@ -33,6 +35,6 @@ import { PrizesComponent } from './components/prizes/prizes.component';
     ResultComponent
   ],
   providers: [LoginGuard, RoleGuard ],
-  entryComponents: [ResultDialogComponent],
+  entryComponents: [ResultDialogComponent, ResultDialogQuestionComponent],
 })
 export class DashboardModule { }

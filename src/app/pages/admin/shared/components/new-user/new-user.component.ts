@@ -36,6 +36,7 @@ export class NewUserComponent implements OnInit {
         gameType: new FormControl(this.data.gameType ? this.data.gameType : null, Validators.required),
         role: new FormControl(this.data.role ? this.data.role : "user", Validators.required),
         referredBy: new FormControl(this.data.type === "add" ? "Admin" : this.data.referredBy.senderEmail , Validators.required),
+        rate: new FormControl(this.data.rate ? this.data.rate : "N/A", Validators.required)
       });
   }
 

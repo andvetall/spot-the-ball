@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { UserModel } from "src/app/shared/interfaces";
 import { ResultXY } from "src/app/shared/interfaces/result.model";
 import * as moment from 'moment';
+import { ResultDialogQuestionComponent } from '../../../shared/components/result-dialog-question/result-dialog-question.component';
 
 @Component({
   selector: "game-component",
@@ -101,11 +102,7 @@ export class GameComponent implements OnInit {
       this.result,
       this.differencePosition
     );
-    this.openDialog(event.offsetX, event.offsetY, this.differencePosition);
-
-    let arr = JSON.parse(localStorage.getItem('temporary-result')) || [];
-    arr.push({result: this.result, differencePosition: this.differencePosition, game: this.gameData._id});
-    localStorage.setItem("temporary-result", JSON.stringify(arr));
+    this.openDialogQuestion();
   }
 
   ballPositionDiffFromReal(resultX, resultY, realPositionX?, realPositionY?) {
@@ -142,6 +139,22 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       this.getDataFromLS();
       this.router.navigate(["result"]);
+    });
+  }
+
+  openDialogQuestion() {
+    const dialogRef = this.dialog.open(ResultDialogQuestionComponent, {
+      width: "400px",
+      height: "350px",
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if(result) {
+        this.openDialog(this.x, this.y, this.differencePosition);
+        let arr = JSON.parse(localStorage.getItem('temporary-result')) || [];
+        arr.push({result: this.result, differencePosition: this.differencePosition, game: this.gameData._id});
+        localStorage.setItem("temporary-result", JSON.stringify(arr));
+      }
     });
   }
 

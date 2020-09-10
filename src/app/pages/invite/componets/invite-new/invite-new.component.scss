@@ -162,7 +162,7 @@ main{
             background: url(../../../../../assets/images/260.png) no-repeat; 
             background-position: 50% 50%; 
             position: relative;      
-            height: 100vh;
+            // height: 100vh;
             background-size: cover;
             .dots-block1 {
                 position: absolute;
@@ -181,7 +181,7 @@ main{
             background-size: cover;
             .dots-block1 {
                 position: absolute;
-                bottom: 277px;
+                top: 0;
             }
             .dots-block2 {
                 position: absolute;
@@ -216,7 +216,7 @@ main{
             .content-wrapper{
                 display: flex;
                 padding-top: 90px;
-                padding-bottom: 239px;
+                padding-bottom: 90px;
                 .content-item{
                     cursor: pointer;
                     width: 315px;
@@ -584,18 +584,25 @@ label {
     justify-content: space-between;
 }
 
-@media screen and (max-width: 1919px) {
+@media screen and (max-width: 1920px) {
     main {
         max-width: 1440px;
     }
+    main header {
+        max-height: 80px;
+        height: 80px;
+        .sign-in-up{
+            padding: 26px 45px 46px;
+        }
+    }
     .hover1 {
-        top: 40%;
+        top: 50%;
     }
     main section{
         .block1{
-            background-size: 100%;
             background-repeat: no-repeat;
             background-position: 50% 0%;
+            height: calc(100vh - 120px);
             .dots-block1{
                 .ellipse-1 {
                     margin: 10px;
@@ -607,27 +614,25 @@ label {
                 }
             }
         }
-        .block2 {
-            margin-top: -60px;
-        }
     }
 
     main section .main-img {
         background-position: 50% -45%;
         .dots-block1 {
-            max-width: 247px;
-            bottom: 155px;
+            max-width: 500px;
+            bottom: 13%;
+        
         }
         .dots-block2 {
             max-width: 490px;
-            top: 275px;
+            top: 35%;
+
         }
     } 
     main section .second-img {
         
         .dots-block1 {
             max-width: 247px;
-            bottom: 430px;
         }
         .dots-block2 {
             max-width: 490px;

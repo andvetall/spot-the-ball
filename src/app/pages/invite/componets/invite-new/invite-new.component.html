@@ -64,7 +64,7 @@
             </mat-form-field>
       
             <mat-form-field  (click)='selectTeam()' appearance="fill" class="form-data input">
-              <mat-label>Favorite Team *</mat-label>
+              <mat-label>Favorite NHL Team *</mat-label>
               <input matInput formControlName="favoriteTeam" />
               <mat-error
                 *ngIf="
@@ -76,9 +76,9 @@
             </mat-form-field>
       
             <mat-form-field class="form-data input" style="width: 97%;">
-              <mat-label style="padding-left: 10px;">Rate</mat-label>
+              <mat-label style="padding-left: 10px;">How do you rate yourself as a hockey fan?</mat-label>
               <mat-select (change)="inputHandler()" style="padding-left: 10px;" matNativeControl required formControlName="rate">
-                <mat-option disabled value="Choose Rate">Choose Rate</mat-option>
+                <mat-option disabled value="0">How do you rate yourself as a hockey fan?</mat-option>
                 <mat-option value="1">I have watched and played hockey most of my life</mat-option>
                 <mat-option value="2">I am a serious hockey fan</mat-option>
                 <mat-option value="3">I am the average hockey fan</mat-option>

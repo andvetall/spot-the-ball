@@ -147,7 +147,8 @@ export class InviteNewComponent implements OnInit {
       email: ['', [Validators.required, Validators.minLength(10), Validators.email]],
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.minLength(3)]],
-      rate: ['', Validators.required]
+      favoriteTeam: ['', [Validators.required, Validators.minLength(3)]],
+      rate: ['', [Validators.required]]
     });
   }
 
@@ -158,6 +159,11 @@ export class InviteNewComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.teamSelected = result;
+      if(!result){
+        this.formRequest.controls['favoriteTeam'].setValue('')
+        return;
+      }
+      this.formRequest.controls['favoriteTeam'].setValue(`${result.city} ${result.title}`)
     });
   }
 

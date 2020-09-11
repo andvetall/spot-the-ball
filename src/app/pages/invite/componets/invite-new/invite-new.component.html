@@ -24,128 +24,99 @@
             SIGN UP
           </h2>
           <form [formGroup]="formRequest" class="register-wrapper">
-            <div
-              [ngClass]="{
-                'error-innput-wrapper':
-                  formRequest.controls['email'].invalid &&
-                  !formRequest.controls['email'].untouched
-              }"
-              class="input-wrapper"
-            >
-              <!-- <label for="email">Email</label> -->
-              <input (keyup)="inputHandler()" placeholder="Email *" formControlName="email" />
-            </div>
-
-            <div
-              [ngClass]="{
-                'error-innput-wrapper':
-                  formRequest.controls['firstName'].invalid &&
-                  !formRequest.controls['firstName'].untouched
-              }"
-              class="input-wrapper"
-            >
-              <!-- <label for="password">First Name</label> -->
-              <input (keyup)="inputHandler()" placeholder="First Name *" formControlName="firstName" />
-            </div>
-
-            <div
-              [ngClass]="{
-                'error-innput-wrapper':
-                  formRequest.controls['lastName'].invalid &&
-                  !formRequest.controls['lastName'].untouched
-              }"
-              class="input-wrapper"
-            >
-              <!-- <label for="password">Last Name</label> -->
-              <input (keyup)="inputHandler()" placeholder="Last Name *" formControlName="lastName" />
-            </div>
-
-            <div
-              [ngClass]="{ 'error-innput-wrapper': teamSelected === undefined }"
-              class="input-wrapper"
-            >
-              <!-- <label for="favoriteTeam">Favorite Team</label> -->
-              <div class="favT">
-                <div class="favorite-team-input">
-                  <p style="margin: 0; color: rgb(117 117 117);" *ngIf="!teamSelected">
-                    Favorite NHL Team
-                  </p>
-                  <div *ngIf="teamSelected" style="display: flex">
-                    <img
-                      style="
-                        max-height: 20px;
-                        position: relative;
-                        top: 0;
-                        right: 0;
-                        cursor: auto;
-                      "
-                      src="../../../../../assets/images/nhl/{{
-                        teamSelected.image
-                      }}"
-                      alt="{{ teamSelected.image }}"
-                    />
-                    <h3 style="font-size: 10px; margin: 0 2px">
-                      {{ teamSelected.city }}
-                    </h3>
-                    <h2 style="font-size: 12px; margin: 0 2px">
-                      {{ teamSelected.title }}
-                    </h2>
-                  </div>
-                </div>
-                <div
-                  class="action-buttons"
-                  style="height: 50px; margin: 5px 0 0 11px"
-                >
-                  <button
-                    mat-button
-                    class="background-button"
-                    (click)="selectTeam()"
-                  >
-                    Select team
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              [ngClass]="{
-                'error-innput-wrapper':
-                  formRequest.controls['rate'].invalid &&
-                  !formRequest.controls['rate'].untouched
-              }"
-              class="input-wrapper select"
-            >
-              <select (change)="inputHandler()" formControlName="rate">
-                <option [ngValue]="null" disabled hidden>How do you rate yourself as a hockey fan? *</option>
-                <option value="1">I have watched and played hockey most of my life</option>
-                <option value="2">I am a serious hockey fan</option>
-                <option value="3">I am the average hockey fan</option>
-                <option value="4">I do not watch hockey very often</option>
-                <option value="5">I almost never watch hockey</option>
-              </select>
-
-            </div>
-            <div class="action-buttons action2">
-              <div
+            <mat-form-field appearance="fill" class="form-data input">
+              <mat-label>Email *</mat-label>
+                <input (keyup)="inputHandler()" matInput formControlName="email" />
+              <mat-error
+                *ngIf="formRequest.controls['email'].invalid"
+              >
+                <mat-error *ngIf="formRequest.get('email').errors.required">
+                  Enter your Email
+                </mat-error>
+                <mat-error *ngIf="formRequest.get('email').errors.email">
+                  This field should contain @ character
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+      
+            <mat-form-field appearance="fill" class="form-data input">
+              <mat-label>First Name *</mat-label>
+              <input (keyup)="inputHandler()" matInput formControlName="firstName" />
+              <mat-error
+                *ngIf="
+                  !formRequest.controls['firstName'].valid
+                "
+              >
+                This field is required. Enter First Name.
+              </mat-error>
+            </mat-form-field>
+      
+            <mat-form-field appearance="fill" class="form-data input">
+              <mat-label>Last Name *</mat-label>
+              <input (keyup)="inputHandler()" matInput formControlName="lastName" />
+              <mat-error
+                *ngIf="
+                  !formRequest.controls['lastName'].valid
+                "
+              >
+                This field is required. Enter Last Name.
+              </mat-error>
+            </mat-form-field>
+      
+            <mat-form-field  (click)='selectTeam()' appearance="fill" class="form-data input">
+              <mat-label>Favorite Team *</mat-label>
+              <input matInput formControlName="favoriteTeam" />
+              <mat-error
+                *ngIf="
+                  !formRequest.controls['favoriteTeam'].valid
+                "
+              >
+                This field is required. Choose a Favorite Team.
+              </mat-error>
+            </mat-form-field>
+      
+            <mat-form-field class="form-data input" style="width: 97%;">
+              <mat-label style="padding-left: 10px;">Rate</mat-label>
+              <mat-select (change)="inputHandler()" style="padding-left: 10px;" matNativeControl required formControlName="rate">
+                <mat-option disabled value="Choose Rate">Choose Rate</mat-option>
+                <mat-option value="1">I have watched and played hockey most of my life</mat-option>
+                <mat-option value="2">I am a serious hockey fan</mat-option>
+                <mat-option value="3">I am the average hockey fan</mat-option>
+                <mat-option value="4">I do not watch hockey very often</mat-option>
+                <mat-option value="5">I almost never watch hockey</mat-option>
+              </mat-select>
+      
+              <mat-error
+                *ngIf="
+                  !formRequest.controls['rate'].valid
+                "
+              >
+                This field is required. Choose a Rate.
+              </mat-error>
+            </mat-form-field>
+          </form>
+          <div
+                style="
+                padding: 8px;
+                position: relative;
+                top: 0;
+                left: 50%;
+                transform: translate(-50%);
+                max-width: 250px;"
                 class="hover1"
               >
                 <div class="hover2">
                   <button
-                    disabled="{{ !submitButtonDisabled || !teamSelected }}"
+                    disabled="!formRequest.valid"
+                    [ngClass]="{'disabled': !formRequest.valid}"
                     mat-button
-                    class="background-button"
                     (click)="submitForm()"
-                    [ngClass]="{
-                      disabled: submitButtonDisabled == false || !teamSelected
-                    }"
                     type="button"
                     style="width: auto;font-size: 20px;padding: 10px 75px;">
                     Submit
                   </button>
                 </div>
               </div>
-              
-            </div>
-          </form>
           <p class="have-acc"
               
             >

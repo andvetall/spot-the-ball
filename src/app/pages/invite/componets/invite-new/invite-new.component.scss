@@ -5,6 +5,16 @@
 main {
     overflow-x: hidden;
 }
+.register-wrapper{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    .input{
+        width: 47%;
+        margin: 0 auto;
+    }
+}
 .hover1{
     border-radius: 8px;
     padding: 11px 12px;
@@ -12,6 +22,7 @@ main {
     top: 55%;
     left: 7%;
     transition: all 1s;
+    cursor: pointer;
     .hover2{
         border-radius: 8px;
         padding: 9px 14px;
@@ -26,6 +37,9 @@ main {
             background-color: #00adef;
             color: #ffffff;
             transition: all 1s;
+        }
+        .disabled{
+            background: #a7a9ac69;
         }
     }
 }
@@ -318,7 +332,7 @@ main{
 }
 
 .page-wrapper{
-    height: 40vh;
+    height: auto;
     background: #f1f1f1;
     padding: 20px;
 }
@@ -356,206 +370,7 @@ h1, h2{
     width: 60%;
     margin: 0 auto;
 }
-.error-innput-wrapper {
-    input, .favorite-team-input {
-        border-bottom: 3px solid #FA6363;
-        border: 1.5px solid #FA6363 !important;
-    }
 
-    label {
-        color: #FA6363 !important;
-    }
-}
-.input-wrapper {
-    img {
-        position: absolute;
-        top: 35px;
-        right: 16px;
-        cursor: pointer;
-    }
-    select {
-        font-family: 'Roboto' !important;
-        font-weight: 500;
-        font-size: 15px;
-    }
-    position: relative;
-}
-
-input, select {
-    background: #FFFFFF;
-    border: 1px solid #7b7b7b57;
-    border-bottom: 3px solid silver;
-    box-sizing: border-box;
-    border-radius: 4px;
-    padding: 10px;
-    margin: 5px 0 15px 0;
-    width: 100%;
-    font-size: 16px;
-    line-height: 20px;
-}
-
-.favorite-team-input{
-    background: #FFFFFF;
-    border: 1px solid #7b7b7b57;
-    border-bottom: 3px solid silver;
-    box-sizing: border-box;
-    border-radius: 4px;
-    padding: 10px;
-    margin: 5px 0;
-    width: 65%;
-    font-size: 16px;
-    line-height: 20px;
-}
-
-label {
-    font-size: 14px;
-    line-height: 18px;
-    color: #00aae8;
-    margin-right: 20px;
-}
-.action-buttons {
-    width: 35%;
-    button {
-        color: #ffffff;
-        margin: 0;
-    }
-    .none-background-button {
-        background: transparent;
-        padding: 10px;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
-        text-decoration: underline;
-    }
-
-    .background-button {
-        width: 100%;
-        background: #00aae8;
-        border-radius: 4px;
-        padding: 10px;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
-    }
-    .disabled {
-        background-color: #7f8fa445 !important;
-    }
-    margin: 25px 0 0 0;
-    display: flex !important;
-    justify-content: space-between;
-}
-
-.action-buttons > div {
-    position: relative;
-    top: 0; 
-    left: 0;
-}
-
-.logo-wrapper {
-    text-align: center;
-    h1 {
-        margin: 0;
-        font-size: 65px;
-        text-align: center;
-        color: #34af74;
-        padding: 20vh 0 0 0;
-    }
-    margin-top: 80px;
-    width: 100%;
-    height: auto;
-}
-
-.register-wrapper {
-    margin: 0 auto;
-    height: auto;
-    width: 60%;
-    padding: 30px 30px 0;
-    display: flex;
-    flex-wrap: wrap;
-    *{
-        font-family: futura !important;
-    }
-
-    .input-wrapper{
-        width: 40%;
-        display: block;
-        font-family: futura;
-        margin: 0 auto;
-    }
-    .select{
-        width: 90%;
-    }
-}
-
-.error-innput-wrapper {
-    input {
-        border-bottom: 3px solid #FA6363;
-        border: 1.5px solid #FA6363 !important;
-    }
-
-    label {
-        color: #FA6363 !important;
-    }
-}
-
-.input-wrapper {
-    img {
-        position: absolute;
-        top: 35px;
-        right: 16px;
-        cursor: pointer;
-    }
-    position: relative;
-}
-
-input {
-    background: #FFFFFF;
-    border: 1px solid #7b7b7b57;
-    border-bottom: 3px solid silver;
-    box-sizing: border-box;
-    border-radius: 4px;
-    padding: 10px;
-    margin: 5px 0 15px 0;
-    width: 100%;
-    font-size: 16px;
-    line-height: 20px;
-}
-
-label {
-    font-size: 14px;
-    line-height: 18px;
-    color: #00aae8;
-}
-
-.action-buttons {
-    button {
-        color: #ffffff;
-        width: 150px;
-        margin: 0 auto;
-    }
-    .none-background-button {
-        background: transparent;
-        padding: 10px;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
-        text-decoration: underline;
-    }
-    .background-button {
-        background: #00aae8;
-        border-radius: 4px;
-        padding: 11px;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
-    }
-    .disabled {
-        background-color: #7f8fa445;
-    }
-    margin: 30px auto 0;
-    display: block !important;
-    justify-content: space-between;
-}
 
 @media screen and (max-width: 1920px) {
     main {
@@ -612,25 +427,6 @@ label {
     .page-wrapper{
         height: 100%;
         padding: 0 10px 0;
-    }
-
-    .register-wrapper {
-        margin: 0 auto;
-        height: auto;
-        width: 60%;
-        padding: 5px 30px 0;
-        display: flex;
-        flex-wrap: wrap;
-        *{
-            font-family: futura !important;
-        }
-    
-        .input-wrapper{
-            width: 55%;
-            display: block;
-            font-family: futura;
-            margin: 0 auto;
-        }
     }
 
     .action-buttons {
@@ -710,22 +506,6 @@ label {
         }
     }
 
-    .register-wrapper {
-        width: 85%;
-        .input-wrapper{
-            width: 75%;
-        }
-        .action-buttons {
-            width: 30%;
-            margin: 20px auto 0 auto;
-        }
-    }
-
-    register-wrapper {
-        margin: 0 auto;
-        height: auto;
-        width: 70%;
-    }
     .input-wrapper{ 
         width: 68%;
     }
@@ -770,6 +550,16 @@ label {
 }
 
 @media screen and (max-width: 960px) { 
+    
+    .register-wrapper{
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+        .input{
+            width: 97%;
+            margin: 0 auto;
+        }
+    }
     main header .image {
         padding: 0;
     }
@@ -828,9 +618,6 @@ label {
     } 
 
 
-    main section .register-wrapper .action2 {
-        width: auto;
-    } 
 
     main section .block2 .content-wrapper{
         .content-item {
@@ -999,22 +786,7 @@ label {
             font-size: 22px;
         }
     }
-     main section .page-wrapper{
-         padding: 0;
-         .register-wrapper{
-             width: 100%;
-             .input-wrapper{
-                 .favT{
-                     .action-buttons{
-                        margin: 5px 0 0 0 !important;
-                     }
-                 }
-             }
-             .action-buttons{
-                 width: 100%;
-             }
-         }
-     }
+
      main header{
          .image{
              width: inherit;

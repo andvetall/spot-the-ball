@@ -3,7 +3,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { HowToPlayComponent } from 'src/app/shared/components/how-to-play/how-to-play.component';
 
 
 
@@ -68,11 +67,6 @@ export class LoginComponent implements OnInit {
         this._router.navigate(['admin/main-dashboard'])
       } else {
         this._router.navigate(['dashboard'])
-        setTimeout(() => {
-          const dialogRef = this.dialog.open(HowToPlayComponent, {
-            width: "700px",
-          });
-        }, 1000)
       }
     })
   }

@@ -1,0 +1,36 @@
+<div 
+style=
+"width: auto;
+margin: 0 auto;
+text-align: center;"
+class="wrapper">
+  <h2>Please select your level</h2>
+  <form [formGroup]="form" >
+    <mat-form-field class="form-data input" style="width: 90%; font-family: Roboto;">
+      <mat-label style="padding-left: 10px;">How do you rate yourself as a hockey fan?</mat-label>
+      <mat-select style="padding-left: 10px;" matNativeControl required formControlName="rate">
+        <mat-option style="font-family: Roboto;" value="1">I have watched and played hockey most of my life</mat-option>
+        <mat-option style="font-family: Roboto;" value="2">I am a serious hockey fan</mat-option>
+        <mat-option style="font-family: Roboto;" value="3">I am the average hockey fan</mat-option>
+        <mat-option style="font-family: Roboto;" value="4">I do not watch hockey very often</mat-option>
+        <mat-option style="font-family: Roboto;" value="5">I almost never watch hockey</mat-option>
+      </mat-select>
+  
+      <mat-error
+        *ngIf="
+          !form.controls['rate'].valid
+        "
+      >
+        This field is required. Choose a Rate.
+      </mat-error>
+    </mat-form-field>
+    <button
+      [disabled]="!form.valid"
+      mat-button
+      (click)="sendRate()"
+      type="button"
+      style="width: auto;font-size: 20px;padding: 10px 75px;">
+      Submit
+    </button>
+  </form>
+</div>

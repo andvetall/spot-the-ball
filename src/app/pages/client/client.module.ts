@@ -17,6 +17,7 @@ import { RoleGuard } from 'src/app/core/guards/role-guard';
 import { MatTabsModule } from '@angular/material/tabs';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ResultDialogQuestionComponent } from './shared/components/result-dialog-question/result-dialog-question.component';
+import { RateModalComponent } from './shared/components/rate-modal/rate-modal.component';
 
 
 @NgModule({
@@ -36,6 +37,6 @@ import { ResultDialogQuestionComponent } from './shared/components/result-dialog
     MenuItemComponent
   ],
   providers: [LoginGuard, RoleGuard],
-  entryComponents: [ResultDialogComponent, ResultDialogQuestionComponent]
+  entryComponents: [ResultDialogComponent, ResultDialogQuestionComponent, RateModalComponent]
 })
 export class ClientModule { }

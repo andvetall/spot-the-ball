@@ -23,6 +23,7 @@ export class NewUserComponent implements OnInit {
     ) {}
 
   ngOnInit() {
+    if(this.data.type == 'update'){
       this.form = new FormGroup({
         _id: new FormControl(this.data._id), 
         email: new FormControl(this.data.email ? this.data.email.toLocaleLowerCase() : null, [Validators.required, Validators.email]),
@@ -38,12 +39,29 @@ export class NewUserComponent implements OnInit {
         referredBy: new FormControl(this.data.type === "add" ? "Admin" : this.data.referredBy.senderEmail , Validators.required),
         rate: new FormControl(this.data.rate ? this.data.rate : null, Validators.required)
       });
+    } else {
+      this.form = new FormGroup({
+        _id: new FormControl(this.data._id), 
+        email: new FormControl(this.data.email ? this.data.email.toLocaleLowerCase() : null, [Validators.required, Validators.email]),
+        password: new FormControl(this.data.password ? this.data.password : this.res, [
+          Validators.required,
+          Validators.minLength(6),
+        ]),
+        firstName: new FormControl(this.data.firstName ? this.data.firstName : null, Validators.required),
+        lastName: new FormControl(this.data.lastName ? this.data.lastName : null, Validators.required),
+        favoriteTeam: new FormControl(this.data.favoriteTeam ? this.data.favoriteTeam : null,  Validators.required),
+        gameType: new FormControl(this.data.gameType ? this.data.gameType : null, Validators.required),
+        role: new FormControl(this.data.role ? this.data.role : "user", Validators.required),
+        referredBy: new FormControl(this.data.type === "add" ? "Admin" : this.data.referredBy.senderEmail , Validators.required),
+      });
+    }
   }
 
   submit() {
     const data = this.form.value;
     data.email = data.email.toLocaleLowerCase();
     data.referredBy = {senderEmail: this.form.value.referredBy};
+    data.rate = null;
     this.userService.addUser(data).subscribe((res) => {
       this.toastr.success('User created');
     }, err => err );

@@ -590,11 +590,23 @@ h1, h2{
             display: none !important;
         }
     }
-    main section .main-img .hover1 {
-        top: 65%;
-    }
-    main section .second-img .hover1 {
-        top: 50%;
+    main section {
+        .my-carousel .block1 .hover1 {
+            display: none;
+        }
+        .hiden {
+            display: block;
+            position: relative;
+            max-width: 260px;
+            left: 50% !important;
+            transform: translate(-50%);
+            .hover2{
+                button{
+                    font-size: 18px;
+                    padding: 12px 60px;
+                }
+            }
+        }
     }
     header{
         flex-wrap: wrap;
@@ -697,22 +709,7 @@ h1, h2{
         top: 50%;
         left: 2%;
     }
-    main section {
-        .my-carousel .block1 .hover1 {
-            display: none;
-        }
-        .hiden {
-            display: block;
-            position: relative;
-            left: 0;
-            .hover2{
-                button{
-                    font-size: 18px;
-                    padding: 12px 60px;
-                }
-            }
-        }
-    }
+    
 
     .sign-in-up span:nth-child(1):after {
         display: none;

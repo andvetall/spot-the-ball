@@ -107,7 +107,7 @@
               >
                 <div class="hover2">
                   <button
-                    disabled="!formRequest.valid"
+                    [disabled]="!formRequest.valid"
                     [ngClass]="{'disabled': !formRequest.valid}"
                     mat-button
                     (click)="submitForm()"

@@ -16,17 +16,17 @@
             width: 40%;
             display: flex;
             background: #ffffff;
-            border: solid 4px #00b9f0;
+            border: solid 4px #00b9f04f;
             margin: 35px auto;
             position: relative;
             box-sizing: border-box;
             padding: 10px;
+            border-radius: 5px;
             img{
-                max-height: 230px;
-                width: 50%;
+                height: 150%;
                 position: absolute;
                 right: 0;
-                top: -66px;
+                top: -25%;
             }
             p{
                 width: 50%; 

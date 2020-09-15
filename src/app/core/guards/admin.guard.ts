@@ -14,7 +14,7 @@ export class AdminGuard implements CanActivate {
       const token = localStorage.getItem('user');
       const tokenInfo = this.getDecodedAccessToken(token);
       if(!token) {
-        this.router.navigate(['login']);
+        this.router.navigate(['invite']);
         return false
       }
       if(tokenInfo.role === "admin") {

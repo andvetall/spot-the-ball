@@ -18,13 +18,12 @@
       style="background: #f1f1f1; margin-top: -49px;box-shadow: none;"
       disabled [expanded]="expansionOpened" hideToggle>
         <mat-expansion-panel-header> </mat-expansion-panel-header>
-
         <div class="page-wrapper">
-          <h2 style="text-align: center;">
+          <h2>
             SIGN UP
           </h2>
           <form [formGroup]="formRequest" class="register-wrapper">
-            <mat-form-field appearance="fill" class="form-data input">
+            <mat-form-field appearance="fill" class="input">
               <mat-label>Email *</mat-label>
                 <input (keyup)="inputHandler()" matInput formControlName="email" />
               <mat-error
@@ -39,7 +38,7 @@
               </mat-error>
             </mat-form-field>
       
-            <mat-form-field appearance="fill" class="form-data input">
+            <mat-form-field appearance="fill" class="input">
               <mat-label>First Name *</mat-label>
               <input (keyup)="inputHandler()" matInput formControlName="firstName" />
               <mat-error
@@ -51,7 +50,7 @@
               </mat-error>
             </mat-form-field>
       
-            <mat-form-field appearance="fill" class="form-data input">
+            <mat-form-field appearance="fill" class="input">
               <mat-label>Last Name *</mat-label>
               <input (keyup)="inputHandler()" matInput formControlName="lastName" />
               <mat-error
@@ -63,7 +62,7 @@
               </mat-error>
             </mat-form-field>
       
-            <mat-form-field  (click)='selectTeam()' appearance="fill" class="form-data input">
+            <mat-form-field  (click)='selectTeam()' appearance="fill" class="input">
               <mat-label>Favorite NHL Team *</mat-label>
               <input matInput formControlName="favoriteTeam" />
               <mat-error
@@ -75,15 +74,14 @@
               </mat-error>
             </mat-form-field>
       
-            <mat-form-field class="form-data input" style="width: 97%; font-family: Roboto;">
-              <mat-label style="padding-left: 10px;">How do you rate yourself as a hockey fan?</mat-label>
-              <mat-select (change)="inputHandler()" style="padding-left: 10px;" matNativeControl required formControlName="rate">
-                <!-- <mat-option style="font-family: Roboto;" disabled value="0">How do you rate yourself as a hockey fan?</mat-option> -->
-                <mat-option style="font-family: Roboto;" value="1">I have watched and played hockey most of my life</mat-option>
-                <mat-option style="font-family: Roboto;" value="2">I am a serious hockey fan</mat-option>
-                <mat-option style="font-family: Roboto;" value="3">I am the average hockey fan</mat-option>
-                <mat-option style="font-family: Roboto;" value="4">I do not watch hockey very often</mat-option>
-                <mat-option style="font-family: Roboto;" value="5">I almost never watch hockey</mat-option>
+            <mat-form-field class="input selectField">
+              <mat-label class="selectLabel">How do you rate yourself as a hockey fan?</mat-label>
+              <mat-select class="select" (change)="inputHandler()" matNativeControl required formControlName="rate">
+                <mat-option value="1">I have watched and played hockey most of my life</mat-option>
+                <mat-option value="2">I am a serious hockey fan</mat-option>
+                <mat-option value="3">I am the average hockey fan</mat-option>
+                <mat-option value="4">I do not watch hockey very often</mat-option>
+                <mat-option value="5">I almost never watch hockey</mat-option>
               </mat-select>
       
               <mat-error
@@ -95,34 +93,21 @@
               </mat-error>
             </mat-form-field>
           </form>
-          <div
-                style="
-                padding: 8px;
-                position: relative;
-                top: 0;
-                left: 50%;
-                transform: translate(-50%);
-                max-width: 250px;"
-                class="hover1"
-              >
-                <div class="hover2">
-                  <button
-                    [disabled]="!formRequest.valid"
-                    [ngClass]="{'disabled': !formRequest.valid}"
-                    mat-button
-                    (click)="submitForm()"
-                    type="button"
-                    style="width: auto;font-size: 20px;padding: 10px 75px;">
-                    Submit
-                  </button>
-                </div>
-              </div>
-          <p class="have-acc"
-              
-            >
-              <span style="color: #6f7394">You have an account already?</span>
+          <div class="hover1">
+            <div class="hover2">
+              <button
+                [disabled]="!formRequest.valid"
+                [ngClass]="{'disabled': !formRequest.valid}"
+                mat-button
+                (click)="submitForm()"
+                type="button">
+                Submit
+              </button>
+            </div>
+          </div>
+          <p class="have-acc">
+              <span>You have an account already?</span>
               <b
-                style="cursor: pointer; color: #00aae8"
                 (click)="loginRedirect()"
                 >Login HERE</b
               >
@@ -131,7 +116,6 @@
 
         <div class="line">
           <div
-          style="color: #fff;padding: 4px 0 0 0;font-size: 20px;"
           class="half-circle" 
           (click)="toggleExpansion(false, 0)">
             X
@@ -255,9 +239,9 @@
           </div>
           <div 
           style="
-          top: 56% !important;
-          left: 60% !important;
-          max-width: 322px !important;
+            top: 56% !important;
+            left: 60% !important;
+            max-width: 322px !important;
           "
           class="hover1">
             <div class="hover2">
@@ -395,15 +379,14 @@
 <div *ngIf="requested" class="page-wrapper">
   <div class="logo-wrapper">
     <img
-      style="max-width: 200px"
       src="../../../../assets/images/LOGO.png"
       alt="logo"
     />
   </div>
-  <h1 style="text-align: center; margin-top: 50px">
+  <h1>
     Thank you! Your request has been sent successfully!
   </h1>
-  <h2 style="text-align: center; margin-top: 50px">
+  <h2>
     Please wait for your email which will contain your login and
     password.
   </h2>
@@ -412,7 +395,6 @@
 <div *ngIf="oops" class="page-wrapper">
   <div class="logo-wrapper">
     <img
-      style="max-width: 200px"
       src="../../../../assets/images/LOGO.png"
       alt="logo"
     />

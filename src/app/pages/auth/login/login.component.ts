@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-
-
 
 @Component({
   selector: 'app-login',
@@ -21,7 +18,6 @@ export class LoginComponent implements OnInit {
     private _authService : AuthService,
     private _router : Router,
     private _formBuilder: FormBuilder,
-    private dialog: MatDialog,
   ) { }
 
   ngOnInit() {

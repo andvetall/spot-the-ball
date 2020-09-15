@@ -17,12 +17,14 @@ import { PersonalInfoComponent } from './components/personal-info/personal-info.
 import { PrizesComponent } from './components/prizes/prizes.component';
 import { ResultDialogQuestionComponent } from '../shared/components/result-dialog-question/result-dialog-question.component';
 import { RateModalComponent } from '../shared/components/rate-modal/rate-modal.component';
+import { DModelModule } from './components/3d-model/D-model.module';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DModelModule
   ],
   declarations: [
     GameComponent,

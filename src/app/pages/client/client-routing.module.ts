@@ -9,6 +9,7 @@ import { GameComponent } from './dashboard/components/game/game.component';
 import { FriendsComponent } from './dashboard/components/friends/friends.component';
 import { PersonalInfoComponent } from './dashboard/components/personal-info/personal-info.component';
 import { PrizesComponent } from './dashboard/components/prizes/prizes.component';
+import { DModelComponent } from './dashboard/components/3d-model/D-model.component';
 const routes: Routes = [
   {
     path: '',
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'result', component: ResultComponent, canActivate:[RoleGuard]},
       { path: 'friends', component: FriendsComponent, canActivate:[RoleGuard]},
       { path: 'personal-info', component: PersonalInfoComponent, canActivate:[RoleGuard]},
+      { path: '3-D-mogel', component: DModelComponent, canActivate:[RoleGuard]},
       
     ]
   },

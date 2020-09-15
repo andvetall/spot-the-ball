@@ -19,7 +19,13 @@ export const MenuConstants = {
       title: 'Refer a Friend',
       path: 'friends',
       icon: '../../../assets/images/friends.png',
+    },
+    {
+      title: '3-D-mogel',
+      path: '3-D-mogel',
+      icon: '../../../assets/images/friends.png',
     }
+    
   ],
   logoutItem: {
     title: 'Log Out',

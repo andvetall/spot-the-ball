@@ -9,6 +9,7 @@ export class PrizesComponent implements OnInit {
 
   public prizes: any = [
     {
+      title: 'Tumbler',
       image: 'tumbler.png',
       desc: `Wireless Headphones
       Rich high quality sound
@@ -17,6 +18,7 @@ export class PrizesComponent implements OnInit {
       24hour battery life`
     },
     {
+      title: 'Apple AirPods',
       image: 'Airpods.png',
       desc: `Fully insulated 
       Stainless steel
@@ -25,6 +27,7 @@ export class PrizesComponent implements OnInit {
       `
     },
     {
+      title: 'T-Shirt',
       image: 'shirt.png',
       desc: `Seamless collar, taped neck and shoulders
       5.3oz, 100% preshrunk cotton

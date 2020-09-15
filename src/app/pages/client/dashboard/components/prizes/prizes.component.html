@@ -2,10 +2,13 @@
   <div style="width: 50%; margin: 0 auto;">
     <img style="width: 100%;" src=".././../../../../../assets/images/Web_Puckhunt_Logo.png" alt="">
   </div>
-  <div class="prizes">
+  <div class="prizes"> 
     <div class="prize" *ngFor="let p of prizes">
-      <p>{{p.desc}}</p>
-      <img src="../../../../../../assets/images/{{p.image}}" alt="img">
+      <h3>{{p.title}}</h3>
+      <div class="content">
+        <p>{{p.desc}}</p>
+        <img src="../../../../../../assets/images/{{p.image}}" alt="img">
+      </div>
     </div>
   </div>
 </div>

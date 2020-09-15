@@ -9,7 +9,7 @@ export class PrizesComponent implements OnInit {
 
   public prizes: any = [
     {
-      image: 'thumb.png',
+      image: 'tumbler.png',
       desc: `Wireless Headphones
       Rich high quality sound
       Voice activated Siri access
@@ -17,7 +17,7 @@ export class PrizesComponent implements OnInit {
       24hour battery life`
     },
     {
-      image: 'air.png',
+      image: 'Airpods.png',
       desc: `Fully insulated 
       Stainless steel
       double wall
@@ -25,7 +25,7 @@ export class PrizesComponent implements OnInit {
       `
     },
     {
-      image: 'PuckHunt_Shirt.png',
+      image: 'shirt.png',
       desc: `Seamless collar, taped neck and shoulders
       5.3oz, 100% preshrunk cotton
       `

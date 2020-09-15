@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -20,7 +19,6 @@ export class ResetPasswordComponent implements OnInit {
 
   constructor(
     private _authService : AuthService,
-    private _router : Router,
     private _formBuilder: FormBuilder,
   ) { }
 

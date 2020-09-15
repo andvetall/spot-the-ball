@@ -1,5 +1,4 @@
 import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
 import { MenuConstants } from "../../shared/constants/menu.constants";
 import { MenuService } from "src/app/services/menu-service";
 import * as jwtdecode from "jwt-decode";
@@ -59,11 +58,6 @@ export class ClientComponent implements OnInit {
       }
     }, err => err)
   }
-
-  // ngAfterViewInit() {
-  //   this.elementRef.nativeElement.querySelector('.tool-bar').addEventListener('mouseenter', this.toggleMenu.bind(this));
-  //   this.elementRef.nativeElement.querySelector('.tool-bar').addEventListener('mouseleave', this.toggleMenu.bind(this));
-  // }
 
   public toggleMenu() {
     // this.showFullSizeMenu = !this.showFullSizeMenu;

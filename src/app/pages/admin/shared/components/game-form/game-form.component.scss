@@ -1,4 +1,22 @@
-
+.dialog-content {
+  display: block;
+  margin: 0 auto;
+  max-height: 65vh;
+  overflow: auto;
+  width: 95%;
+  position: relative;
+  .input-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .image-wrapper {
+      width: 60%;
+      div > img {
+        max-width: 130px;
+      }
+    }
+  }
+}
 form {
   text-align: center;
   padding: 40px;
@@ -9,17 +27,6 @@ button {
   
   &:disabled {
     cursor: not-allowed;
-  }
-}
-
-.delete-img {
-  position: absolute; 
-  right: -40px;
-  top: -4px;
-
-  img {
-    width: 20px;
-    height: 20px;
   }
 }
 

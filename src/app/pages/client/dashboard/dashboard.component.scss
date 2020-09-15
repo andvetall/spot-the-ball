@@ -19,9 +19,33 @@
   min-height: 300px;
   text-align: center;
   flex-wrap: wrap;
+
+  h3 {
+    width: 100%;
+  }
 }
 
 .game {
   cursor: pointer;
   padding: 15px 30px;
+}
+.first-section {
+  .howToPlay {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: fixed;
+    right: 27px;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.games-status {
+  text-align: center; 
+  color: #292929a1;
+}
+.games-list {
+  margin: 0 auto;
 }

@@ -82,9 +82,6 @@ export class PersonalInfoComponent implements OnInit {
       firstName: new FormControl(this.userData.firstName ? this.userData.firstName : null, Validators.required),
       lastName: new FormControl(this.userData.lastName ? this.userData.lastName : null, Validators.required),
       favoriteTeam: new FormControl(this.userData.favoriteTeam ? this.userData.favoriteTeam : null,  Validators.required),
-      // gameType: new FormControl(this.userData.gameType ? this.userData.gameType : null, Validators.required),
-      // role: new FormControl(this.userData.role ? this.userData.role : "user", Validators.required),
-      // referredBy: new FormControl(this.userData.referredBy ? this.userData.referredBy.senderEmail : "Admin", Validators.required),
     });
   }
 

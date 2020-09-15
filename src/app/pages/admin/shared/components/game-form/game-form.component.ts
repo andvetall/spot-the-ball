@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef, Inject } from "@angular/core";
-import { Validators, FormControl, FormGroup, ValidatorFn, AbstractControl } from '@angular/forms';
+import { Validators, FormControl, FormGroup, AbstractControl } from '@angular/forms';
 import { GamesService } from 'src/app/services/games.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { googleDriveLink } from 'src/app/shared/constants/google.constants';
-import { shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'game-form',

@@ -5,7 +5,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { NewUserComponent } from '../new-user/new-user.component';
 import { UserDataDialogComponent } from '../user-data/user-data.dialog.component';
-import { ResultService } from 'src/app/services/result.service';
 import { environment } from "src/environments/environment";
 
 @Component({
@@ -24,7 +23,6 @@ export class UserTableComponent implements OnInit {
     private userService: UserService,
     private dialog: MatDialog,
     private toastr: ToastrService,
-    private resultService: ResultService,
   ) {
     this.userService.allUsers.subscribe(res => {
       if(res && res.length > 1) {

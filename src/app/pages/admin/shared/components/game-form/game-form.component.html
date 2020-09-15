@@ -2,19 +2,8 @@
   <h2 mat-dialog-title>
     {{ data.type === "add" ? "Add new game" : "Edit current game" }}
   </h2>
-  <mat-dialog-content class="mat-typography" style='
-    display: block;
-    margin: 0 auto;
-    max-height: 65vh;
-    overflow: auto;
-    width: 95%;
-    position: relative;'
-  >
-    <div style="
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    ">
+  <mat-dialog-content class="mat-typography dialog-content">
+    <div class="input-wrapper">
       <mat-form-field appearance="fill" class="form-data" style="width: 50%;">
         <mat-label>Title</mat-label>
         <input matInput formControlName="title" />
@@ -33,10 +22,9 @@
       </mat-radio-group>
     </div>
     
-
     <br />
 
-    <div style="width: 100%; position: relative; display: flex; justify-content: space-between;">
+    <div class="input-wrapper" >
       <mat-form-field appearance="fill" class="form-data" 
         style="width: 60%;">
         <mat-label>Image</mat-label>
@@ -48,44 +36,42 @@
         </mat-error>
       </mat-form-field>
 
-      <div style="width: 60%;">
+      <div class="image-wrapper">
         <div *ngIf="form.controls['image'].valid">
-          <img #img src="{{ setImage() }}"  style="max-width: 130px;"/>
+          <img #img src="{{ setImage() }}"  />
         </div>
         <div *ngIf="!form.controls['image'].valid">
-          <img src="../../../../../../assets/images/no_image.png" style="max-width: 130px;" />
+          <img src="../../../../../../assets/images/no_image.png" />
         </div>
       </div>
     </div>
 
     <br />
 
-    <div style="width: 100%; position: relative; display: flex; justify-content: space-between;">
-    <mat-form-field appearance="fill" class="form-data" style="width: 60%;">
-      <mat-label>Original Image</mat-label>
-      <input maxlength="33" #input matInput formControlName="imageOriginal" />
-      <mat-error
-        *ngIf="
-          !form.controls['imageOriginal'].valid &&
-          form.controls['imageOriginal'].touched
-        "
-      >
-        Please add link for Original Image
-      </mat-error>
-    </mat-form-field>
+    <div class="input-wrapper">
+      <mat-form-field appearance="fill" class="form-data" style="width: 60%;">
+        <mat-label>Original Image</mat-label>
+        <input maxlength="33" #input matInput formControlName="imageOriginal" />
+        <mat-error
+          *ngIf="
+            !form.controls['imageOriginal'].valid &&
+            form.controls['imageOriginal'].touched
+          "
+        >
+          Please add link for Original Image
+        </mat-error>
+      </mat-form-field>
 
-    <div style="width: 60%;">
-      <div *ngIf="form.controls['imageOriginal'].valid">
-        <img #imgOrig src="{{ setOriginalImage() }}"  style="max-width: 130px;"/>
+      <div class="image-wrapper">
+        <div *ngIf="form.controls['imageOriginal'].valid">
+          <img #imgOrig src="{{ setOriginalImage() }}" />
+        </div>
+        <div *ngIf="!form.controls['imageOriginal'].valid">
+          <img src="../../../../../../assets/images/no_image.png"/>
+        </div>
       </div>
-      <div *ngIf="!form.controls['imageOriginal'].valid">
-        <img src="../../../../../../assets/images/no_image.png" style="max-width: 130px;" />
-      </div>
-    </div>
     </div>
     <br />
-
-    
 
     <br />
 

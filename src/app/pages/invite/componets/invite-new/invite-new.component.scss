@@ -59,10 +59,6 @@ main {
     transition: all 1s;
 }
 
-.favT {
-    display: flex; 
-    justify-content: center;
-}
 main{
     max-width: 1920px;
     width: 100%;
@@ -230,26 +226,6 @@ main{
                     left: 155px; 
                 }
             }
-            .texst-wrapper{
-                position: relative;
-                text-align: center;
-                padding: 11px;
-                h3{
-                    font-size: 30px;
-                    color: #000000;
-                    margin: 0 auto;
-                    position: relative;
-                }
-                &:before {
-                    content: "";
-                    position: absolute;
-                    top: -3px;
-                    left: 0;
-                    width: 51%;
-                    height: 60px;
-                    background: #fff;
-                }
-            }
             .video-wrapper{
                 width: 80%;
                 margin: 0 auto;
@@ -412,10 +388,6 @@ main{
 h1, h2{
     color: #2b303cad;
 }
-.invite-wrapper{
-    width: 60%;
-    margin: 0 auto;
-}
 
 
 @media screen and (max-width: 1920px) {
@@ -480,10 +452,6 @@ h1, h2{
         transform: translate(-50%);
     }
 
-    .favorite-team-input {
-        width: 760px;
-    }
-
     main section  .block2 {
         background-position-y: -7%;
         padding-top: 133px;
@@ -500,18 +468,6 @@ h1, h2{
     
     main section .block3{
         padding: 0 65px;
-        .texst-wrapper{
-            h3{
-                font-size: 30px;
-            }
-            p{
-                font-size: 20px;
-                color: #a7a9ac;
-                line-height: 1.75;
-                text-align: start;
-                letter-spacing: 1px;
-            }
-        }
     }
 }
 
@@ -536,10 +492,6 @@ h1, h2{
             padding: 15px;
             margin: 0 auto 10px auto;
         }
-    }
-
-    .input-wrapper{ 
-        width: 68%;
     }
 
     .page-wrapper .have-acc {
@@ -706,14 +658,7 @@ h1, h2{
     main form {
         padding: 0!important;
     }
-   main section .input-wrapper {
-        width: 100%;
-    }
 
-    main section .favorite-team-input {
-        width: 76%;
-        margin-right: 10px;
-    }
     main section .action-buttons {
         width: 50%;
     }
@@ -728,20 +673,7 @@ h1, h2{
     }
 
     main section .block3{
-        padding: 0;
-        .texst-wrapper{
-            h3{
-                font-size: 30px;
-            }
-            p{
-                font-size: 20px;
-                color: #a7a9ac;
-                line-height: 1.75;
-                text-align: start;
-                letter-spacing: 1px;
-            }
-        }
-        
+        padding: 0;       
     }
     main section .block4{
         .dots-block3{
@@ -843,13 +775,6 @@ h1, h2{
     .sign-in-up span:nth-child(2):before {
         display: none;
     }
-    main section .block3{
-        .texst-wrapper{
-            h3{
-                font-size: 22px;
-            }
-        }
-    }
 
     main section .block4 .hover1 button {
         padding: 12px 4px;
@@ -872,16 +797,6 @@ h1, h2{
         }
     }
 
-    main section .favT {
-        flex-wrap: wrap;
-        .favorite-team-input {
-            width: 100%;
-        }
-    }
-
-    main section .favorite-team-input {
-        margin-right: 0;
-    }
   }
 
   @media screen and (max-width: 370px ) {

@@ -1,6 +1,6 @@
 import { UserService } from './../../../../../services/user.service';
-import { Component, OnInit, ViewChild, Inject } from "@angular/core";
-import { FormGroup, FormControl, Validators, NgForm } from "@angular/forms";
+import { Component, OnInit, Inject } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { PasswordGen1, PasswordGen2 } from 'src/app/shared/constants/password.generator';
 import { ToastrService } from 'ngx-toastr';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';

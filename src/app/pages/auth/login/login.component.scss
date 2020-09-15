@@ -19,7 +19,6 @@
 
 .register-wrapper {
     margin: 0 auto;
-    // height: auto;
     width: 400px;
     padding: 30px;
     background: #ffffff;
@@ -78,15 +77,6 @@ label {
     .reset-btn {
         background: transparent;
         color: #00aae8;
-    }
-
-    .none-background-button {
-        background: transparent;
-        padding: 10px;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
-        text-decoration: underline;
     }
 
     .background-button {

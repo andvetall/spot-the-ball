@@ -1,22 +1,17 @@
-<div>
+<div class="first-section">
   <div
   (click)="howToPlay()" 
-  style="
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    position: fixed;
-    right: 27px;
-  ">
-    <img style="width: 100%;" src="../../../../assets/images/question.png" alt="question">
+  class="howToPlay"
+  >
+    <img src="../../../../assets/images/question.png" alt="question">
   </div>
   <div class="banner-wrapper">
     <img src="../../../../assets/images/Layer 41.png" alt="loo">
     <img src="../../../../assets/images/Layer 57.png" alt="loo">
   </div>
-  <h2 style="text-align: center; color: #292929a1;">Active Games</h2>
+  <h2 class="games-status">Active Games</h2>
   <div *ngIf="gamesFilter.length; else noActiveGames" class="all-games-wrapper">
-    <div style="margin: 0 auto;" *ngFor="let game of gamesFilter">
+    <div class="games-list" *ngFor="let game of gamesFilter">
       <div class="game" (click)="writeResult(game)">
         <game-wrapper [image]="game.image" [title]="game.title" [dueDate]="game.dateTo"></game-wrapper>
       </div>
@@ -24,14 +19,14 @@
   </div>
   <ng-template #noActiveGames>
     <div class="all-games-wrapper">
-      <h3 style="width: 100%;">There is no available games!</h3>
+      <h3>There is no available games!</h3>
     </div>
   </ng-template>
 </div>
 <div>
-  <h2 style="text-align: center; color: #292929a1;">Expired Games</h2>
+  <h2 class="games-status">Expired Games</h2>
   <div *ngIf="gamesAfterDueDate.length; else noExpiredGames" class="all-games-wrapper">
-    <div style="margin: 0 auto;" *ngFor="let game of gamesAfterDueDate">
+    <div class="games-list" *ngFor="let game of gamesAfterDueDate">
       <div class="game" (click)="writeResult(game)">
         <game-wrapper [image]="game.image" [title]="game.title" [dueDate]="game.dateTo"></game-wrapper>
       </div>
@@ -39,7 +34,7 @@
   </div>
   <ng-template #noExpiredGames>
     <div class="all-games-wrapper">
-      <h3 style="width: 100%;">There is no available games!</h3>
+      <h3>There is no available games!</h3>
     </div>
   </ng-template>
 </div>

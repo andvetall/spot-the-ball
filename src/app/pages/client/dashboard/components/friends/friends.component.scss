@@ -12,6 +12,9 @@
             width: 100%;
         }
     }
+    h1 {
+        margin-left: 50px;
+    }
 }
 h1, h2{
     color: #2b303cad;
@@ -21,6 +24,9 @@ h1, h2{
     margin: 0 auto;
     background: #ffffff;
     padding: 33px;
+    h2 {
+        text-align: center;
+    }
 }
 .error-innput-wrapper {
     input {
@@ -65,16 +71,6 @@ label {
         color: #ffffff;
         width: 150px;
         margin: 0;
-    }
-
-
-    .none-background-button {
-        background: transparent;
-        padding: 10px;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
-        text-decoration: underline;
     }
 
     .background-button {

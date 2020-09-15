@@ -1,7 +1,27 @@
+.req-amount {
+  position: absolute;
+  left: 439px;
+  width: 30px;
+  height: 19px;
+  background: #f44336;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 11px;
+  padding-top: 9px;
+}
+
 .logout-button {
   font-size: 17px;
   font-weight: 600;
   position: absolute;
   right: 40px;
   top: 25px;
+}
+
+.tab-group {
+  max-height: 80vh;
+}
+h1 {
+  margin-left: 30px;
 }

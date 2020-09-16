@@ -95,8 +95,8 @@ export class InviteNewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fillDotsBlocks(this.dotsBlock1, 88);
-    this.fillDotsBlocks(this.dotsBlock2, 187);
+    // this.fillDotsBlocks(this.dotsBlock1, 88);
+    // this.fillDotsBlocks(this.dotsBlock2, 187);
     this.fillDotsBlocks(this.dotsBlock3, 93);
     this.fillDotsBlocks(this.dotsBlock4, 44);
     this._createForm();

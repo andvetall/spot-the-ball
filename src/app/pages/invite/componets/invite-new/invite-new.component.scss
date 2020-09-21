@@ -111,7 +111,7 @@ main{
         .sign-in-up span:nth-child(1):after {
             content: "";
             width: 0;
-            height: 48px;
+            height: 66px;
             position: absolute;
             border: 1px solid #00adef;
             top: 6px;
@@ -564,6 +564,9 @@ h1, h2{
     main header .image {
         padding: 0;
     }
+    main header .sign-in-up{
+        display: block;
+    }
     main header .sign-in-up span{
         font-size: 20px;
     }
@@ -573,7 +576,7 @@ h1, h2{
         height: 51px;
         position: absolute;
         border: 1px solid #00adef;
-        top: 6px;
+        top: 8px;
         left: 110px;
     }
     main header .sign-in-up span:nth-child(2):before {   
@@ -639,7 +642,7 @@ h1, h2{
     }
 
     main section .block1{
-        margin: 10px 0 0 0;
+        margin: 0;
         border-top: none;
     }
 

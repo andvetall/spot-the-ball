@@ -5,7 +5,6 @@ import { AdminComponent } from './admin.component';
 //Modules
 import { ManagementRoutingModule } from './admin-routing.module';
 import { MatCardModule } from '@angular/material/card';
-import { NgxGalleryModule } from 'ngx-gallery';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/modules/material/material.module';
 import { LoginGuard } from 'src/app/core/guards/login-guard';
@@ -26,7 +25,6 @@ import { RequestTableComponent } from './shared/components/request-table/request
     ManagementRoutingModule,
     CommonModule,
     MatCardModule,
-    NgxGalleryModule,
     ReactiveFormsModule,
     MaterialModule,
     FormsModule,

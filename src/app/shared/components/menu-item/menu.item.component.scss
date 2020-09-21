@@ -51,7 +51,32 @@
             right: 1px;
         }
     }
+    @media screen and (max-width: 1440px) {
+        .hidden-part {
+            width: 124px;
+        }
+    }
 }
+
+@media screen and (max-width: 1200px) {
+    .item-wrapper{
+        margin: 7px auto;
+        margin-right: 10px;
+        .hidden-part{
+            position: relative;
+            width: 70px;
+            left: 5px;
+            p{
+                padding-left: 0;
+                font-weight: 500;
+                font-size: 14px;
+                padding: 16px 0;
+                margin: 0;
+            }
+        }
+    }
+}
+
 
 .friends {
     .img-wrapper {

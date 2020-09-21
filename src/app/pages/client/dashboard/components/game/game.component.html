@@ -1,6 +1,6 @@
 <div *ngIf="gameData">
   <div class="head-wrapper">
-    <div style="display: flex; justify-content: space-around;">
+    <div class="some-wrapper">
       <div style="display: inline-block; position: relative;" id="image-box">
         
         <div *ngIf="gameData.dateTo >= currDateConv">
@@ -45,8 +45,8 @@
         </div>
         
       </div>
-      <div style="padding: 100px 0 0 0;">
-        <h2 style="font-size: 27px;">Your first click on the image will mark your selection</h2>
+      <div class="text">
+        <h2 style="font-size: 27px; text-align: center;">Your first click on the image will mark your selection</h2>
         <h3 style="
         margin: 50px 0 0 0;
         text-align: center;

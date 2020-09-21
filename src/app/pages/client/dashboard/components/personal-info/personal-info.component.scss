@@ -3,8 +3,13 @@
     height: calc(100vh - 50px);
     background: url('../../../../../../assets/images/image_1.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-attachment: fixed;
+}
+@media screen and (max-width: 1200px) {
+    .my-account-wrapper{
+        height: calc(100vh - 115px);
+    }
 }
 .button{
     padding: 13px;

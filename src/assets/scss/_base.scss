@@ -12,3 +12,11 @@
     margin: 0;
   }
 }
+@media screen and (max-width: 1200px) {
+  .head-wrapper{
+    margin: 10px auto;
+    box-sizing: border-box;
+    width: fit-content;
+    padding: 0;
+  }
+}

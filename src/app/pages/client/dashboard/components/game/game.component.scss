@@ -1,3 +1,50 @@
 .image{
   cursor: crosshair;
 }
+.head-wrapper{
+  .some-wrapper{
+    display: flex; 
+    justify-content: space-around;
+    .text{
+      padding: 100px 0 0 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .head-wrapper{
+    .some-wrapper{
+      #image-box{
+        margin-bottom: 50px;
+      }
+      flex-direction: column-reverse;
+      position: relative;
+      .text{
+        padding: 0;
+        display: flex;
+        h2{
+          font-size: 23px;
+          text-align: center;
+          width: 100%;
+          margin: 10px 0;
+        }
+        h3{
+          position: absolute;
+          right: 39%;
+          bottom: 0;
+        }
+        #my-game{
+          margin: 0;
+          padding: 0;
+          text-align: end !important;
+          position: absolute;
+          right: 5px;
+          bottom: -29px;
+          h2{
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}

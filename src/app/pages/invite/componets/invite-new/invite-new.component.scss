@@ -95,6 +95,7 @@ main{
         .sign-in-up{
             padding: 44px 45px 46px;
             position: relative;
+            display: flex;
         }
         .sign-in-up span{
             color: #a7a9ac;
@@ -172,7 +173,7 @@ main{
             background-image: url(../../../../../assets/images/25.png);
             background-position-x: 520%;
             background-position-y: -26%;
-            background-size: 95%;
+            background-size: cover;
             background-repeat: no-repeat;
             .title{
                 background: #ffffff;

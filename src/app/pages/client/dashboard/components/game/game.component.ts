@@ -69,19 +69,20 @@ export class GameComponent implements OnInit {
   }
 
   @HostListener("mousemove", ["$event.target"])
-  onMousemove(event) {    
+  onMousemove(event) {   
+    
     if (event.offsetX || event.offsetY) {
-      this.x = event.offsetX;
-      this.y = event.offsetY;
+      this.x = parseInt(`${event.target.naturalWidth / +event.target.clientWidth * +event.offsetX}`);
+      this.y = parseInt(`${event.target.naturalHeight / +event.target.clientHeight * +event.offsetY}`);
     }
   }
 
   mouseClickListener(event) {
-    this.x = event.offsetX;
-    this.y = event.offsetY;
+    this.x = parseInt(`${event.target.naturalWidth / +event.target.clientWidth * +event.offsetX}`);
+    this.y = parseInt(`${event.target.naturalHeight / +event.target.clientHeight * +event.offsetY}`);
     this.result = {
-      x: event.offsetX,
-      y: event.offsetY,
+      x: parseInt(`${event.target.naturalWidth / +event.target.clientWidth * +event.offsetX}`),
+      y: parseInt(`${event.target.naturalHeight / +event.target.clientHeight * +event.offsetY}`)
     };
 
     this.differencePosition = this.ballPositionDiffFromReal(

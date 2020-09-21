@@ -58,14 +58,13 @@
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 800px) {
     .item-wrapper{
         margin: 7px auto;
         margin-right: 10px;
         .hidden-part{
-            position: relative;
-            width: 70px;
-            left: 5px;
+            display: none;
+            width: 0;
             p{
                 padding-left: 0;
                 font-weight: 500;

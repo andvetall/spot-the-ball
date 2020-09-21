@@ -3,25 +3,37 @@
 }
 .head-wrapper{
   .some-wrapper{
+    #image-box{
+      display: inline-block; 
+      position: relative;
+      width: 50vw;
+      div{
+        width: 100%;
+        .image{
+          width: 100%;
+        }
+      }
+    }
     display: flex; 
     justify-content: space-around;
     .text{
-      padding: 100px 0 0 0;
+      padding: 10px 20px;
+      width: 40vw;
+      h2{
+        font-size: 27px; 
+        text-align: center;
+      }
     }
   }
 }
-
 @media screen and (max-width: 1200px) {
   .head-wrapper{
     .some-wrapper{
       #image-box{
-        margin-bottom: 50px;
+        width: 70vw;
       }
-      flex-direction: column-reverse;
-      position: relative;
       .text{
-        padding: 0;
-        display: flex;
+        width: 30vw;
         h2{
           font-size: 23px;
           text-align: center;
@@ -29,17 +41,44 @@
           margin: 10px 0;
         }
         h3{
-          position: absolute;
-          right: 39%;
-          bottom: 0;
+          margin: 30px 0 0 0 !important;
         }
         #my-game{
-          margin: 0;
-          padding: 0;
+          h2{
+            p{
+              margin: 3px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .head-wrapper{
+    .some-wrapper{
+      #image-box{
+        width: 90vw;
+        margin: 0 auto;
+      }
+      flex-direction: column-reverse;
+      position: relative;
+      .text{
+        width: 100%;
+        padding: 0;
+        h2{
+          font-size: 23px;
+          text-align: center;
+          width: 100%;
+          margin: 10px 0;
+        }
+        h3{
+          margin: 0 !important;
+          text-align: start !important;
+        }
+        #my-game{
           text-align: end !important;
-          position: absolute;
-          right: 5px;
-          bottom: -29px;
+          float: right;
           h2{
             display: flex;
           }

@@ -38,7 +38,7 @@
             }
         }
     }
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 800px) {
         .prizes{
             width: 100%;
             .prize{
@@ -47,7 +47,7 @@
         }
     }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 800px) {
     .prize-wrapper{
         height: calc(100vh - 65px);
     }

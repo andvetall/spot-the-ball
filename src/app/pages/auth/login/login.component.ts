@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.inputHandler()
   }
 
-  private inputHandler(){
+  public inputHandler(){
     if(!this.formLogin) {
       this.submitButtonDisabled = false;
       return

@@ -89,11 +89,13 @@ export class GameComponent implements OnInit {
       this.result.x,
       this.result.y
     );
+    let cofY = 9 * (event.target.naturalHeight / +event.target.clientHeight)
+    let cofX = 18 * (event.target.naturalWidth / +event.target.clientWidth)
     this.successImage.nativeElement.style = `
       width: 40px;  
       position: absolute;
-      top: ${this.y - 9}px;
-      left: ${this.x - 18}px;
+      top: ${(this.y - cofY) / (event.target.naturalHeight / +event.target.clientHeight)}px;
+      left: ${(this.x - cofX) / (event.target.naturalWidth / +event.target.clientWidth)}px;
       display: block;
     `;
 
@@ -106,17 +108,12 @@ export class GameComponent implements OnInit {
     this.openDialogQuestion();
   }
 
-  ballPositionDiffFromReal(resultX, resultY, realPositionX?, realPositionY?) {
+  ballPositionDiffFromReal(resultX, resultY) {
     const img: HTMLImageElement = this.gameBox.nativeElement;
-
     this.width = img.naturalWidth;
     this.height = img.naturalHeight;
-
-    realPositionX = this.gameData.positionX;
-    realPositionY = this.gameData.positionY;
-
-    let realPosX = ((this.width / 100) * realPositionX) / 100;
-    let realPosY = ((this.height / 100) * realPositionY) / 100;
+    let realPosX = ((this.width / 100) * this.gameData.positionX) / 100;
+    let realPosY = ((this.height / 100) * this.gameData.positionY) / 100;
     let resX = ((this.width / 100) * resultX) / 100;
     let resY = ((this.height / 100) * resultY) / 100;
 

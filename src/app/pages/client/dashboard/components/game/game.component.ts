@@ -152,6 +152,8 @@ export class GameComponent implements OnInit {
         let arr = JSON.parse(localStorage.getItem('temporary-result')) || [];
         arr.push({result: this.result, differencePosition: this.differencePosition, game: this.gameData._id});
         localStorage.setItem("temporary-result", JSON.stringify(arr));
+      } else {
+        this.successImage.nativeElement.style.display = 'none';
       }
     });
   }

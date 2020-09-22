@@ -8,6 +8,7 @@
     </div>
     <div class="sign-in-up">
       <span (click)="loginRedirect()">Sign In</span>
+      <span></span>
       <span (click)="toggleExpansion(true, 0)">Sign Up</span>
     </div>
   </header>
@@ -144,33 +145,6 @@
         <div 
         style="background: url(../../../../../assets/images/260.png) no-repeat;"
         class="block1">
-          <!-- <div 
-          style="
-              padding: 0;
-              max-width: 320px;
-              display: flex;
-              flex-wrap: wrap;
-              position: absolute;
-              left: 0;
-              top: 10%;
-          "
-          class="dots-block1">
-            <div class="ellipse-1" *ngFor="let dot of dotsBlock1"></div>
-          </div>
-          <div
-          style="
-              padding: 0;
-              max-width: 500px;
-              display: flex;
-              flex-wrap: wrap;
-              right: 0;
-              position: absolute;
-              bottom: 10%;
-          "
-          class="dots-block2"
-          >
-            <div class="ellipse-1" *ngFor="let dot of dotsBlock2"></div>
-          </div> -->
           <div class="hover1">
             <div class="hover2">
               <button type="button" (click)="toggleExpansion(true, 0)">
@@ -184,31 +158,6 @@
         <div 
         style="background: url(../../../../../assets/images/banner2.png) no-repeat;"
         class="block1">
-          <!-- <div 
-            style="
-                max-width: 110px;
-                display: flex;
-                flex-wrap: wrap;
-                position: absolute;
-                top: 0;
-            "
-            class="dots-block1"
-          >
-            <div class="ellipse-1" *ngFor="let dot of dotsBlock1"></div>
-          </div>
-          <div
-          style="
-                max-width: 500px;
-                display: flex;
-                flex-wrap: wrap;
-                position: absolute;
-                top: 0;
-                right: 0;
-            "
-            class="dots-block2"
-          >
-            <div class="ellipse-1" *ngFor="let dot of dotsBlock2"></div>
-          </div> -->
           <div 
           style="
               top: 20% !important;
@@ -228,31 +177,6 @@
         <div 
         style="background: url(../../../../../assets/images/banner3.svg) no-repeat;"
         class="block1">
-          <!-- <div 
-            style="
-                max-width: 110px;
-                display: flex;
-                flex-wrap: wrap;
-                position: absolute;
-                top: 0;
-            "
-            class="dots-block1"
-          >
-            <div class="ellipse-1" *ngFor="let dot of dotsBlock1"></div>
-          </div>
-          <div
-          style="
-                max-width: 500px;
-                display: flex;
-                flex-wrap: wrap;
-                position: absolute;
-                top: 0;
-                right: 0;
-            "
-            class="dots-block2"
-          >
-            <div class="ellipse-1" *ngFor="let dot of dotsBlock2"></div>
-          </div> -->
           <div 
           style="
           top: 56% !important;
@@ -272,31 +196,6 @@
         <div 
         style="background: url(../../../../../assets/images/banner4.png) no-repeat;"
         class="block1">
-          <!-- <div 
-            style="
-                max-width: 110px;
-                display: flex;
-                flex-wrap: wrap;
-                position: absolute;
-                top: 0;
-            "
-            class="dots-block1"
-          >
-            <div class="ellipse-1" *ngFor="let dot of dotsBlock1"></div>
-          </div>
-          <div
-          style="
-                max-width: 500px;
-                display: flex;
-                flex-wrap: wrap;
-                position: absolute;
-                top: 0;
-                right: 0;
-            "
-            class="dots-block2"
-          >
-            <div class="ellipse-1" *ngFor="let dot of dotsBlock2"></div>
-          </div> -->
           <div 
           style="
           top: 41% !important;
@@ -325,7 +224,7 @@
     </div>
 
     <div data-aos="fade-up" class="block2">
-      <div data-aos="fade-right" data-aos-duration="2000" class="dots-block4">
+      <div class="dots-block4">
         <div class="ellipse-3" *ngFor="let dot of dotsBlock4"></div>
       </div>
       <div class="title">
@@ -334,7 +233,7 @@
       <div
         class="content-wrapper"
       >
-        <div data-aos="fade-up" class="content-item" *ngFor="let item of howDoesItWork">
+        <div class="content-item" *ngFor="let item of howDoesItWork">
           <h3>{{ item.title }}</h3>
           <img src="{{ item.image }}" alt="image" />
           <p>{{ item.desc }}</p>
@@ -342,12 +241,12 @@
       </div>
     </div>
 
-    <div class="block3">
-      <div  data-aos="fade-up" class="title">
+    <div data-aos="fade-up" class="block3">
+      <div class="title">
         <h2>HOW TO PLAY?</h2>
       </div>
       
-      <div  data-aos="fade-up" class="video-wrapper">
+      <div class="video-wrapper">
         <iframe
           height="500"
           class="video"
@@ -360,10 +259,10 @@
     </div>
 
     <div data-aos="fade-up" class="block4">
-      <div data-aos="fade-right" data-aos-duration="2000" class="dots-block3">
+      <div class="dots-block3">
         <div class="ellipse-2" *ngFor="let dot of dotsBlock3"></div>
       </div>
-      <div data-aos="fade-up" class="hover1">
+      <div class="hover1">
         <div class="hover2">
           <button type="button" (click)="toggleExpansion(true, 1000)">
             JOIN US

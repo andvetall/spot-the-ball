@@ -1,18 +1,18 @@
 <div class="result-wrapper" *ngFor="let item of res">
   <div *ngIf="suitableDate == false && reqGame">
     <h1 style="text-align: center; padding: 0;">We have your pick, game results are coming Monday, Good Luck!</h1>
-    <div style="display: flex; justify-content: space-around;">
-      <div style="position: relative;">
+    <div style="display: flex; justify-content: space-around; width: 100%;">
+      <div style="position: relative; width: 60%;">
         <img
           #successImage
           src="../../../../../../assets/images/mouse.png"
           alt="check"
           style="display: none; width: 60px;"
         />
-        <img src="{{ reqGame.imageOriginal }}" alt="original Image" />
+        <img #image style="width: 100%;" src="{{ reqGame.imageOriginal }}" alt="original Image" />
       </div>
 
-      <div style="padding: 260px 0 0 0;">
+      <div class="texting" style="padding: 260px 0 0 0;">
         <h3>X: {{ item.result.x }}</h3>
         <h3>Y: {{ item.result.y }}</h3>
         <h3>Score: {{ item.differencePosition }}%</h3>
@@ -26,17 +26,17 @@
 <div class="result-wrapper" *ngIf="suitableDate == true && reqGame">
   <div *ngFor="let item of res">
     <h1 style="text-align: center; padding: 0;">We have your pick, game results are coming Monday, Good Luck!</h1>
-    <div style="display: flex; justify-content: space-around;">
-      <div style="position: relative;">
+    <div style="display: flex; justify-content: space-around; width: 100%;">
+      <div style="position: relative; width: 60%;">
         <img
           #successImage
           src="../../../../../../assets/images/mouse.png"
           alt="check"
           style="display: none; width: 60px;"
         />
-        <img src="{{ reqGame.image }}" alt=" Image"/>
+        <img #image style="width: 100%;" src="{{ reqGame.image }}" alt=" Image"/>
       </div>
-      <div style="padding: 260px 0 0 0;">
+      <div class="texting" style="padding: 260px 0 0 0;">
         <h3>X: {{ item.result.x }}</h3>
         <h3>Y: {{ item.result.y }}</h3>
         <button mat-raised-button color="primary" (click)="toDashboard()">

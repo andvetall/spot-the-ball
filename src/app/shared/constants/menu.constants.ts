@@ -29,7 +29,7 @@ export const MenuConstants = {
   ],
   logoutItem: {
     title: 'Log Out',
-    path: 'auth',
+    path: 'login',
     icon: '../../../assets/images/logout.png',
     arrow: null
   }

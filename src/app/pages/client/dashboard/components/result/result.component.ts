@@ -13,6 +13,7 @@ import { GamesService } from 'src/app/services/games.service';
 
 export class ResultComponent implements OnDestroy, OnInit {
   @ViewChild("successImage", {static: false}) successImage: ElementRef;
+  @ViewChild("image", {static: false}) image: ElementRef;
   public route: string;
   public res = JSON.parse(localStorage.getItem('temporary-result'));
   public currentDate = Date.now();
@@ -41,14 +42,16 @@ ngOnInit() {
       this.gamesService.findOneById(element.game).subscribe(res => {
         this.reqGame = res;
           setTimeout(() => {
+            let cofY = 9 * (this.image.nativeElement.naturalHeight / +this.image.nativeElement.clientHeight)
+            let cofX = 18 * (this.image.nativeElement.naturalWidth / +this.image.nativeElement.clientWidth)
             this.successImage.nativeElement.style = `
               width: 40px;  
               position: absolute;
-              top: ${element.result.y - 9}px;
-              left: ${element.result.x  - 18}px;
+              top: ${(element.result.y - cofY) / (this.image.nativeElement.naturalHeight / +this.image.nativeElement.clientHeight)}px;
+              left: ${(element.result.x - cofX) / (this.image.nativeElement.naturalWidth / +this.image.nativeElement.clientWidth)}px;
               display: block;
-            `
-          }, 3000)
+            `;
+          }, 2000)
         this.reqGame.dateTo = moment(this.reqGame.dateTo).format('MM-DD-YYYY');
         this.suitableDate = this.reqGame.dateTo >= this.currDate;        
       })

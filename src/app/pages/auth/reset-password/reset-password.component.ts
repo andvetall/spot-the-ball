@@ -29,7 +29,7 @@ export class ResetPasswordComponent implements OnInit {
     this._inputHandler()
   }
 
-  private _inputHandler(){
+  public _inputHandler(){
     if(!this.formEmail) {
       this.submitButtonDisabled = false;
       return

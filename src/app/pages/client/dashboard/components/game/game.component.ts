@@ -69,30 +69,33 @@ export class GameComponent implements OnInit {
   }
 
   @HostListener("mousemove", ["$event.target"])
-  onMousemove(event) {    
+  onMousemove(event) {   
+    
     if (event.offsetX || event.offsetY) {
-      this.x = event.offsetX;
-      this.y = event.offsetY;
+      this.x = parseInt(`${event.target.naturalWidth / +event.target.clientWidth * +event.offsetX}`);
+      this.y = parseInt(`${event.target.naturalHeight / +event.target.clientHeight * +event.offsetY}`);
     }
   }
 
   mouseClickListener(event) {
-    this.x = event.offsetX;
-    this.y = event.offsetY;
+    this.x = parseInt(`${event.target.naturalWidth / +event.target.clientWidth * +event.offsetX}`);
+    this.y = parseInt(`${event.target.naturalHeight / +event.target.clientHeight * +event.offsetY}`);
     this.result = {
-      x: event.offsetX,
-      y: event.offsetY,
+      x: parseInt(`${event.target.naturalWidth / +event.target.clientWidth * +event.offsetX}`),
+      y: parseInt(`${event.target.naturalHeight / +event.target.clientHeight * +event.offsetY}`)
     };
 
     this.differencePosition = this.ballPositionDiffFromReal(
       this.result.x,
       this.result.y
     );
+    let cofY = 9 * (event.target.naturalHeight / +event.target.clientHeight)
+    let cofX = 18 * (event.target.naturalWidth / +event.target.clientWidth)
     this.successImage.nativeElement.style = `
       width: 40px;  
       position: absolute;
-      top: ${this.y - 9}px;
-      left: ${this.x - 18}px;
+      top: ${(this.y - cofY) / (event.target.naturalHeight / +event.target.clientHeight)}px;
+      left: ${(this.x - cofX) / (event.target.naturalWidth / +event.target.clientWidth)}px;
       display: block;
     `;
 
@@ -105,17 +108,12 @@ export class GameComponent implements OnInit {
     this.openDialogQuestion();
   }
 
-  ballPositionDiffFromReal(resultX, resultY, realPositionX?, realPositionY?) {
+  ballPositionDiffFromReal(resultX, resultY) {
     const img: HTMLImageElement = this.gameBox.nativeElement;
-
     this.width = img.naturalWidth;
     this.height = img.naturalHeight;
-
-    realPositionX = this.gameData.positionX;
-    realPositionY = this.gameData.positionY;
-
-    let realPosX = ((this.width / 100) * realPositionX) / 100;
-    let realPosY = ((this.height / 100) * realPositionY) / 100;
+    let realPosX = ((this.width / 100) * this.gameData.positionX) / 100;
+    let realPosY = ((this.height / 100) * this.gameData.positionY) / 100;
     let resX = ((this.width / 100) * resultX) / 100;
     let resY = ((this.height / 100) * resultY) / 100;
 
@@ -154,6 +152,8 @@ export class GameComponent implements OnInit {
         let arr = JSON.parse(localStorage.getItem('temporary-result')) || [];
         arr.push({result: this.result, differencePosition: this.differencePosition, game: this.gameData._id});
         localStorage.setItem("temporary-result", JSON.stringify(arr));
+      } else {
+        this.successImage.nativeElement.style.display = 'none';
       }
     });
   }

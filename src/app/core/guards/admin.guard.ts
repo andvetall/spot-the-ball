@@ -1,4 +1,4 @@
-import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import * as jwtdecode from 'jwt-decode'
 
@@ -14,7 +14,7 @@ export class AdminGuard implements CanActivate {
       const token = localStorage.getItem('user');
       const tokenInfo = this.getDecodedAccessToken(token);
       if(!token) {
-        this.router.navigate(['login']);
+        this.router.navigate(['invite']);
         return false
       }
       if(tokenInfo.role === "admin") {

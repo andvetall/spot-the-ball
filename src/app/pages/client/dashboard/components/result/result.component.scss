@@ -1,0 +1,11 @@
+.result-wrapper{
+    padding-left: 100px;
+}
+@media screen and (max-width: 1440px) {
+    .result-wrapper{
+        padding-left: 10px;
+        .texting{
+            padding: 60px 0 0 0 !important;
+        }
+    }
+}

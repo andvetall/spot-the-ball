@@ -23,10 +23,10 @@ export class PersonalInfoComponent implements OnInit {
   public showPasswordNew: boolean = false;
   public showPasswordNew1: boolean = false;
   public submitButtonDisabled: boolean = false;
-  private hashedPass: string = "";
-  private _samePasswordsOld: boolean = false;
-  private _samePasswordsNew: boolean = false;
-  private teamSelected: any = null;
+  public hashedPass: string = "";
+  public _samePasswordsOld: boolean = false;
+  public _samePasswordsNew: boolean = false;
+  public teamSelected: any = null;
   public nhlTeams: any = nhlTeams.teamsData;
 
 
@@ -88,7 +88,7 @@ export class PersonalInfoComponent implements OnInit {
     });
   }
 
-  private inputHandler(){
+  public inputHandler(){
     if(!this.form) {
       this.submitButtonDisabled = false;
       return
@@ -118,7 +118,7 @@ export class PersonalInfoComponent implements OnInit {
     this.submitButtonDisabled = true;
   }
 
-  private samePasswordsOld() {
+  public samePasswordsOld() {
     this.hashedPass = this.getHash(this.form.value.password)
     if(this.hashedPass !== this.userData.password){
       this._samePasswordsOld = false;
@@ -127,7 +127,7 @@ export class PersonalInfoComponent implements OnInit {
     this._samePasswordsOld = true;
   }
 
-  private samePasswordsNew() {
+  public samePasswordsNew() {
     if(!this.form.value.passwordNew){
       this._samePasswordsNew = false;
       return

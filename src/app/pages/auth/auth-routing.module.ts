@@ -8,7 +8,7 @@ import { LoginGuard } from 'src/app/core/guards/login-guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'invite',
     pathMatch: 'full'
   },
   {

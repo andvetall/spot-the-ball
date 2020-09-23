@@ -3,7 +3,7 @@
     height: calc(100vh - 50px);
     background: url('../../../../../../assets/images/image_2.jpg');
     background-repeat: no-repeat;
-    background-size: 105%;
+    background-size: cover;
     background-attachment: fixed;
     .image{
         width: 50%;
@@ -11,6 +11,11 @@
         img{
             width: 100%;
         }
+    }
+}
+@media screen and (max-width: 800px) {
+    .friend-wrapper{
+        height: calc(100vh - 115px);
     }
 }
 h1, h2{

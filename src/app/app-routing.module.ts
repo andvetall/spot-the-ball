@@ -12,18 +12,18 @@ const routes: Routes = [
   {
     path: 'auth',
     component: AuthComponent,
-    loadChildren: () => import('src/app/pages/auth/auth.module').then((a) => a.AuthModule)
+    loadChildren: () => import('src/app/pages/auth/auth.module').then(a => a.AuthModule)
   },
   {
     path: 'dashboard',
     component: ClientComponent,
-    loadChildren: () => import('src/app/pages/client/client.module').then(({ClientModule}) => ClientModule),
+    loadChildren: () => import('src/app/pages/client/client.module').then(a => a.ClientModule),
     canActivate: [RoleGuard]
   },
   {
     path: 'inv',
     component: InviteComponent,
-    loadChildren: () => import('src/app/pages/invite/invite-user.module').then(({InviteModule}) => InviteModule)
+    loadChildren: () => import('src/app/pages/invite/invite-user.module').then(a => a.InviteModule)
   },
 ];
 

@@ -30,7 +30,7 @@ export class FriendsComponent implements OnInit {
     });
   }
 
-  private inputHandler(){
+  public inputHandler(){
     if(!this.formInvite) {
       this.submitButtonDisabled = false;
       return

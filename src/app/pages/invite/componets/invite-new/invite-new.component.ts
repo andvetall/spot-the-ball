@@ -15,8 +15,8 @@ import * as jwtdecode from "jwt-decode";
 export class InviteNewComponent implements OnInit {
   public formRequest: FormGroup;
   public submitButtonDisabled: boolean = false;
-  private requested: boolean = false;
-  private oops: boolean = false;
+  public requested: boolean = false;
+  public oops: boolean = false;
   private teamSelected: any = null;
   private sender: any = null;
   public dotsBlock1: any = [];
@@ -95,8 +95,6 @@ export class InviteNewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fillDotsBlocks(this.dotsBlock1, 88);
-    this.fillDotsBlocks(this.dotsBlock2, 187);
     this.fillDotsBlocks(this.dotsBlock3, 93);
     this.fillDotsBlocks(this.dotsBlock4, 44);
     this._createForm();
@@ -124,7 +122,7 @@ export class InviteNewComponent implements OnInit {
   }
 
 
-  private inputHandler(){
+  public inputHandler(){
     if(!this.formRequest) {
       this.submitButtonDisabled = false;
       return

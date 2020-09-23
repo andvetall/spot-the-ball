@@ -1,5 +1,5 @@
 import { ToastrService } from 'ngx-toastr';
-import { OnInit, Component, ViewEncapsulation } from '@angular/core';
+import { OnInit, Component } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';

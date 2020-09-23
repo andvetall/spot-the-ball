@@ -1,6 +1,6 @@
 import { UserService } from './../../../../../services/user.service';
-import { Component, OnInit, ViewChild, Inject } from "@angular/core";
-import { FormGroup, FormControl, Validators, NgForm } from "@angular/forms";
+import { Component, OnInit, Inject } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { PasswordGen1, PasswordGen2 } from 'src/app/shared/constants/password.generator';
 import { ToastrService } from 'ngx-toastr';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
@@ -23,7 +23,8 @@ export class NewUserComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    if(this.data.type == 'update'){
+    if(this.data.type == 'update' || this.data.type == 'addFromRequest'){
+      console.log(this.data);
       this.form = new FormGroup({
         _id: new FormControl(this.data._id), 
         email: new FormControl(this.data.email ? this.data.email.toLocaleLowerCase() : null, [Validators.required, Validators.email]),

@@ -85,7 +85,7 @@ main{
         background-color: #f1f1f1;
         .image{
             height: inherit;
-            background: #ffffff;
+            // background: #ffffff;
             padding: 0 33px;
             img{
                 height: inherit;
@@ -95,6 +95,7 @@ main{
         .sign-in-up{
             padding: 44px 45px 46px;
             position: relative;
+            display: flex;
         }
         .sign-in-up span{
             color: #a7a9ac;
@@ -107,14 +108,14 @@ main{
         .sign-in-up span:hover{
             top: 2px;
         }
-        .sign-in-up span:nth-child(1):after {
+        .sign-in-up span:nth-child(2):after {
             content: "";
             width: 0;
-            height: 48px;
+            height: 66px;
             position: absolute;
             border: 1px solid #00adef;
             top: 6px;
-            left: 130px;
+            left: 0;
         }
         .sign-in-up span:nth-child(2):before {
             content: "";
@@ -123,7 +124,7 @@ main{
             position: absolute;
             border: 1px solid #00adef;
             top: -43px;
-            right: 122px;
+            right: -2px;
         }
     }
     section{
@@ -170,7 +171,7 @@ main{
             width: auto;
             padding: 65px 65px 0;
             background-image: url(../../../../../assets/images/25.png);
-            background-position-x: 520%;
+            background-position-x: 500%;
             background-position-y: -26%;
             background-size: 95%;
             background-repeat: no-repeat;
@@ -313,7 +314,6 @@ main{
             .sotial-item{
                 width: 41px;
                 height: 41px;
-                background: #ffffff;
                 border-radius: 50%;
                 padding: 7px;
                 box-sizing: border-box;
@@ -381,15 +381,6 @@ h1, h2{
         height: 80px;
         .sign-in-up{
             padding: 26px 45px 46px;
-        }
-        .sign-in-up span:nth-child(1):after {
-            content: "";
-            width: 0;
-            height: 46px;
-            position: absolute;
-            border: 1px solid #00adef;
-            top: 6px;
-            left: 130px;
         }
     }
     .hover1 {
@@ -563,27 +554,34 @@ h1, h2{
     main header .image {
         padding: 0;
     }
+    main header .sign-in-up{
+        display: flex;
+        width: auto;
+        margin: 0 auto;
+        padding: 44px 45px 46px !important;
+    }
     main header .sign-in-up span{
         font-size: 20px;
     }
-    main header .sign-in-up span:nth-child(1):after {
-        content: "";
-        width: 0;
-        height: 51px;
-        position: absolute;
-        border: 1px solid #00adef;
-        top: 6px;
-        left: 110px;
-    }
-    main header .sign-in-up span:nth-child(2):before {   
+    main header .sign-in-up span:nth-child(2):before {
         content: "";
         width: 0;
         height: 27px;
         position: absolute;
         border: 1px solid #00adef;
         top: -32px;
-        right: 108px;
+        right: -2px;    
     }
+    main header .sign-in-up span:nth-child(2):after {
+        content: "";
+        width: 0;
+        height: 45px;
+        position: absolute;
+        border: 1px solid #00adef;
+        top: 6px;
+        left: 0;   
+    }
+    
     main section .block1 {
         height: 50vw;
         .dots-block1, .dots-block2{
@@ -638,7 +636,7 @@ h1, h2{
     }
 
     main section .block1{
-        margin: 10px 0 0 0;
+        margin: 0;
         border-top: none;
     }
 
@@ -701,7 +699,7 @@ h1, h2{
             }
         }
         .sign-in-up {
-            padding: 15px 0 0 0 !important;
+            padding: 0 0 0 0 !important;
         }
     }
 
@@ -711,7 +709,7 @@ h1, h2{
     }
     
 
-    .sign-in-up span:nth-child(1):after {
+    .sign-in-up span:nth-child(2):after {
         display: none;
     }
     .sign-in-up span:nth-child(2):before {
@@ -788,7 +786,7 @@ h1, h2{
          .image{
              width: inherit;
              img{
-                width: 100%;
+                width: 65%;
              }
          }
          .sign-in-up{
@@ -870,12 +868,7 @@ h1, h2{
         padding: 44px 20px 46px;
         width: 100%;
     }
-    .sign-in-up span:nth-child(1):after {
-        display: none;
-    }
-    .sign-in-up span:nth-child(2):before {
-        display: none;
-    }
+    
     main section .block3{
         .texst-wrapper{
             h3{
@@ -893,6 +886,12 @@ h1, h2{
  @media screen and (max-width: 430px)  {
     main header{
         max-height: 50px;
+    }
+    main header .sign-in-up {
+        padding: 44px 0px 46px;
+        span {
+            margin: 0 10px;
+        }
     }
     main section .block2 {
         background-position-y: -2%;
@@ -922,12 +921,7 @@ h1, h2{
         width: 62%;
     }
 
-    main header .sign-in-up {
-        padding: 44px 0px 46px;
-        span {
-            margin: 0 10px;
-        }
-    }
+    
     main section .block2 {
         background-position-y: 0%;
     }

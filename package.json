@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o --port 4205",
-    "build": "ng build",
+    "build": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build --aot --prod",
     "heroku-postbuild": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -42,7 +42,6 @@
     "jwt-decode": "^2.2.0",
     "jwt-then": "^1.0.1",
     "moment": "^2.27.0",
-    "ngx-gallery": "^5.10.0",
     "ngx-owl-carousel-o": "^4.0.0",
     "ngx-toastr": "^10.1.0",
     "roboto-fontface": "^0.10.0",

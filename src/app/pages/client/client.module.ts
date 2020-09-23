@@ -8,7 +8,6 @@ import { MenuItemComponent } from 'src/app/shared/components/menu-item/menu.item
 //Modules
 import { ManagementRoutingModule } from './client-routing.module';
 import { MatCardModule } from '@angular/material/card';
-import { NgxGalleryModule } from 'ngx-gallery';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/modules/material/material.module';
 import { LoginGuard } from 'src/app/core/guards/login-guard';
@@ -25,7 +24,6 @@ import { RateModalComponent } from './shared/components/rate-modal/rate-modal.co
     ManagementRoutingModule,
     CommonModule,
     MatCardModule,
-    NgxGalleryModule,
     ReactiveFormsModule,
     MaterialModule,
     FormsModule,

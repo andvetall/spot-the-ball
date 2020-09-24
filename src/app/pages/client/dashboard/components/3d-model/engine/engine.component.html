@@ -1,18 +1,95 @@
-<div 
-style="
+<div
+  style="
     width: fit-content;
-    margin: 100px auto;
+    margin: 102px 0 0 55px;
     box-shadow: 11px 7px 62px black;
     position: relative;
-"
-class="engine-wrapper">
-<img
-style="
+    height: 68vh;
+    width: 61vw;
+  "
+  class="engine-wrapper"
+>
+  <img
+    style="
+      position: absolute;
+      top: -41px;
+      left: -54px;
+      z-index: -1;
+      width: 1250px;
+    "
+    src="../../../../../../../assets/images/screen.png"
+    alt="screen"
+  />
+  <div
+  *ngIf="!on"
+  style="
+      position: absolute;
+      width: 1139px;
+      height: 644px;
+      background: black;
+  "
+  ></div>
+  <img
+  *ngIf="animationPlay"
+  style="
     position: absolute;
-    top: -35px;
-    left: -45px;
-    z-index: -1;
-"
-src="../../../../../../../assets/images/screen.png" alt="screen">
-  <!-- <canvas #rendererCanvas id="renderCanvas"></canvas> -->
+    width: 1138px;
+    height: 642px;
+  "
+  src="../../../../../../../assets/3d/UvnPc0.gif" alt="animation">
+  <img 
+  style="
+      bottom: -71px;
+    position: absolute;
+    right: -463px;
+  "
+  src="../../../../../../../assets/3d/appletvremotecontrol-512.png" alt="">
+  <button
+    (click)="onOff()"
+    style="
+          position: absolute;
+          bottom: 232px;
+          right: -270px;
+          border-radius: 50%;
+          width: 53px;
+          height: 53px;
+          background: red;
+          color: white;
+    "
+    [ngClass]="{ on: !on }"
+    type="button"
+  >
+  
+    {{ !on ? "on" : "off" }}
+  </button>
+  <button
+  (click)="plus()"
+    style="
+          position: absolute;
+          bottom: 166px;
+          right: -270px;
+          border-radius: 50%;
+          width: 53px;
+          height: 53px;
+          background: transparent;
+          color: white;
+    "
+    type="button"
+  >
+  </button>
+  <button
+  (click)="minus()"
+    style="
+          position: absolute;
+          bottom: 105px;
+          right: -270px;
+          border-radius: 50%;
+          width: 53px;
+          height: 53px;
+          background: transparent;
+          color: white;
+    "
+    type="button"
+  >
+  </button>
 </div>

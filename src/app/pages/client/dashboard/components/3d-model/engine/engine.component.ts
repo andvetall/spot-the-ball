@@ -11,12 +11,16 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 export class EngineComponent implements OnInit {
 
   // @ViewChild('rendererCanvas', null) rendererCanvas: ElementRef;
+  @ViewChild('rendererCanvas', {static: true})
+  public rendererCanvas: ElementRef<HTMLCanvasElement>;
+  public canvas: HTMLCanvasElement;
   public scene: THREE.Scene;
   public camera: THREE.PerspectiveCamera;
   public renderer: THREE.WebGLRenderer;
   public controls : OrbitControls;
   public on: boolean = false;
   public animationPlay: boolean = false;
+  public pause: boolean = false;
   
   public array: any = [
     {
@@ -58,17 +62,18 @@ export class EngineComponent implements OnInit {
     ) {}
 
   public ngOnInit(): void {
-    // this.createScene();
+    this.createScene();
   }
   public createScene(){
     this.scene = new THREE.Scene()
     this.camera = new THREE.PerspectiveCamera(50, 1138 / 641, 10, 30000);
       this.camera.position.set(0,0,0);
+      this.canvas = this.rendererCanvas.nativeElement;
       this.renderer = new THREE.WebGLRenderer({
+        canvas: this.canvas,
         antialias:true
       });
       this.renderer.setSize(1138, 641);
-      document.querySelector('.engine-wrapper').appendChild(this.renderer.domElement);
       
       this.controls = new OrbitControls(this.camera, this.renderer.domElement);
       this.controls.minDistance = 200;
@@ -89,57 +94,48 @@ export class EngineComponent implements OnInit {
     }
     public animate() {
       this.renderer.render(this.scene,this.camera);
+      if(this.pause){
+        return
+      }
       requestAnimationFrame(this.animate.bind(this));
     }
 
     public onOff(){
       if(!this.on){
         this.on = !this.on;
-        let selection = document.querySelector('.engine-wrapper')
-        selection.childNodes.forEach((item) => {
-          if(item.nodeName === "CANVAS"){
-            selection.removeChild(item)
-          }
-        })
-        this.createScene();
+        setTimeout(() => {
+          this.pause = false;
+          this.createScene();
+        }, 50)
         return
       }
       this.animationPlay = true;
       setTimeout(() => {
-        let selection = document.querySelector('.engine-wrapper')
-        selection.childNodes.forEach((item) => {
-          if(item.nodeName === "CANVAS"){
-            selection.removeChild(item)
-          }
-        })
         this.animationPlay = false;
         this.on = !this.on;
         this.index = 0;
+        this.pause = true;
       }, 3500)
     }
     public plus(){
       if(this.index < this.array.length - 1 && this.on){
-        let selection = document.querySelector('.engine-wrapper')
-        selection.childNodes.forEach((item) => {
-          if(item.nodeName === "CANVAS"){
-            selection.removeChild(item)
-          }
-        })
         this.index++;
-        this.createScene();
+        this.pause = true;
+        setTimeout(() => {
+          this.pause = false;
+          this.createScene();
+        }, 50)
         return;
       }
     }
     public minus(){
       if(this.index > 0 && this.on){
-        let selection = document.querySelector('.engine-wrapper')
-        selection.childNodes.forEach((item) => {
-          if(item.nodeName === "CANVAS"){
-            selection.removeChild(item)
-          }
-        })
         this.index--;
-        this.createScene();
+        this.pause = true;
+        setTimeout(() => {
+          this.pause = false;
+          this.createScene();
+        }, 50)
         return;
       }
     }

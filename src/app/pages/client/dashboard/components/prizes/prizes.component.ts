@@ -9,15 +9,6 @@ export class PrizesComponent implements OnInit {
 
   public prizes: any = [
     {
-      title: 'Tumbler',
-      image: 'tumbler.png',
-      desc: `Wireless Headphones
-      Rich high quality sound
-      Voice activated Siri access
-      Easy, Instant setup
-      24hour battery life`
-    },
-    {
       title: 'Apple AirPods',
       image: 'Airpods.png',
       desc: `Fully insulated 
@@ -25,6 +16,15 @@ export class PrizesComponent implements OnInit {
       double wall
       dishwasher safe
       `
+    },
+    {
+      title: 'Tumbler',
+      image: 'tumbler.png',
+      desc: `Wireless Headphones
+      Rich high quality sound
+      Voice activated Siri access
+      Easy, Instant setup
+      24hour battery life`
     },
     {
       title: 'T-Shirt',

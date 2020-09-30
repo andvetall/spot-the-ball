@@ -18,45 +18,9 @@ export class EngineComponent implements OnInit {
   public camera: THREE.PerspectiveCamera;
   public renderer: THREE.WebGLRenderer;
   public controls : OrbitControls;
+  public light: THREE.DirectionalLight;
   public on: boolean = false;
   public animationPlay: boolean = false;
-  public pause: boolean = false;
-  
-  public array: any = [
-    {
-      texture_ft: new THREE.TextureLoader().load( "../../../../../../../assets/3d/arid2_ft.jpg"),
-      texture_bk: new THREE.TextureLoader().load( '../../../../../../../assets/3d/arid2_bk.jpg'),
-      texture_up: new THREE.TextureLoader().load( '../../../../../../../assets/3d/arid2_up.jpg'),
-      texture_dn: new THREE.TextureLoader().load( '../../../../../../../assets/3d/arid2_dn.jpg'),
-      texture_rt: new THREE.TextureLoader().load( '../../../../../../../assets/3d/arid2_rt.jpg'),
-      texture_lf: new THREE.TextureLoader().load( '../../../../../../../assets/3d/arid2_lf.jpg')
-    },
-    // {
-    //   texture_ft: new THREE.TextureLoader().load( "../../../../../../../assets/3d/arid_ft.jpg"),
-    //   texture_bk: new THREE.TextureLoader().load( '../../../../../../../assets/3d/arid_bk.jpg'),
-    //   texture_up: new THREE.TextureLoader().load( '../../../../../../../assets/3d/arid_up.jpg'),
-    //   texture_dn: new THREE.TextureLoader().load( '../../../../../../../assets/3d/arid_dn.jpg'),
-    //   texture_rt: new THREE.TextureLoader().load( '../../../../../../../assets/3d/arid_rt.jpg'),
-    //   texture_lf: new THREE.TextureLoader().load( '../../../../../../../assets/3d/arid_lf.jpg')
-    // },
-    // {
-    //   texture_ft: new THREE.TextureLoader().load( "../../../../../../../assets/3d/overcast_ft.jpg"),
-    //   texture_bk: new THREE.TextureLoader().load( '../../../../../../../assets/3d/overcast_bk.jpg'),
-    //   texture_up: new THREE.TextureLoader().load( '../../../../../../../assets/3d/overcast_up.jpg'),
-    //   texture_dn: new THREE.TextureLoader().load( '../../../../../../../assets/3d/overcast_dn.jpg'),
-    //   texture_rt: new THREE.TextureLoader().load( '../../../../../../../assets/3d/overcast_rt.jpg'),
-    //   texture_lf: new THREE.TextureLoader().load( '../../../../../../../assets/3d/overcast_lf.jpg')
-    // },
-    {
-      texture_ft: new THREE.TextureLoader().load( "https://threejsfundamentals.org/threejs/resources/images/cubemaps/computer-history-museum/pos-x.jpg"),
-      texture_bk: new THREE.TextureLoader().load( 'https://threejsfundamentals.org/threejs/resources/images/cubemaps/computer-history-museum/neg-x.jpg'),
-      texture_up: new THREE.TextureLoader().load( 'https://threejsfundamentals.org/threejs/resources/images/cubemaps/computer-history-museum/pos-y.jpg'),
-      texture_dn: new THREE.TextureLoader().load( 'https://threejsfundamentals.org/threejs/resources/images/cubemaps/computer-history-museum/neg-y.jpg'),
-      texture_rt: new THREE.TextureLoader().load( 'https://threejsfundamentals.org/threejs/resources/images/cubemaps/computer-history-museum/pos-z.jpg'),
-      texture_lf: new THREE.TextureLoader().load( 'https://threejsfundamentals.org/threejs/resources/images/cubemaps/computer-history-museum/neg-z.jpg')
-    },
-  ]
-  public index: number = 0;
 
   public constructor(
     ) {}
@@ -66,101 +30,56 @@ export class EngineComponent implements OnInit {
   }
   public createScene(){
     this.scene = new THREE.Scene()
-    this.camera = new THREE.PerspectiveCamera(50, 1138 / 641, 10, 30000);
-      this.camera.position.set(0,0,0);
-      // this.camera.enabled(false)
-      this.canvas = this.rendererCanvas.nativeElement;
-      this.renderer = new THREE.WebGLRenderer({
-        canvas: this.canvas,
-        antialias:true,
+    this.camera = new THREE.PerspectiveCamera(75, 2, 0.1, 100);
+    this.camera.position.z = 3;
+    this.canvas = this.rendererCanvas.nativeElement;
+    this.renderer = new THREE.WebGLRenderer({
+      canvas: this.canvas,
+      antialias:true,
+    });
+    this.renderer.setSize(1138, 641);
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.controls.addEventListener('mousewheel',myOnMouseDownFunction);
+    this.controls.target.set(0, 0, 0);
+    this.controls.update();
+    const color = 0xFFFFFF;
+    const intensity = 1;
+    this.light = new THREE.DirectionalLight(color, intensity);
+    this.light.position.set(-1, 2, 4);
+    this.scene.add(this.light);
+
+    const loader = new THREE.TextureLoader();
+    const texture = loader.load(
+      '../../../../../../../assets/3d/timothy-oldfield-luufnHoChRU-unsplash.jpg',
+      () => {
+        const rt = new THREE.WebGLCubeRenderTarget(texture.image.height);
+        rt.fromEquirectangularTexture(this.renderer, texture);
+        this.scene.background = rt;
+        const geometry = new THREE.BoxGeometry(1, 1, 1);
+        const material = new THREE.MeshPhongMaterial({color: '0x44aa88'});
+  
+        const cube = new THREE.Mesh(geometry, material);
+        this.scene.add(cube);
+    
+        cube.position.x = 0;
       });
-      this.renderer.setSize(1138, 641);
-      
-      this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-      this.controls.minDistance = 200;
-      this.controls.maxDistance = 2000;
-      this.controls.target.set(0, 0, 0);
-      this.controls.update();
-
-      // const geometry1 = new THREE.BoxGeometry(1, 1, 1);
-
-      // function makeInstance(geometry, color, x) {
-      //   const material = new THREE.MeshPhongMaterial({color});
     
-      //   const cube = new THREE.Mesh(geometry, material);
-      //   this.scene.add(cube);
-    
-      //   cube.position.x = x;
-    
-      //   return cube;
-      // }
-    
-      // const cubes = [
-      //   makeInstance(geometry1, 0x44aa88,  0),
-      //   makeInstance(geometry1, 0x8844aa, -2),
-      //   makeInstance(geometry1, 0xaa8844,  2),
-      // ];
-
-
-      let materialArray = [];
-      for( let item in this.array[this.index]){
-        materialArray.push(new THREE.MeshBasicMaterial( { map: this.array[this.index][item] }))
-      }
-        
-      for (let i = 0; i < 6; i++){
-        materialArray[i].side = THREE.BackSide;
-      }
-      const geometry = new THREE.BoxGeometry( 5000, 5000 , 5000, 6, 6, 6 );
-      const sphere = new THREE.Mesh( geometry, materialArray );
-      this.scene.add( sphere );
       this.animate();
     }
     public animate() {
       this.renderer.render(this.scene,this.camera);
-      if(this.pause){
-        return
-      }
       requestAnimationFrame(this.animate.bind(this));
     }
 
     public onOff(){
       if(!this.on){
         this.on = !this.on;
-        setTimeout(() => {
-          this.pause = false;
-          this.createScene();
-        }, 50)
         return
       }
       this.animationPlay = true;
       setTimeout(() => {
         this.animationPlay = false;
         this.on = !this.on;
-        this.index = 0;
-        this.pause = true;
       }, 3500)
     }
-    public plus(){
-      if(this.index < this.array.length - 1 && this.on){
-        this.index++;
-        this.pause = true;
-        setTimeout(() => {
-          this.pause = false;
-          this.createScene();
-        }, 50)
-        return;
-      }
-    }
-    public minus(){
-      if(this.index > 0 && this.on){
-        this.index--;
-        this.pause = true;
-        setTimeout(() => {
-          this.pause = false;
-          this.createScene();
-        }, 50)
-        return;
-      }
-    }
-
 }

@@ -7,6 +7,7 @@ import { GameModel, UserModel } from "src/app/shared/interfaces";
 import * as moment from 'moment';
 import { MatDialog } from '@angular/material/dialog';
 import { HowToPlayComponent } from 'src/app/shared/components/how-to-play/how-to-play.component';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: "dashboard",
@@ -25,7 +26,10 @@ export class DashboardComponent implements OnInit {
     private router: Router,
     private resultService: ResultService,
     private dialog: MatDialog,
-  ) {}
+    private meta: Meta
+  ) {
+    this.meta.addTag({ name: 'Puck Hunt: Home', description: 'Puck Hunt is a skill-based competition that offers amazing lifestyle prizes: cars, tech, package deals, etc. Every week there is a guaranteed winner.' });
+  }
 
   ngOnInit() {
     this.gamesService.getAllImages().subscribe((e) => {

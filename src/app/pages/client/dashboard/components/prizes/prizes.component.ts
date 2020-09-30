@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-prizes',
@@ -35,7 +36,11 @@ export class PrizesComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(
+    private meta: Meta
+  ) {
+    this.meta.addTag({ name: 'Puck Hunt: Prizes', description: 'Don’t miss out on the amazing prizes lined up if you play Puck Hunt! Our lines of prizes range from cars to cash. Check them out!' });
+  }
 
   ngOnInit() {
   }

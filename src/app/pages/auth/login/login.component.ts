@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Meta } from '@angular/platform-browser';
 
 
 
@@ -22,7 +23,10 @@ export class LoginComponent implements OnInit {
     private _router : Router,
     private _formBuilder: FormBuilder,
     private dialog: MatDialog,
-  ) { }
+    private meta: Meta
+  ) {
+    this.meta.addTag({ name: 'Puck Hunt: Login', description: 'Login and continue your hunt to being the next Puck Hunt winner.' });
+  }
 
   ngOnInit() {
     this._createForm()

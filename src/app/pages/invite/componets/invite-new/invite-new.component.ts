@@ -6,6 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { FavotiteTeamComponent } from 'src/app/shared/components/favotite-team/favotite-team.component';
 import * as jwtdecode from "jwt-decode";
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-invite-new',
@@ -84,7 +85,8 @@ export class InviteNewComponent implements OnInit {
     private _userService: UserService,
     private dialog: MatDialog,
     private rote: ActivatedRoute,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private meta: Meta
   ) {
     this.rote.queryParams.subscribe(res => {
       if(res.token) {
@@ -92,6 +94,7 @@ export class InviteNewComponent implements OnInit {
         return
       }
     })
+    this.meta.addTag({ name: 'Puck Hunt: Join Us', description: 'Be apart of our weekly competition, and earn the chance to be the next Puck Hunt winner.' });
   }
 
   ngOnInit() {

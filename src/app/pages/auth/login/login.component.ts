@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Meta } from '@angular/platform-browser';
+import { InfoPopUpComponent } from 'src/app/shared/components/info-pop-up/info-pop-up.component';
 
 
 
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
   public showPassword: boolean = false;
   public submitButtonDisabled: boolean = false;
+  public mobileVersion: boolean = false;
 
   constructor(
     private _authService : AuthService,
@@ -31,6 +33,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this._createForm()
     this.inputHandler()
+    this.checkWidthOfScreen()
+  }
+
+  public checkWidthOfScreen(){
+    if(window.innerWidth < 600){
+      this.mobileVersion = true;
+      return;
+    }
   }
 
   public inputHandler(){
@@ -67,11 +77,16 @@ export class LoginComponent implements OnInit {
     this._authService.loginUser(data).subscribe(a => {
       localStorage.setItem('user', a.token)
       const role = a.user.role
-      if(role === "admin") {
-        this._router.navigate(['admin/main-dashboard'])
-      } else {
-        this._router.navigate(['dashboard'])
-      }
+      const dialogRef = this.dialog.open(InfoPopUpComponent, {
+        width: "700px",
+      });
+      dialogRef.afterClosed().subscribe(res => {
+        if(role === "admin") {
+          this._router.navigate(['admin/main-dashboard'])
+        } else {
+          this._router.navigate(['dashboard'])
+        }
+      })
     })
   }
 

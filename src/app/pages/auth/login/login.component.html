@@ -1,4 +1,4 @@
-<div class="page-wrapper">
+<div *ngIf="!mobileVersion" class="page-wrapper">
   <div class="logo-wrapper">
     <img src="../../../../assets/images/Web_Puckhunt_Logo.png" alt="logo">
   </div>
@@ -17,11 +17,18 @@
     </div>
 
     <div class="action-buttons">
+      <button disabled="{{!submitButtonDisabled}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false}">Login</button>
       <button
         class="reset-btn"
         (click)="navigateToForgotPassword()"
       >Reset password</button>
-      <button disabled="{{!submitButtonDisabled}}" mat-button class="background-button" (click)="submitForm()" [ngClass]="{'disabled' : submitButtonDisabled == false}">Login</button>
     </div>
   </form>
+</div>
+<div *ngIf="mobileVersion" class="page-wrapper">
+  <div 
+  style="height: auto;"
+  class="register-wrapper">
+    "We recommend using your desktop. Our mobile version is coming soon."
+  </div>
 </div>

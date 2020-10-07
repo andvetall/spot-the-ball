@@ -17,6 +17,7 @@ export class ResetPasswordComponent implements OnInit {
   public submitButtonDisabled: boolean = false;
   public submitButtonDisabledPassword: boolean = false;
   public emailValid: boolean = false;
+  public mobileVersion: boolean = false;
 
   constructor(
     private _authService : AuthService,
@@ -27,6 +28,14 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit() {
     this._createForm()
     this._inputHandler()
+    this.checkWidthOfScreen()
+  }
+
+  public checkWidthOfScreen(){
+    if(window.innerWidth < 600){
+      this.mobileVersion = true;
+      return;
+    }
   }
 
   public _inputHandler(){

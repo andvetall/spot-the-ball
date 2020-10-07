@@ -12,20 +12,20 @@ export class PrizesComponent implements OnInit {
     {
       title: 'Apple AirPods',
       image: 'Airpods.png',
-      desc: `Fully insulated 
-      Stainless steel
-      double wall
-      dishwasher safe
-      `
-    },
-    {
-      title: 'Tumbler',
-      image: 'tumbler.png',
       desc: `Wireless Headphones
       Rich high quality sound
       Voice activated Siri access
       Easy, Instant setup
       24hour battery life`
+    },
+    {
+      title: 'Tumbler',
+      image: 'tumbler.png',
+      desc: `Fully insulated 
+      Stainless steel
+      double wall
+      dishwasher safe
+      `
     },
     {
       title: 'T-Shirt',

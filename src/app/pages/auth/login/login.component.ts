@@ -77,16 +77,16 @@ export class LoginComponent implements OnInit {
     this._authService.loginUser(data).subscribe(a => {
       localStorage.setItem('user', a.token)
       const role = a.user.role
-      const dialogRef = this.dialog.open(InfoPopUpComponent, {
-        width: "700px",
-      });
-      dialogRef.afterClosed().subscribe(res => {
-        if(role === "admin") {
-          this._router.navigate(['admin/main-dashboard'])
-        } else {
-          this._router.navigate(['dashboard'])
-        }
-      })
+      if(role !== "admin"){
+        const dialogRef = this.dialog.open(InfoPopUpComponent, {
+          width: "700px",
+        });
+        dialogRef.afterClosed().subscribe(res => {
+            this._router.navigate(['dashboard'])
+        })
+      }else{
+        this._router.navigate(['admin/main-dashboard'])
+      }
     })
   }
 

@@ -90,6 +90,10 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  public signInAnyway(){
+    this.mobileVersion = false;
+  }
+
   public navigateToForgotPassword(){
     this._router.navigate(['reset-password'])
   }

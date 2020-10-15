@@ -236,8 +236,7 @@ main{
                     color: #000000;
                     margin: 0;
                     position: relative;
-                    left: 155px;
-                    
+                    left: 300px;
                 }
             }
             .texst-wrapper{
@@ -512,7 +511,7 @@ h1, h2{
     }
     main section .block3 .title{
         left: 50%;
-        transform: translate(-108%);
+        transform: translate(-110%);
         margin-top: 20px;
     }
 
@@ -873,6 +872,19 @@ h1, h2{
         .texst-wrapper{
             h3{
                 font-size: 22px;
+            }
+        }
+        .title {
+            text-align: center;
+            max-width: 100%;
+            transform: translate(-110%);
+            h2 {
+                left: 61%;
+                max-width: 95%;
+                padding-left: 4px;
+                margin: 0 auto;
+                text-align: center;
+                word-break: break-word;
             }
         }
     }

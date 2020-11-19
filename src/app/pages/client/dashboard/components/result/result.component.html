@@ -1,6 +1,6 @@
 <div class="result-wrapper" *ngFor="let item of res">
   <div *ngIf="suitableDate == false && reqGame">
-    <h1 style="text-align: center; padding: 0;">We have your pick, game results are coming Monday, Good Luck!</h1>
+    <h1 style="text-align: center; padding: 0;">We have your pick, game results are coming Monday, Good Luck<span>!</span></h1>
     <div style="display: flex; justify-content: space-around; width: 100%;">
       <div style="position: relative; width: 60%;">
         <img
@@ -25,7 +25,7 @@
 </div>
 <div class="result-wrapper" *ngIf="suitableDate == true && reqGame">
   <div *ngFor="let item of res">
-    <h1 style="text-align: center; padding: 0;">We have your pick, game results are coming Monday, Good Luck!</h1>
+    <h1 style="text-align: center; padding: 0;">We have your pick, game results are coming Monday, Good Luck<span>!</span></h1>
     <div style="display: flex; justify-content: space-around; width: 100%;">
       <div style="position: relative; width: 60%;">
         <img

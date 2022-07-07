@@ -41,7 +41,7 @@
     "js-sha256": "^0.9.0",
     "jwt-decode": "^2.2.0",
     "jwt-then": "^1.0.1",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "ngx-owl-carousel-o": "^4.0.0",
     "ngx-toastr": "^10.1.0",
     "roboto-fontface": "^0.10.0",
